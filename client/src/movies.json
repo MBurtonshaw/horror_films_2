@@ -1,0 +1,453 @@
+{
+    "movies" : [
+        {
+            "id" : 1,
+            "title" : "The Sitter",
+            "url" : "the_sitter",
+            "year" : 1977,
+            "genres" : ["Eerie", "Suburban", "Slasher", "Indie", "Short"],
+            "directors" : [ "Fred Walton" ],
+            "writers" : [ "Fred Walton", "Steve Feke" ],
+            "photo" : "../../photos/titles/the_sitter",
+            "prime_link" : "",
+            "youtube_link" : "https://www.youtube.com/watch?v=--BSM6J6tGI"
+        },
+        {
+            "id" : 2,
+            "title" : "It Follows",
+            "url" : "it_follows",
+            "year" : 2014,
+            "genres" : ["Eerie", "Suburban", "Surreal", "Indie"],
+            "directors" : [ "David Robert Mitchell" ],
+            "writers" : [ "David Robert Mitchell" ],
+            "photo" : "../../photos/titles/it_follows",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B011KKFPGW/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=emhePra9Zm4"
+        },
+        {
+            "id" : 3,
+            "title" : "Ginger Snaps",
+            "url" : "ginger_snaps",
+            "year" : 2000,
+            "genres" : ["Creature", "Suburban", "Indie", "Body", "Gore"],
+            "directors" : [ "John Fawcett" ],
+            "writers" : [ "Karen Walton" ],
+            "photo" : "../../photos/titles/ginger_snaps",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B008X1O7KM/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=PaVuuiA0fO0"
+        },
+        {
+            "id" : 4,
+            "title" : "Pontypool",
+            "url" : "pontypool",
+            "year" : 2008,
+            "genres" : ["Eerie", "Indie", "Invasion", "Rural"],
+            "directors" : [ "Bruce McDonald" ],
+            "writers" : [ "Tony Burgess" ],
+            "photo" : "../../photos/titles/pontypool",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B0CH5YZVT9/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=jQ4DmindUIA"
+        },
+        {
+            "id" : 5,
+            "title" : "Pumpkinhead",
+            "url" : "pumpkinhead",
+            "year" : 1988,
+            "genres" : ["Creature", "Occult", "Rural"],
+            "directors" : [ "Stan Winston" ],
+            "writers" : [ "Mark Patrick Carducci", "Gary Gerani", "Richard C. Weinman", "Sam Winston" ],
+            "photo" : "../../photos/titles/pumpkinhead",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B00HH3WIBW/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=qbl_E1rgbC8"
+        },
+        {
+            "id" : 6,
+            "title" : "Shivers",
+            "url" : "shivers",
+            "year" : 1975,
+            "genres" : ["Invasion", "Indie", "Body", "Gore"],
+            "directors" : [ "David Cronenberg" ],
+            "writers" : [ "David Cronenberg" ],
+            "photo" : "../../photos/titles/shivers",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B00O8NPCQW/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=CQ9iL41uXug"
+        },
+        {
+            "id" : 7,
+            "title" : "Prince of Darkness",
+            "url" : "prince_of_darkness",
+            "year" : 1987,
+            "genres" : ["Occult", "Invasion", "Urban", "Cosmic", "Eerie"],
+            "directors" : [ "John Carpenter" ],
+            "writers" : [ "John Carpenter" ],
+            "photo" : "../../photos/titles/prince_of_darkness",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B000I9WWEA/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://youtu.be/SbxxUe9C0n4?si=WcE3Nr3MSOzhamQa"
+        },
+        {
+            "id" : 8,
+            "title" : "The Mist",
+            "url" : "the_mist",
+            "year" : 2007,
+            "genres" : ["Creature", "Cosmic", "Rural", "Invasion"],
+            "directors" : [ "Frank Darabont" ],
+            "writers" : [ "Steven King", "Frank Darabont" ],
+            "photo" : "../../photos/titles/the_mist",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B003TNQEF0/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=ph1umRRFTNU"
+        },
+        {
+            "id" : 9,
+            "title" : "From Dusk Till Dawn",
+            "url" : "dusk_till_dawn",
+            "year" : 1996,
+            "genres" : ["Creature", "Campy", "Body", "Gore"],
+            "directors" : [ "Robert Rodriguez" ],
+            "writers" : [ "Robert Kurtzman", "Quentin Tarantino" ],
+            "photo" : "../../photos/titles/dusk_till_dawn",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B009JZUJIK/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=H5Vk7qiAfNk"
+        },
+        {
+            "id" : 10,
+            "title" : "Ravenous",
+            "url" : "ravenous",
+            "year" : 1999,
+            "genres" : ["Invasion", "Gore", "Period", "Campy"],
+            "directors" : [ "Antonia Bird" ],
+            "writers" : [ "Ted Griffin" ],
+            "photo" : "../../photos/titles/ravenous",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B009EEVOP8/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=GQMYF4yKnyU"
+        },
+        {
+            "id" : 11,
+            "title" : "The Curse of Frankenstein",
+            "url" : "curse_of_frankenstein",
+            "year" : 1957,
+            "genres" : ["Classic", "Creature", "Period"],
+            "directors" : [ "Terence Fisher" ],
+            "writers" : [ "Jimmy Sangster" ],
+            "photo" : "../../photos/titles/curse_of_frankenstein",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B00DKN7XHC/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=FCNrxjaVf2M"
+        },
+        {
+            "id" : 12,
+            "title" : "Black Christmas",
+            "url" : "black_christmas",
+            "year" : 1974,
+            "genres" : ["Suburban", "Eerie", "Slasher"],
+            "directors" : [ "Bob Clark" ],
+            "writers" : [ "A. Roy Moore" ],
+            "photo" : "../../photos/titles/black_christmas",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B07X7KZ98B/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=BawUDjjgAsc"
+        },
+        {
+            "id" : 13,
+            "title" : "Funny Games (US)",
+            "url" : "funny_games_us",
+            "year" : 2007,
+            "genres" : ["Suburban", "Invasion", "Surreal"],
+            "directors" : [ "Michael Haneke" ],
+            "writers" : [ "Michael Haneke" ],
+            "photo" : "../../photos/titles/funny_games",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B0091WEFZO/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=QKh5xTo_I14"
+        },
+        {
+            "id" : 14,
+            "title" : "The VVitch",
+            "url" : "the_vvitch",
+            "year" : 2015,
+            "genres" : ["Occult", "Period", "Rural", "Eerie"],
+            "directors" : [ "Robert Eggers" ],
+            "writers" : [ "Robert Eggers" ],
+            "photo" : "../../photos/titles/the_vvitch",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B01BT3SDQO/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=0otnn7hgnek"
+        },
+        {
+            "id" : 15,
+            "title" : "The Lighthouse",
+            "url" : "the_lighthouse",
+            "year" : 2019,
+            "genres" : ["Eerie", "Period", "Surreal", "Cosmic"],
+            "directors" : ["Robert Eggers" ],
+            "writers" : [ "Robert Eggers" ],
+            "photo" : "../../photos/titles/the_lighthouse",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B07Z4236MR/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=1TZXfVEdXyA"
+        },
+        {
+            "id" : 16,
+            "title" : "Hereditary",
+            "url" : "hereditary",
+            "year" : 2018,
+            "genres" : ["Occult", "Suburban", "Surreal", "Gore"],
+            "directors" : [ "Ari Aster"],
+            "writers" : [ "Ari Aster" ],
+            "photo" : "../../photos/titles/hereditary",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B07GRB9NF3/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=W1WgJB4EkGU"
+        },
+        {
+            "id" : 17,
+            "title" : "Get Out",
+            "url" : "get_out",
+            "year" : 2017,
+            "genres" : ["Eerie", "Suburban", "Body"],
+            "directors" : [ "Jordan Peele" ],
+            "writers" : [ "Jordan Peele" ],
+            "photo" : "../../photos/titles/get_out",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B06Y1H48K7/ref=atv_dp_share_cu_r",
+            "youtube_link" : ""
+        },
+        {
+            "id" : 18,
+            "title" : "V/H/S",
+            "url" : "vhs",
+            "year" : 2012,
+            "genres" : ["Analog", "Slasher", "Gore", "Occult", "Surreal", "Anthology"],
+            "directors" : [ "Adam Wingard", "David Bruckner", "Ti West", "Glenn McQuaid", "Joe Swanberg", "Radio Silence" ],
+            "writers" : [ "Simon Barrett", "David Bruckner", "Nicholas Tecosky", "Ti West", "Glenn McQuaid", "Matt Bettinelli-Olpin, Tyler Gillett, Justin Martinez, Chad Villella" ],
+            "photo" : "../../photos/titles/vhs",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B00944CJRK/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=YHvBw3zCebk"
+        },
+        {
+            "id" : 19,
+            "title" : "Black Phone",
+            "url" : "black_phone",
+            "year" : 2021,
+            "genres" : ["Eerie", "Cosmic", "Suburban", "Period"],
+            "directors" : ["Scott Derrickson"],
+            "writers" : [ "Scott Derrickson" ],
+            "photo" : "../../photos/titles/black_phone",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B0B5W5R4X3/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=0OFW1jZznac"
+        },
+        {
+            "id" : 20,
+            "title" : "Pearl",
+            "url" : "pearl",
+            "year" : 2022,
+            "genres" : ["Rural", "Period", "Campy"],
+            "directors" : [ "Ti West" ],
+            "writers" : [ "Mia Goth", "Ti West" ],
+            "photo" : "../../photos/titles/pearl",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B0B8MY88QP/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=JXqgN-a1N7g"
+        },
+        {
+            "id" : 21,
+            "title" : "The Texas Chainsaw Massacre",
+            "url" : "texas_chainsaw_massacre",
+            "year" : 1974,
+            "genres" : ["Rural", "Slasher", "Surreal", "Gore", "Indie"],
+            "directors" : [ "Tobe Hooper" ],
+            "writers" : [ "Tobe Hooper" ],
+            "photo" : "../../photos/titles/texas_chainsaw_massacre",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B077T2DG12/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=2ujekuaOPv0"
+        },
+        {
+            "id" : 22,
+            "title" : "The Evil Dead",
+            "url" : "evil_dead",
+            "year" : 1981,
+            "genres" : ["Rural", "Surreal", "Occult", "Campy", "Gore", "Indie"],
+            "directors" : [ "Sam Raimi" ],
+            "writers" : [ "Sam Raimi" ],
+            "photo" : "../../photos/titles/evil_dead",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B0BQSC8DCK/ref=atv_dp_share_cu_r",
+            "youtube_link" : ""
+        },
+        {
+            "id" : 23,
+            "title" : "Evil Dead 2: Dead by Dawn",
+            "url" : "evil_dead_2",
+            "year" : 1987,
+            "genres" : ["Rural", "Surreal", "Occult", "Campy", "Gore"],
+            "directors" : [ "Sam Raimi" ],
+            "writers" : [ "Sam Raimi" ],
+            "photo" : "../../photos/titles/evil_dead_2",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B007WN5S8M/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=uzb6fMc5Z8w"
+        },
+        {
+            "id" : 24,
+            "title" : "Creep",
+            "url" : "creep",
+            "year" : 2014,
+            "genres" : ["Eerie", "Analog"],
+            "directors" : [ "Patrick Brice" ],
+            "writers" : [ "Mark Duplass", "Patrick Brice" ],
+            "photo" : "../../photos/titles/creep",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B011KKCH0O/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=XmMbhCa3ikc"
+        },
+        {
+            "id" : 25,
+            "title" : "Halloween",
+            "url" : "halloween",
+            "year" : 1978,
+            "genres" : ["Eerie", "Slasher", "Suburban"],
+            "directors" : [ "John Carpenter" ],
+            "writers" : [ "John Carpenter", "Debra Hill" ],
+            "photo" : "../../photos/titles/halloween",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B09L2NZ5GK/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=-_8KR4U5Yhk"
+        },
+        {
+            "id" : 26,
+            "title" : "The Thing",
+            "url" : "the_thing",
+            "year" : 1982,
+            "genres" : ["Eerie", "Surreal", "Cosmic", "Invasion", "Gore", "Body"],
+            "directors" : [ "John Carpenter" ],
+            "writers" : [ "Bill Lancaster", "John Carpenter" ],
+            "photo" : "../../photos/titles/the_thing",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B0CMR2Y5CN/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=osB4KmgfIDM"
+        },
+        {
+            "id" : 27,
+            "title" : "Scream",
+            "url" : "scream",
+            "year" : 1996,
+            "genres" : ["Slasher", "Invasion", "Suburban"],
+            "directors" : [ "Wes Craven" ],
+            "writers" : [ "Kevin Williamson" ],
+            "photo" : "../../photos/titles/scream",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B00AYB1BIK/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=IQO7FAeV_lM"
+        },
+        {
+            "id" : 28,
+            "title" : "Re-Animator",
+            "url" : "re_animator",
+            "year" : 1985,
+            "genres" : ["Campy", "Gore", "Body"],
+            "directors" : [ "Stuart Gordon" ],
+            "writers" : [ "Stuart Gordon", "William J. Norris", "Dennis Paoli" ],
+            "photo" : "../../photos/titles/re_animator",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B075F41LJF/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=Ih6QRaKLryQ"
+        },
+        {
+            "id" : 29,
+            "title" : "Planet Terror",
+            "url" : "planet_terror",
+            "year" : 2007,
+            "genres" : ["Surreal", "Campy", "Gore", "Invasion", "Rural"],
+            "directors" : [ "Robert Rodriguez" ],
+            "writers" : [ "Robert Rodriguez" ],
+            "photo" : "../../photos/titles/planet_terror",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B002I7IC58/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=gUkJvulfu6k"
+        },
+        {
+            "id" : 30,
+            "title" : "Gremlins",
+            "url" : "gremlins",
+            "year" : 1984,
+            "genres" : ["Surreal", "Campy", "Creature", "Invasion", "Suburban"],
+            "directors" : [ "Joe Dante" ],
+            "writers" : [ "Chris Columbus" ],
+            "photo" : "../../photos/titles/gremlins",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B00KQ9Z1SQ/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=WB9hY4tmV3w"
+        },
+        {
+            "id" : 31,
+            "title" : "Hell House LLC",
+            "url" : "hell_house_llc",
+            "year" : 2015,
+            "genres" : ["Analog", "Eerie", "Occult"],
+            "directors" : [ "Stephen Cognetti" ],
+            "writers" : [ "Stephen Cognetti" ],
+            "photo" : "../../photos/titles/hell_house_llc",
+            "prime_link" : "https://www.amazon.com/gp/video/detail/B07X3NDRZ7/ref=atv_dp_share_cu_r",
+            "youtube_link" : "https://www.youtube.com/watch?v=SlIbSDNSTao"
+        }
+    ],
+
+    "genres" : [
+        { 
+            "id" : 1,
+            "name" : "Eerie" 
+        },
+        { 
+            "id" : 2,
+            "name" : "Suburban" 
+        },
+        { 
+            "id" : 3,
+            "name" : "Slasher" 
+        },
+        { 
+            "id" : 4,
+            "name" : "Indie" 
+        },
+        { 
+            "id" : 5,
+            "name" : "Short" 
+        },
+        { 
+            "id" : 6,
+            "name" : "Surreal" 
+        },
+        { 
+            "id" : 7,
+            "name" : "Creature" 
+        },
+        { 
+            "id" : 8,
+            "name" : "Body" 
+        },
+        { 
+            "id" : 9,
+            "name" : "Gore" 
+        },
+        { 
+            "id" : 10,
+            "name" : "Invasion" 
+        },
+
+        { 
+            "id" : 11,
+            "name" : "Rural" 
+        },
+        { 
+            "id" : 12,
+            "name" : "Occult" 
+        },
+        { 
+            "id" : 13,
+            "name" : "Cosmic" 
+        },
+        { 
+            "id" : 14,
+            "name" : "Campy" 
+        },
+        { 
+            "id" : 15,
+            "name" : "Period" 
+        },
+        { 
+            "id" : 16,
+            "name" : "Classic" 
+        },
+        { 
+            "id" : 17,
+            "name" : "Analog" 
+        },
+
+        { 
+            "id" : 18,
+            "name" : "Anthology" 
+        }
+    ]
+}
