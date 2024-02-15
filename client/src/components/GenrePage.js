@@ -57,11 +57,11 @@ export default function GenrePage(props) {
                                 function fill_in() {
                                     return (
                                         <div>
-                                            <a href={`/genres/${genre}`}>
-                                                <img src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
-                                                <div >
+                                            <a className='w-100' href={`/genres/${genre}`}>
+                                                <img className='w-100 radius' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
+                                               
                                                     <h5 >{genre}</h5>
-                                                </div>
+                                              
                                             </a>
                                         </div>
                                     );
@@ -69,21 +69,21 @@ export default function GenrePage(props) {
                                 //optimizing widths for different screen sizes
                                 if (window.innerWidth < 768) {
                                     return (
-                                        <div key={i}>
+                                        <div key={i} className='round_thumb'>
                                             {fill_in()}
                                         </div>
                                     );
                                 }
                                 if (window.innerWidth < 992) {
                                     return (
-                                        <div key={i}>
+                                        <div key={i} className='round_thumb'>
                                             {fill_in()}
                                         </div>
                                     );
                                 }
                                 else {
                                     return (
-                                        <div key={i}>
+                                        <div key={i} className='round_thumb'>
                                             {fill_in()}
                                         </div>
                                     );

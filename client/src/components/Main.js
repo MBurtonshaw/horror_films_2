@@ -165,11 +165,13 @@ export default function Main() {
     //number parameter is to be entered as 'first' 'second' 'third' 'fourth', etc.
     function card_filler_1(number) {
         return (
-            <div>
-                <div>
+            <div className='row align-items-start'>
+                <div className='col'>
                     <a href={`/titles/${number.url}`}>
                         <img id={number.url} className='smaller_img' src={`../../photos/titles/${number.url}_mini.jpg`} alt={`a movie poster for ${number.title}`} />
                     </a>
+                </div>
+                <div className='col'>
                     <p>{number.memo}</p>
                 </div>
             </div>
@@ -179,9 +181,11 @@ export default function Main() {
     //number parameter is to be entered as 'first' 'second' 'third' 'fourth', etc.
     function card_filler_2(number) {
         return (
-            <div>
-                <div>
+            <div className='row align-items-start'>
+                <div className='col'>
                     <p>{number.memo}</p>
+                </div>
+                <div className='col'>
                     <a href={`/titles/${number.url}`}>
                         <img id={number.url} className='smaller_img' src={`../../photos/titles/${number.url}_mini.jpg`} alt={`a movie poster for ${number.title}`} />
                     </a>
@@ -201,8 +205,8 @@ export default function Main() {
 
                     {/* the first card doesn't use the card_filler function because it is supposed to be visible on pageload */}
                     <div>
-                        <div>
-                            <div>
+                        <div className='row align-items-start'>
+                            <div className='col'>
                                 <a href={`/titles/${first.url}`}>
                                     <img id={first.url} className='smaller_img' src={`../../photos/titles/${first.url}_mini.jpg`} alt={`a movie poster for ${first.title}`} />
                                 </a>
@@ -226,18 +230,22 @@ export default function Main() {
                     <h2> {season} Recommendations </h2>
 
                     {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
-                    <div>
-                        <div>
+                    <div className='row align-items-start'>
+                        <div className='col'>
 
                             <a href={`/titles/${first.url}`}>
                                 <img id={first.url} className='smaller_img' src={`../../photos/titles/${first.url}_mini.jpg`} alt={`a movie poster for ${first.title}`} />
                             </a>
+                        </div>
+                        <div className='col'>
                             <p>{first.memo}</p>
                         </div>
                     </div>
-                    <div>
-                        <div>
+                    <div className='row align-items-start'>
+                        <div className='col'>
                             <p>{second.memo}</p>
+                        </div>
+                        <div className='col'>
                             <a href={`/titles/${second.url}`}>
                                 <img id={second.url} className='smaller_img' src={`../../photos/titles/${second.url}_mini.jpg`} alt={`a movie poster for ${second.title}`} />
                             </a>

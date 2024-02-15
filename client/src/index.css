@@ -7,23 +7,56 @@ html, body {
 }
 
 body {
-  height: 100vh;
-  width: 100vh;
-  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
   background-repeat:no-repeat;
   background-size:100% 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(204, 204, 204);
+  color: white;
+  text-align: center;
+  font-family: 'Signika Negative', sans-serif;
+  text-shadow: 1px 1px 2px black;
 }
 
+body:after {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  background: url('../public/photos/svgs/layered-peaks.svg') no-repeat 50% 50%;
+  background-size: cover;
+}
 
+li {
+  list-style: none;
+  margin-left: -2em;
+}
+
+.card-group {
+  margin-left: 5em;
+  margin-top: 5em;
+}
+
+.radius {
+  border-radius: 50%;
+  border: 2px solid salmon;
+}
+
+.round_thumb {
+  border-radius: 50%;
+}
 
 .smaller_img {
   max-width: 50%;
   max-height: auto;
   opacity: 90%;
-  border: 1px solid rgb(138, 226, 175);
+  border: 1px solid rgb(245, 115, 10);
 }
 
 .smaller_img:hover {
