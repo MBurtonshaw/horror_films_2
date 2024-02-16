@@ -98,7 +98,7 @@ export default function Header(props) {
         if (props.user === '') {
             return (
                 <div id='Header' className='container d-none d-md-block animate'>
-                    <ul className="nav nav-fill justify-content-center">
+                    <ul className="nav flex-column justify-content-center">
                         <li className="nav-item header-nav">
                             <a className="nav-link" href="/"> Home </a>
                         </li>
@@ -116,11 +116,12 @@ export default function Header(props) {
                         </li>
                     </ul>
                 </div>
+                
             )
         } else {
             return (
                 <div id='Header' className='container d-none d-md-block animate'>
-                    <ul className="nav nav-fill justify-content-center">
+                    <ul className="nav flex-column justify-content-center">
                         <li className="nav-item header-nav">
                             <a className="nav-link" href="/"> Home </a>
                         </li>

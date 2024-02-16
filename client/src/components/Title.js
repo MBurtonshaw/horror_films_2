@@ -94,7 +94,7 @@ export default function Title(props) {
     //function to create the accordion component
     function accordion_fill() {
         return (
-            <div className="accordion">
+            <div className="accordion w-25 m-auto col">
                 <div className="accordion-item">
                     <h2 className="accordion-header">
                         <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -280,40 +280,30 @@ export default function Title(props) {
 
             //logic to handle different screen widths
             if (window.innerWidth < 992) {
-                if (window.innerWidth < 576) {
+                
                     return (
                         <div>
                             {cookie_handler()}
-                            <div>
-                                <a href='/titles'><img className='smaller_img' src={`${movie.photo}_mini.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                            </div>
-                            <div>
-                                {accordion_fill()}
-                            </div>
-                        </div>
-                    );
-                } else {
-                    return (
-                        <div>
-                            {cookie_handler()}
-                            <div>
-                                <a href='/titles'><img className='smaller_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                            </div>
-                            <div>
-                                {accordion_fill()}
+                            <div className='row align-items-start'>
+                                <div className='w-25 m-auto col'>
+                                    <a href='/titles'><img className='smaller_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                                </div>
+                                <div className='w-25 m-auto col'>
+                                    {accordion_fill()}
+                                </div>
                             </div>
                         </div>
                     );
-                }
+                
             } else {
                 return (
                     <div>
                         {
                             cookie_handler()
                         }
-                        <div>
+                        <div className='row align-items-start'>
                             {accordion_fill()}
-                            <div>
+                            <div className='w-25 m-auto col'>
                                 <a href='/titles'><img className='smaller_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
                             </div>
                         </div>

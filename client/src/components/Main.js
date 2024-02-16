@@ -1,6 +1,8 @@
 import { React } from 'react';
+import Search from './Search';
+import Header from './Header';
 
-export default function Main() {
+export default function Main(props) {
 
     let first, second, third, fourth, fifth, sixth;
 
@@ -166,13 +168,14 @@ export default function Main() {
     function card_filler_1(number) {
         return (
             <div className='row align-items-start'>
-                <div className='col'>
+                <div className='col w-50 m-auto'>
                     <a href={`/titles/${number.url}`}>
-                        <img id={number.url} className='smaller_img' src={`../../photos/titles/${number.url}_mini.jpg`} alt={`a movie poster for ${number.title}`} />
+                        <img id={number.url} className='round_thumb' src={`../../photos/titles/${number.url}_round.jpg`} alt={`a movie poster for ${number.title}`} />
                     </a>
+                    <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
-                <div className='col'>
-                    <p>{number.memo}</p>
+                <div className='col w-50 m-auto'>
+
                 </div>
             </div>
         );
@@ -182,13 +185,14 @@ export default function Main() {
     function card_filler_2(number) {
         return (
             <div className='row align-items-start'>
-                <div className='col'>
-                    <p>{number.memo}</p>
+                <div className='col w-50 m-auto'>
+
                 </div>
-                <div className='col'>
+                <div className='col w-50 m-auto'>
                     <a href={`/titles/${number.url}`}>
-                        <img id={number.url} className='smaller_img' src={`../../photos/titles/${number.url}_mini.jpg`} alt={`a movie poster for ${number.title}`} />
+                        <img id={number.url} className='round_thumb' src={`../../photos/titles/${number.url}_round.jpg`} alt={`a movie poster for ${number.title}`} />
                     </a>
+                    <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
             </div>
         );
@@ -225,36 +229,44 @@ export default function Main() {
         );
     } else {
         return (
-            <div>
-                <div>
-                    <h2> {season} Recommendations </h2>
+            <div className='row align-items-start'>
+                <div className='w-50 m-auto col position-fixed mt-5'>
+                    <Search />
+                    <Header user={props}/>
+                    
+
+                </div>
+                <div className='w-25 m-auto col'></div>
+                <div className='w-25 m-auto col px-5'>
+                    <h2 className='py-5'> {season} Recommendations </h2>
 
                     {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
                     <div className='row align-items-start'>
-                        <div className='col'>
-
+                        <div className='col w-50 m-auto mt-3'>
                             <a href={`/titles/${first.url}`}>
-                                <img id={first.url} className='smaller_img' src={`../../photos/titles/${first.url}_mini.jpg`} alt={`a movie poster for ${first.title}`} />
+                                <img id={first.url} className='round_thumb' src={`../../photos/titles/${first.url}_round.jpg`} alt={`a movie poster for ${first.title}`} />
                             </a>
+                            <p className='py-3 w-75 m-auto'>{first.memo}</p>
                         </div>
-                        <div className='col'>
-                            <p>{first.memo}</p>
+                        <div className='col w-50 m-auto'>
+
                         </div>
                     </div>
-                    <div className='row align-items-start'>
-                        <div className='col'>
-                            <p>{second.memo}</p>
-                        </div>
-                        <div className='col'>
-                            <a href={`/titles/${second.url}`}>
-                                <img id={second.url} className='smaller_img' src={`../../photos/titles/${second.url}_mini.jpg`} alt={`a movie poster for ${second.title}`} />
-                            </a>
-                        </div>
-                    </div>
+                    {card_filler_2(second)}
                     {card_filler_1(third)}
                     {card_filler_2(fourth)}
                     {card_filler_1(fifth)}
-                    {card_filler_2(sixth)}
+                    <div className='row align-items-start mb-5'>
+                        <div className='col w-50 m-auto'>
+
+                        </div>
+                        <div className='col w-50 m-auto'>
+                            <a href={`/titles/${sixth.url}`}>
+                                <img id={sixth.url} className='round_thumb' src={`../../photos/titles/${sixth.url}_round.jpg`} alt={`a movie poster for ${sixth.title}`} />
+                            </a>
+                            <p className='py-3 w-75 m-auto'>{sixth.memo}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

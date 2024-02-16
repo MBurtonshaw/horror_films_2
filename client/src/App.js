@@ -78,7 +78,7 @@ function App() {
             <Route
               strict path='/'
               element={
-                <HomeWithContext />
+                <HomeWithContext user={user}/>
               }
             />
             <Route
