@@ -38,8 +38,12 @@ li {
   margin-left: -2em;
 }
 
+.card {
+  background-color: rgb(245, 115, 10);
+}
+
 .card-group {
-  margin-left: 5em;
+  margin-left: 3.5em;
   margin-top: 5em;
 }
 
@@ -50,6 +54,13 @@ li {
 
 .round_thumb {
   border-radius: 50%;
+}
+
+.round_thumb_loader {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 15em;
+  height: 15em;
 }
 
 .smaller_img {
