@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Error from './Error';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 export default function Login(props) {
 
@@ -43,16 +45,16 @@ export default function Login(props) {
 
     function content_filler() {
         return (
-            <div>
+            <div className='m-5 p-5'>
                 <h1>Login</h1>
                 <form action='/login' method='POST' onSubmit={loginUser}>
                     <div>
                         <div>
-                            <label htmlFor='email'>Email</label>
+                            <label className='w-100' htmlFor='email'>Email</label>
                             <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
                         </div>
                         <div>
-                            <label htmlFor='password'>Password</label>
+                            <label className='w-100' htmlFor='password'>Password</label>
                             <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
                         </div>
                         <button type='submit' onSubmit={loginUser}>Login</button>
@@ -93,6 +95,7 @@ export default function Login(props) {
         if (window.innerWidth < 768) {
             return (
                 <div>
+                    <Header />
                     <div>
                         {content_filler()}
                         <div>
@@ -104,11 +107,20 @@ export default function Login(props) {
         }
         return (
             <div>
-                <div>
-                    {content_filler()}
-                </div>
-                <div>
-                    <p>Don't have an account yet?</p><a href={'/register'}>Register</a>
+                <Header />
+                <div className='row align-items-start'>
+                    <div className='w-50 m-auto col position-fixed mt-5'>
+
+                        <Sidebar />
+                    </div>
+                    <div className='w-25 m-auto col'></div>
+                    <div className='w-25 m-auto col px-5'>
+                        {content_filler()}
+
+                        <div>
+                            <p>Don't have an account yet?</p><a href={'/register'}>Register</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

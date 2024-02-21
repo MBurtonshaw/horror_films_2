@@ -46,7 +46,21 @@ export default function Header() {
                                 <a href='/'>Home</a>
                             </button>
                         </li>
-
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/titles'>Titles</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/genres'>Genres</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/decades'>Decades</a>
+                            </button>
+                        </li>
                         <li>
                             <button className="dropdown-item" type="button">
                                 <a href='/login'>Login</a>
@@ -70,7 +84,21 @@ export default function Header() {
                                 <a href='/'>Home</a>
                             </button>
                         </li>
-
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/titles'>Titles</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/genres'>Genres</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" type="button">
+                                <a href='/decades'>Decades</a>
+                            </button>
+                        </li>
                         <li>
                             <button className="dropdown-item" type="button">
                                 <a href='/list'>My List</a>

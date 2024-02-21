@@ -1,5 +1,7 @@
 import { React } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 export default function Login(props) {
 
@@ -18,14 +20,16 @@ export default function Login(props) {
 
     function content_filler() {
         return (
-            <div>
+            <div className='m-5 p-5'>
                 <h1>Logout</h1>
                 <form action='/login' method='POST' onSubmit={logoutUser}>
                     <div>
-                        <h1>Are you sure?</h1>
-                        <button onClick={logoutUser}>Logout</button>
+                        <h2 className='mt-5'>Are you sure?</h2>
+                        <button className='mt-2' onClick={logoutUser}>Logout</button>
                     </div>
                 </form>
+
+                    <a href={'/'}><button className='mt-2'>Home</button></a>
 
             </div>
         );
@@ -38,18 +42,24 @@ export default function Login(props) {
         return (
             <div>
                 {content_filler()}
-                <div>
-                    <a href={'/'}>Home</a>
-                </div>
+                
             </div>
         );
     } else {
         return (
             <div>
+                <Header />
+                <div className='row align-items-start'>
+                    <div className='w-50 m-auto col position-fixed mt-5'>
+
+                        <Sidebar />
+                    </div>
+                    <div className='w-25 m-auto col'></div>
+                    <div className='w-25 m-auto col px-5'>
                 {content_filler()}
-                <div>
-                    <a href={'/'}>Home</a>
+                
                 </div>
+            </div>
             </div>
         );
     }

@@ -209,45 +209,7 @@ export default function Main(props) {
         );
     }
 
-    function genre_filler() {
 
-        let filler = props.context.data.movies.genres;
-        return (
-            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                <div className="carousel-inner">
-                    {
-                        filler.map(
-                            (item, index) => {
-                                if (index === 0) {
-                                    return (
-                                        <div key={index} className="carousel-item active">
-                                            <img className="d-block w-100" src={`../../photos/genres/${item.name}.jpg`} alt={`${item.name} genre slide`} />
-                                        </div>
-                                    );
-                                } else {
-                                    return (
-                                        <div key={index} className="carousel-item">
-                                            <img className="d-block w-100" src={`../../photos/genres/${item.name}.jpg`} alt={`${item.name} genre slide`} />
-                                        </div>
-                                    );
-                                }
-                            }
-                        )
-                    }
-
-                </div>
-                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                </a>
-            </div>
-        );
-
-    }
 
 
 
@@ -318,7 +280,7 @@ export default function Main(props) {
                         </div>
                     </div>
 
-                    {genre_filler()}
+
 
 
                 </div>

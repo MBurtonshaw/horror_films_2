@@ -1,12 +1,11 @@
 import { React } from 'react';
-import { useParams } from 'react-router-dom';
 
 export default function Header() {
     let str = window.location.pathname;
     function titleName() {
-        if (str === '/') {
+        if (str === '/' || str === '/login' || str === '/logout') {
             return(
-                <div className='mt-5'>
+                <div className='m-5 w-100 m-auto position-fixed'>
                     <h1><a href='/' className='nonchalant'>Horror Films</a></h1>
                 </div>
             );
