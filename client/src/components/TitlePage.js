@@ -17,7 +17,6 @@ export default function TitlePage(props) {
     let films = props.context.data.movies.movies;
     if (isLoading) {
         for (let i = 0; i < films.length; i++) {
-
             return (
                 <div>
                     <h1 className='pt-5 mt-5'>
@@ -29,12 +28,8 @@ export default function TitlePage(props) {
                                 films.map((movie, i) => {
                                     return (
                                         <div key={i}>
-
                                             <div className="card round_thumb_loader m-2">
-
                                             </div>
-
-
                                         </div>
                                     );
                                 })
@@ -53,7 +48,6 @@ export default function TitlePage(props) {
                     return (
                         <div className='m-auto'>
                             <Header />
-
                             <div className="card-group">
                                 {
                                     films.map((movie, i) => {
@@ -70,17 +64,16 @@ export default function TitlePage(props) {
                                     })
                                 }
                             </div>
-
                         </div>
                     );
                 } else {
                     return (
                         <div className='m-auto'>
-                            <Header />
                             <div className='row align-items-start'>
                                 <div className='w-50 m-auto col position-fixed mt-5'>
+                                    <Header />
                                     <Sidebar />
-                                </div> 
+                                </div>
                                 <div className='w-25 m-auto col'></div>
                                 <div className="card-group col w-50 m-auto mt-5">
                                     {

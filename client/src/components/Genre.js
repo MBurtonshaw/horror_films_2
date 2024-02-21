@@ -61,9 +61,43 @@ export default function Genres(props) {
         );
     }
 
+    function mobile_filler() {
+        return (
+            <div>
+                <Header />
+                <div>
+                    <ul>
+                        {fill_in()}
+                    </ul>
+                </div>
+            </div>
+        );
+    }
+
+    function reg_filler() {
+        return (
+            <div className='m-auto'>
+
+                <div className='row align-items-start'>
+                    <div className='w-50 m-auto col position-fixed mt-5'>
+                        <Header />
+                        <Sidebar />
+                    </div>
+                    <div className='w-25 m-auto col'></div>
+                    <div className='w-25 m-auto col px-5'>
+                        <ul>
+                            {fill_in()}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
+    //error
     if (error) {
         return (
             <div>
@@ -71,7 +105,7 @@ export default function Genres(props) {
             </div>
         );
     } else {
-
+        //loading
         if (isLoading === true) {
             if (window.innerWidth < 768) {
                 return (
@@ -86,6 +120,7 @@ export default function Genres(props) {
                 </div>
             );
         } else if (isLoading === false && genre === '') {
+            //not found
             if (window.innerWidth < 768) {
                 return (
                     <div>
@@ -99,36 +134,18 @@ export default function Genres(props) {
                 </div>
             );
         } else {
-            //combines previous two functions and returns formatting based on screen size
+            //return functions by screen size
             if (window.innerWidth < 768) {
                 return (
-                    <div>
-                        <Header />
-                        <div>
-                            <ul>
-                                {fill_in()}
-                            </ul>
-                        </div>
-                    </div>
+                    mobile_filler()
+                );
+            } else {
+                return (
+                    reg_filler()
                 );
             }
 
-            return (
-                <div className='m-auto'>
-                    <Header />
-                    <div className='row align-items-start'>
-                        <div className='w-50 m-auto col position-fixed mt-5'>
-                            <Sidebar />
-                        </div>
-                        <div className='w-25 m-auto col'></div>
-                        <div className='w-25 m-auto col px-5'>
-                            <ul>
-                                {fill_in()}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            );
+
         }
     }
     //

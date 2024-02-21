@@ -77,11 +77,36 @@ export default function Decades(props) {
                                 <li key={i}><a href={`/titles/${film.url}`}>{film.title}</a></li>
                             );
                         }
-
                     })}
                 </ul>
             </div>
         )
+    }
+
+    function mobile_filler() {
+        return (
+            <div>
+                <Header />
+                {fill_in()}
+            </div>
+        );
+    }
+
+    function reg_filler() {
+        return (
+            <div>
+                <div className='row align-items-start'>
+                    <div className='w-50 m-auto col position-fixed mt-5'>
+                        <Header />
+                        <Sidebar />
+                    </div>
+                    <div className='w-25 m-auto col'></div>
+                    <div className='w-25 m-auto col px-5'>
+                        {fill_in()}
+                    </div>
+                </div>
+            </div>
+        );
     }
 
 
@@ -89,62 +114,28 @@ export default function Decades(props) {
         RENDER
     ***************************************************************************************/
     if (error) {
+        //error
         return (
             <div>
                 <Error message={error} />
             </div>
         );
     } else {
-        if (url === 'classics') {
+        //by classics, mobile size
+        if (url === 'classics' || url === '70s' || url === '80s' || url === '90s' || url === '00s' || url === '10s' || url === '20s') {
+            //mobile
             if (window.innerWidth < 768) {
                 return (
-                    <div>
-                        <Header />
-
-                        {fill_in()}
-                    </div>
+                    mobile_filler()
                 );
             } else {
+                //reg size
                 return (
-                    <div>
-                        <Header />
-                        <div className='row align-items-start'>
-                            <div className='w-50 m-auto col position-fixed mt-5'>
-                                <Sidebar />
-                            </div>
-                            <div className='w-25 m-auto col'></div>
-                            <div className='w-25 m-auto col px-5'>
-                                {fill_in()}
-                            </div>
-                        </div>
-                    </div>
-                );
-            }
-        } else if (url === '70s' || url === '80s' || url === '90s' || url === '00s' || url === '10s' || url === '20s') {
-            if (window.innerWidth < 768) {
-                return (
-                    <div>
-                        <Header />
-                        {fill_in()}
-                    </div>
-                );
-            } else {
-                return (
-                    <div>
-                        <Header />
-                        <div className='row align-items-start'>
-                            <div className='w-50 m-auto col position-fixed mt-5'>
-                                <Sidebar />
-                            </div>
-                            <div className='w-25 m-auto col'></div>
-                            <div className='w-25 m-auto col px-5'>
-                                {fill_in()}
-                            </div>
-                        </div>
-                    </div>
+                    reg_filler()
                 );
             }
         } else {
+            //not found
             return (
                 <div>
                     <NotFound message={url} />

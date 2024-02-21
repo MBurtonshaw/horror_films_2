@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
+import Header from './Header';
 
 export default function Main(props) {
 
@@ -209,10 +210,6 @@ export default function Main(props) {
         );
     }
 
-
-
-
-
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
@@ -230,7 +227,6 @@ export default function Main(props) {
                                     <img id={first.url} className='smaller_img' src={`../../photos/titles/${first.url}_mini.jpg`} alt={`a movie poster for ${first.title}`} />
                                 </a>
                                 <p>{first.memo}</p>
-
                             </div>
                         </div>
                     </div>
@@ -246,6 +242,7 @@ export default function Main(props) {
         return (
             <div className='row align-items-start'>
                 <div className='w-50 m-auto col position-fixed mt-5'>
+                    <Header />
                     <Sidebar />
                 </div>
                 <div className='w-25 m-auto col'></div>
@@ -261,7 +258,6 @@ export default function Main(props) {
                             <p className='py-3 w-75 m-auto'>{first.memo}</p>
                         </div>
                         <div className='col w-50 m-auto'>
-
                         </div>
                     </div>
                     {card_filler_2(second)}
@@ -270,7 +266,6 @@ export default function Main(props) {
                     {card_filler_1(fifth)}
                     <div className='row align-items-start mb-5'>
                         <div className='col w-50 m-auto'>
-
                         </div>
                         <div className='col w-50 m-auto'>
                             <a href={`/titles/${sixth.url}`}>
@@ -279,10 +274,6 @@ export default function Main(props) {
                             <p className='py-3 w-75 m-auto'>{sixth.memo}</p>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         );

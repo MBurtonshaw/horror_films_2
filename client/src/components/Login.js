@@ -110,13 +110,11 @@ export default function Login(props) {
                 <Header />
                 <div className='row align-items-start'>
                     <div className='w-50 m-auto col position-fixed mt-5'>
-
                         <Sidebar />
                     </div>
                     <div className='w-25 m-auto col'></div>
                     <div className='w-25 m-auto col px-5'>
                         {content_filler()}
-
                         <div>
                             <p>Don't have an account yet?</p><a href={'/register'}>Register</a>
                         </div>

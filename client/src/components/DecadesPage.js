@@ -15,9 +15,9 @@ export default function DecadesPage(props) {
     } else {
         return (
             <div className='m-auto'>
-                <Header />
                 <div className='row align-items-start'>
                     <div className='w-50 m-auto col position-fixed mt-5'>
+                        <Header />
                         <Sidebar />
                     </div>
                     <div className='w-25 m-auto col'></div>
@@ -38,29 +38,11 @@ export default function DecadesPage(props) {
                                         </div>
                                     );
                                 }
-
-                                //returning different widths based on screen size
-                                if (window.innerWidth < 768) {
-                                    return (
-                                        <div key={i}>
-                                            {fill_in()}
-                                        </div>
-                                    );
-                                }
-                                if (window.innerWidth < 992) {
-                                    return (
-                                        <div key={i}>
-                                            {fill_in()}
-                                        </div>
-                                    );
-                                }
-                                else {
-                                    return (
-                                        <div key={i}>
-                                            {fill_in()}
-                                        </div>
-                                    );
-                                }
+                                return (
+                                    <div key={i}>
+                                        {fill_in()}
+                                    </div>
+                                );
                             })
                         }
                     </div>

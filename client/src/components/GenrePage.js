@@ -24,7 +24,6 @@ export default function GenrePage(props) {
         } catch (err) {
             setError(err.message);
         }
-
     }
 
     useEffect(() => { getData() }, [setTypes]);
@@ -50,55 +49,37 @@ export default function GenrePage(props) {
         } else {
             return (
                 <div className='m-auto'>
+                    <div className='row align-items-start'>
+                        <div className='w-50 m-auto col position-fixed mt-5'>
                             <Header />
-                            <div className='row align-items-start'>
-                                <div className='w-50 m-auto col position-fixed mt-5'>
-                                    <Sidebar />
-                                </div> 
-                                <div className='w-25 m-auto col'></div>
-                                <div className="card-group col w-50 m-auto mt-5">
-                        {
-                            types.map((genre, i) => {
+                            <Sidebar />
+                        </div>
+                        <div className='w-25 m-auto col'></div>
+                        <div className="card-group col w-50 m-auto mt-5">
+                            {
+                                types.map((genre, i) => {
+                                    //function to return contents of the cards and leave the innderWidth conditons below more concise
+                                    function fill_in() {
+                                        return (
+                                            <div>
+                                                <a className='w-100' href={`/genres/${genre}`}>
+                                                    <img className='w-100 radius' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
 
-                                //function to return contents of the cards and leave the innderWidth conditons below more concise
-                                function fill_in() {
-                                    return (
-                                        <div>
-                                            <a className='w-100' href={`/genres/${genre}`}>
-                                                <img className='w-100 radius' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
-                                               
                                                     <h5 >{genre}</h5>
-                                              
-                                            </a>
-                                        </div>
-                                    );
-                                }
-                                //optimizing widths for different screen sizes
-                                if (window.innerWidth < 768) {
+
+                                                </a>
+                                            </div>
+                                        );
+                                    }
                                     return (
                                         <div key={i} className='round_thumb'>
                                             {fill_in()}
                                         </div>
                                     );
-                                }
-                                if (window.innerWidth < 992) {
-                                    return (
-                                        <div key={i} className='round_thumb'>
-                                            {fill_in()}
-                                        </div>
-                                    );
-                                }
-                                else {
-                                    return (
-                                        <div key={i} className='round_thumb'>
-                                            {fill_in()}
-                                        </div>
-                                    );
-                                }
-                            })
-                        }
+                                })
+                            }
+                        </div>
                     </div>
-                </div>
                 </div>
             )
         }

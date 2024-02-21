@@ -28,9 +28,7 @@ export default function Login(props) {
                         <button className='mt-2' onClick={logoutUser}>Logout</button>
                     </div>
                 </form>
-
-                    <a href={'/'}><button className='mt-2'>Home</button></a>
-
+                <a href={'/'}><button className='mt-2'>Home</button></a>
             </div>
         );
     }
@@ -42,7 +40,6 @@ export default function Login(props) {
         return (
             <div>
                 {content_filler()}
-                
             </div>
         );
     } else {
@@ -51,15 +48,13 @@ export default function Login(props) {
                 <Header />
                 <div className='row align-items-start'>
                     <div className='w-50 m-auto col position-fixed mt-5'>
-
                         <Sidebar />
                     </div>
                     <div className='w-25 m-auto col'></div>
                     <div className='w-25 m-auto col px-5'>
-                {content_filler()}
-                
+                        {content_filler()}
+                    </div>
                 </div>
-            </div>
             </div>
         );
     }

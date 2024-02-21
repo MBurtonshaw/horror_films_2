@@ -1,8 +1,5 @@
 import { React } from 'react';
 import Main from './Main';
-import Header from './Header';
-
-
 
 export default function Home(props) {
     /**************************************************************************************
@@ -17,11 +14,7 @@ export default function Home(props) {
     return (
         <div>
             <div>
-                <div className='pb-5'>
-                    <Header />
-                </div>
-              
-                <Main context={props.context}/>
+                <Main context={props.context} />
             </div>
         </div>
     );
