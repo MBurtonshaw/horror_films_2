@@ -1,12 +1,23 @@
-import { React } from 'react';
-import Search from './Search';
-import Header from './Header';
+import { React, useState, useEffect } from 'react';
+import Sidebar from './Sidebar';
 
 export default function Main(props) {
 
     let first, second, third, fourth, fifth, sixth;
 
     let season;
+
+    let [films, setFilms] = useState('');
+    let [genres, setGenres] = useState('');
+
+    async function getData() {
+        let movies = await props.context.data.movies.movies;
+        let genres = await props.context.data.movies.genres;
+        setFilms(movies);
+        setGenres(genres);
+    }
+
+    useEffect(() => { getData() }, [setFilms, setGenres]);
 
     const setter = new Date();
     const month = setter.getMonth() + 1;
@@ -198,6 +209,48 @@ export default function Main(props) {
         );
     }
 
+    function genre_filler() {
+
+        let filler = props.context.data.movies.genres;
+        return (
+            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner">
+                    {
+                        filler.map(
+                            (item, index) => {
+                                if (index === 0) {
+                                    return (
+                                        <div key={index} className="carousel-item active">
+                                            <img className="d-block w-100" src={`../../photos/genres/${item.name}.jpg`} alt={`${item.name} genre slide`} />
+                                        </div>
+                                    );
+                                } else {
+                                    return (
+                                        <div key={index} className="carousel-item">
+                                            <img className="d-block w-100" src={`../../photos/genres/${item.name}.jpg`} alt={`${item.name} genre slide`} />
+                                        </div>
+                                    );
+                                }
+                            }
+                        )
+                    }
+
+                </div>
+                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Previous</span>
+                </a>
+                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Next</span>
+                </a>
+            </div>
+        );
+
+    }
+
+
+
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
@@ -231,10 +284,7 @@ export default function Main(props) {
         return (
             <div className='row align-items-start'>
                 <div className='w-50 m-auto col position-fixed mt-5'>
-                    <Search />
-                    <Header user={props}/>
-                    
-
+                    <Sidebar />
                 </div>
                 <div className='w-25 m-auto col'></div>
                 <div className='w-25 m-auto col px-5'>
@@ -267,6 +317,10 @@ export default function Main(props) {
                             <p className='py-3 w-75 m-auto'>{sixth.memo}</p>
                         </div>
                     </div>
+
+                    {genre_filler()}
+
+
                 </div>
             </div>
         );

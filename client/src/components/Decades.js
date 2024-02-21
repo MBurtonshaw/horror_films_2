@@ -2,6 +2,8 @@ import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import NotFound from './NotFound';
 import Error from './Error';
+import Sidebar from './Sidebar';
+import Header from './Header';
 
 export default function Decades(props) {
 
@@ -97,19 +99,24 @@ export default function Decades(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div>
-                        <h1>
-                            Decade: Classics
-                        </h1>
+                        <Header />
+
                         {fill_in()}
                     </div>
                 );
             } else {
                 return (
                     <div>
-                        <h1>
-                            Decade: Classics
-                        </h1>
-                        {fill_in()}
+                        <Header />
+                        <div className='row align-items-start'>
+                            <div className='w-50 m-auto col position-fixed mt-5'>
+                                <Sidebar />
+                            </div>
+                            <div className='w-25 m-auto col'></div>
+                            <div className='w-25 m-auto col px-5'>
+                                {fill_in()}
+                            </div>
+                        </div>
                     </div>
                 );
             }
@@ -117,19 +124,23 @@ export default function Decades(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div>
-                        <h1>
-                            Decade: {url}
-                        </h1>
+                        <Header />
                         {fill_in()}
                     </div>
                 );
             } else {
                 return (
                     <div>
-                        <h1>
-                            Decade: {url}
-                        </h1>
-                        {fill_in()}
+                        <Header />
+                        <div className='row align-items-start'>
+                            <div className='w-50 m-auto col position-fixed mt-5'>
+                                <Sidebar />
+                            </div>
+                            <div className='w-25 m-auto col'></div>
+                            <div className='w-25 m-auto col px-5'>
+                                {fill_in()}
+                            </div>
+                        </div>
                     </div>
                 );
             }

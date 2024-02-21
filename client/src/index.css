@@ -38,6 +38,11 @@ li {
   margin-left: -2em;
 }
 
+.nonchalant {
+  text-decoration: none;
+  color: white;
+}
+
 .card {
   background-color: rgb(245, 115, 10);
 }

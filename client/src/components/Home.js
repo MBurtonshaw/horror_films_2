@@ -1,5 +1,6 @@
 import { React } from 'react';
 import Main from './Main';
+import Header from './Header';
 
 
 
@@ -7,22 +8,7 @@ export default function Home(props) {
     /**************************************************************************************
         FUNCTIONS
     ***************************************************************************************/
-    function searchbar() {
-        if (window.innerWidth > 767) {
-            return (
-                <div>
 
-                    <h1 className='py-5'> Horror Films </h1>
-                </div>
-            );
-        } else if (window.innerWidth < 768) {
-            return (
-                <div>
-
-                </div>
-            );
-        }
-    }
 
     /**************************************************************************************
         RENDER
@@ -31,8 +17,11 @@ export default function Home(props) {
     return (
         <div>
             <div>
-                {searchbar()}
-                <Main />
+                <div className='pb-5'>
+                    <Header />
+                </div>
+              
+                <Main context={props.context}/>
             </div>
         </div>
     );

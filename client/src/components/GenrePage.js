@@ -1,5 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import Error from './Error';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 export default function GenrePage(props) {
 
@@ -47,9 +49,14 @@ export default function GenrePage(props) {
             );
         } else {
             return (
-                <div>
-                    <h1> Genres </h1>
-                    <div>
+                <div className='m-auto'>
+                            <Header />
+                            <div className='row align-items-start'>
+                                <div className='w-50 m-auto col position-fixed mt-5'>
+                                    <Sidebar />
+                                </div> 
+                                <div className='w-25 m-auto col'></div>
+                                <div className="card-group col w-50 m-auto mt-5">
                         {
                             types.map((genre, i) => {
 
@@ -91,6 +98,7 @@ export default function GenrePage(props) {
                             })
                         }
                     </div>
+                </div>
                 </div>
             )
         }

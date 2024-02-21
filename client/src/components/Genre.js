@@ -2,6 +2,8 @@ import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import NotFound from './NotFound';
 import Error from './Error';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 export default function Genres(props) {
 
@@ -101,9 +103,7 @@ export default function Genres(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div>
-                        <h1>
-                            Genre: {genre}
-                        </h1>
+                        <Header />
                         <div>
                             <ul>
                                 {fill_in()}
@@ -114,14 +114,18 @@ export default function Genres(props) {
             }
 
             return (
-                <div>
-                    <h1>
-                        Genre: {genre}
-                    </h1>
-                    <div>
-                        <ul>
-                            {fill_in()}
-                        </ul>
+                <div className='m-auto'>
+                    <Header />
+                    <div className='row align-items-start'>
+                        <div className='w-50 m-auto col position-fixed mt-5'>
+                            <Sidebar />
+                        </div>
+                        <div className='w-25 m-auto col'></div>
+                        <div className='w-25 m-auto col px-5'>
+                            <ul>
+                                {fill_in()}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             );

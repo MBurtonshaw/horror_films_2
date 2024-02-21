@@ -6,7 +6,7 @@ import Title from './components/Title';
 import TitlePage from './components/TitlePage';
 import Genre from './components/Genre';
 import GenrePage from './components/GenrePage';
-import Header from './components/Header';
+
 import Results from './components/Results';
 import Decades from './components/Decades';
 import DecadesPage from './components/DecadesPage';
@@ -71,7 +71,7 @@ function App() {
   return (
     <div id='app_div'>
       {/* passing user state to Header as props */}
-      <Header user={user} />
+
       <BrowserRouter>
         <Provider>
           <Routes>
