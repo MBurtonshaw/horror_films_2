@@ -10,8 +10,6 @@ export default function Login(props) {
     ***************************************************************************************/
 
     const navigate = useNavigate();
-    let str = window.location.pathname;
-    let newString = str.split("/").pop();
 
     function logoutUser(e) {
         e.preventDefault();

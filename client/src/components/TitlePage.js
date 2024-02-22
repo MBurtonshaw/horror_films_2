@@ -75,7 +75,10 @@ export default function TitlePage(props) {
                             <div className='m-auto'>
                                 <div className='row align-items-start'>
                                     <div className='w-50 m-auto col mt-5 position-fixed'>
-                                        <Header />
+                                        <div className='right-spacest'>
+                                            <Header />
+                                        </div>
+
                                         <Sidebar context={props.context} />
                                     </div>
                                     <div className='col'></div>
@@ -113,7 +116,7 @@ export default function TitlePage(props) {
                                     {
                                         films.map((movie, i) => {
                                             return (
-                                                <div key={i}>
+                                                <div key={i} className='mx-auto'>
                                                     <a href={`/titles/${movie.url}`}>
                                                         <div className="card round_thumb">
                                                             <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />

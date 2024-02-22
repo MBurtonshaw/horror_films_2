@@ -1,7 +1,8 @@
 /*******************************************************************************************
                                     MAIN
 *******************************************************************************************/
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -10,14 +11,15 @@ body {
   height: 100%;
   width: 100%;
   background-color: transparent;
-  background-repeat:no-repeat;
-  background-size:100% 100vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
   text-align: center;
   font-family: 'Signika Negative', sans-serif;
   text-shadow: 1px 1px 2px black;
+  overflow-x: hidden;
 }
 
 body:after {
@@ -35,7 +37,11 @@ body:after {
 
 li {
   list-style: none;
-  margin-left: -2em;
+
+}
+
+.accordion a {
+  color: rgb(92, 200, 137);
 }
 
 .nonchalant {
@@ -49,6 +55,14 @@ li {
 
 .right-spacer {
   padding: 0em 8em 2em 0;
+}
+
+.little-right {
+  padding: 0em 0.5em 0em 0em;
+}
+
+.right-spacest {
+  padding: 0em 13em 2em 0;
 }
 
 .card {
@@ -100,8 +114,54 @@ li {
   height: 12.5em;
 }
 
+.accordion-body {
+  color: lightgray;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, .125);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: black;
+  background-image: linear-gradient(rgb(42, 8, 8), rgb(57, 12, 12), rgb(57, 12, 12), rgb(57, 12, 12), rgb(57, 12, 12), rgb(57, 12, 12), rgb(57, 12, 12), rgb(57, 12, 12), rgb(42, 8, 8), black);
+  color: rgb(92, 200, 137);
+  text-shadow: 2px 2px black;
+  box-shadow: none;
+}
+
+.accordion-button:is(.collapsed) {
+  background-image: linear-gradient(black, black, rgb(57, 12, 12));
+  color: rgb(92, 200, 137);
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-header {
+  background-color: rgb(57, 12, 12);
+  border-radius: 90%;
+}
+
+.accordion-item {
+  border: none;
+}
+
+.accordion-item {
+  background-image: linear-gradient(black, black, rgb(20, 20, 20), black);
+}
+
 .smaller_img {
   max-width: 50%;
+  max-height: auto;
+  opacity: 90%;
+  border: 1px solid rgb(245, 115, 10);
+}
+
+.small_img {
+  max-width: 62.5%;
   max-height: auto;
   opacity: 90%;
   border: 1px solid rgb(245, 115, 10);
@@ -163,10 +223,11 @@ li {
 
 @keyframes fly-left {
   from {
-      transform: translateX(35vw);
+    transform: translateX(35vw);
   }
+
   to {
-      transform: translateX(0vw);
+    transform: translateX(0vw);
   }
 }
 
@@ -176,10 +237,11 @@ li {
 
 @keyframes fly-up {
   from {
-      transform: translateY(50vh);
+    transform: translateY(50vh);
   }
+
   to {
-      transform: translateY(0vh);
+    transform: translateY(0vh);
   }
 }
 
@@ -190,13 +252,13 @@ li {
 }
 
 @keyframes animate-fade {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-@media (max-width: 768px) {
-
-
-  
-
-}
+@media (max-width: 768px) {}

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import NotFound from './NotFound';
 import Cookies from 'js-cookie';
 import Error from './Error';
+import Sidebar from './Sidebar';
+import Header from './Header';
 
 export default function Title(props) {
 
@@ -50,8 +52,8 @@ export default function Title(props) {
         FUNCTIONS
     ***************************************************************************************/
 
-        let str = window.location.pathname;
-        let newString = str.split("/").pop();
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
 
     //function to match the film's release year with the /decades path it corresponds to
     function decade_filler() {
@@ -97,7 +99,7 @@ export default function Title(props) {
     //function to create the accordion component
     function accordion_fill() {
         return (
-            <div className="accordion w-25 m-auto col">
+            <div className="accordion w-75 m-auto col">
                 <div className="accordion-item">
                     <h2 className="accordion-header">
                         <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -254,23 +256,23 @@ export default function Title(props) {
             function cookie_handler() {
                 if (props.user === '' || props.user === undefined) {
                     return (
-                        <div>
-                            <h1><a href='/titles'>{movie.title}</a></h1>
+                        <div className='mt-5'>
+                            <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
                         </div>
                     );
                 } else {
                     if (isChecked === true) {
                         return (
-                            <div>
-                                <h1><a href='/titles'>{movie.title}</a></h1>
-                                <p>added to list</p>
+                            <div className='mt-5'>
+                                <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
+                                <p className='mt-2'>added to list</p>
                             </div>
                         );
                     } else {
                         return (
-                            <div>
-                                <h1><a href='/titles'>{movie.title}</a></h1>
-                                <button onClick={() => {
+                            <div className='mt-5'>
+                                <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
+                                <button className='mt-2' onClick={() => {
                                     //needs logic to determine what to do when cookie doesn't exist yet
                                     Cookies.set(`myList-${props.user.email}-${movie.id}`, `${movie.title}`, { expires: 7 });
                                     setIsChecked(true);
@@ -290,26 +292,67 @@ export default function Title(props) {
                             <div className='w-25 m-auto col'>
                                 <a href='/titles'><img className='smaller_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
                             </div>
-                            <div className='w-25 m-auto col'>
+                            <div className='col'>
                                 {accordion_fill()}
                             </div>
                         </div>
                     </div>
                 );
             } else {
-                return (
-                    <div>
-                        {
-                            cookie_handler()
-                        }
+                if (props.context.folded === true) {
+                    return (
                         <div className='row align-items-start'>
-                            {accordion_fill()}
-                            <div className='w-25 m-auto col'>
-                                <a href='/titles'><img className='smaller_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                            <div className='col position-fixed'>
+                                <Sidebar context={props.context} />
+                            </div>
+
+                            <div className='w-75 m-auto'>
+                                <div className='mt-5'>
+                                    <Header />
+                                </div>
+
+                                {
+                                    cookie_handler()
+                                }
+                                <div className='row align-items-start my-5'>
+                                    <div className='col'>
+                                        {accordion_fill()}
+                                    </div>
+
+                                    <div className='w-50 m-auto col'>
+                                        <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                );
+                    );
+                } else {
+                    return (
+                        <div className='row align-items-start'>
+                            <div className='col w-50 my-5'>
+                                <div className='right-spacest'>
+                                    <Header />
+                                </div>
+                                <Sidebar context={props.context} />
+                            </div>
+
+                            <div className='col w-50 m-auto'>
+                                {
+                                    cookie_handler()
+                                }
+                                <div className='row align-items-start my-5 py-5'>
+                                    <div className='col'>
+                                        {accordion_fill()}
+                                    </div>
+
+                                    <div className='w-50 m-auto col'>
+                                        <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
             }
         }
     }

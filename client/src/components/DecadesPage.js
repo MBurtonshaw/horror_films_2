@@ -65,7 +65,9 @@ export default function GenrePage(props) {
                 <div className='m-auto'>
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
-                            <Header />
+                            <div className='right-spacest'>
+                                <Header />
+                            </div>
                             <Sidebar context={props.context} />
                         </div>
                         <div className='col'></div>
@@ -101,7 +103,7 @@ export default function GenrePage(props) {
                     </div>
                     <div className=''>
                         <h1 className='text-center w-100 m-auto py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
-                        <div className="card-group w-75 mt-5 m-auto">
+                        <div className="card-group w-50 mt-5 m-auto">
                             {
                                 props.decades.map((decade, i) => {
                                     return (

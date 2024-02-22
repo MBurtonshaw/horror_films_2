@@ -250,13 +250,16 @@ export default function Main(props) {
 
                             {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
                             <div className='w-75 m-auto'>
-                                <ul>
+                                <ul className='little-right'>
                                     <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
                                     <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
                                     <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
                                     <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
                                 </ul>
+
                                 <Search />
+
+
                             </div>
 
                         </div>

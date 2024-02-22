@@ -73,7 +73,10 @@ export default function GenrePage(props) {
                 <div className='m-auto'>
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
-                            <Header />
+                            <div className='right-spacest'>
+                                <Header />
+                            </div>
+
                             <Sidebar context={props.context} />
                         </div>
                         <div className='w-25 m-auto col'></div>
@@ -105,7 +108,7 @@ export default function GenrePage(props) {
                     <div className='position-fixed'>
                         <Sidebar context={props.context} />
                     </div>
-                    <div className="card-group w-75 mx-auto mt-5">
+                    <div className="card-group w-50 mx-auto mt-5">
                         <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                         {
                             types.map((genre, i) => {
@@ -114,7 +117,7 @@ export default function GenrePage(props) {
                                     <div key={i} className='mx-auto'>
                                         <div className='py-3'>
                                             <a className='nonchalant' href={`/genres/${genre}`}>
-                                                <img className='radius' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
+                                                <img className='radius wide_adjust' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
                                                 <h5 className='p-1'>{genre}</h5>
                                             </a>
                                         </div>
