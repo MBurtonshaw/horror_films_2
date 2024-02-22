@@ -76,7 +76,6 @@ export default function GenrePage(props) {
                             <div className='right-spacest'>
                                 <Header />
                             </div>
-
                             <Sidebar context={props.context} />
                         </div>
                         <div className='w-25 m-auto col'></div>

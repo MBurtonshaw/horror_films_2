@@ -95,8 +95,6 @@ export default function Decades(props) {
         );
     }
 
-
-
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
@@ -125,13 +123,11 @@ export default function Decades(props) {
                                 <Sidebar context={props.context} />
                             </div>
                             <h2 className='w-100 pt-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
-                                {fill_in()}
-                            
+                            {fill_in()}
                         </div>
                     );
                 } else {
                     return (
-
                         <div className='row align-items-start'>
                             <div className='w-50 m-auto col position-fixed mt-5'>
                                 <Header />
@@ -143,11 +139,8 @@ export default function Decades(props) {
                                 {fill_in()}
                             </div>
                         </div>
-
-
                     );
                 }
-
             }
         } else {
             //not found

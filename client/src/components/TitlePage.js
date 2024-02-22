@@ -78,7 +78,6 @@ export default function TitlePage(props) {
                                         <div className='right-spacest'>
                                             <Header />
                                         </div>
-
                                         <Sidebar context={props.context} />
                                     </div>
                                     <div className='col'></div>

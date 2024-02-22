@@ -282,7 +282,6 @@ export default function Title(props) {
                     }
                 }
             }
-
             //logic to handle different screen widths
             if (window.innerWidth < 992) {
                 return (
@@ -305,12 +304,10 @@ export default function Title(props) {
                             <div className='col position-fixed'>
                                 <Sidebar context={props.context} />
                             </div>
-
                             <div className='w-75 m-auto'>
                                 <div className='mt-5'>
                                     <Header />
                                 </div>
-
                                 {
                                     cookie_handler()
                                 }
@@ -318,7 +315,6 @@ export default function Title(props) {
                                     <div className='col'>
                                         {accordion_fill()}
                                     </div>
-
                                     <div className='w-50 m-auto col'>
                                         <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
                                     </div>
@@ -335,7 +331,6 @@ export default function Title(props) {
                                 </div>
                                 <Sidebar context={props.context} />
                             </div>
-
                             <div className='col w-50 m-auto'>
                                 {
                                     cookie_handler()
@@ -344,7 +339,6 @@ export default function Title(props) {
                                     <div className='col'>
                                         {accordion_fill()}
                                     </div>
-
                                     <div className='w-50 m-auto col'>
                                         <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
                                     </div>

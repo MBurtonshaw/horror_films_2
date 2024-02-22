@@ -57,7 +57,6 @@ export default function Register(props) {
                         <div><a href='/login'>Login</a></div>
                         <div><a href='/'>Home</a></div>
                     </div>
-
                 </div>
             );
         } else {
@@ -69,7 +68,6 @@ export default function Register(props) {
                         <div><a href='/login'>Login</a></div>
                         <div><a href='/'>Home</a></div>
                     </div>
-
                 </div>
             );
         }

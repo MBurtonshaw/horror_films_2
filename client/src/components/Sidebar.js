@@ -7,7 +7,6 @@ export default function Sidebar(props) {
 
     let [user, setUser] = useState('');
 
-
     function getData() {
         if (!document.cookie) {
             setUser('');
@@ -24,7 +23,6 @@ export default function Sidebar(props) {
                 }
             }
         }
-
     }
 
     useEffect(() => { getData() }, [setUser]);
@@ -53,12 +51,10 @@ export default function Sidebar(props) {
     //props.user comes from App.js, where it is derived from a cookie set in /contexts/context.js
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
     if (user === '') {
-
         if (props.context.folded === false) {
             return (
                 <div id='Header' className='container animate my-5'>
                     <div className=''>
-
                         {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
                         <div className='w-75 m-auto'>
                             <ul>
@@ -68,10 +64,6 @@ export default function Sidebar(props) {
                                 <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
                                 <li><h4><a className='nonchalant' href='/'>Home</a></h4></li>
                             </ul>
-
-
-
-
                             <Search />
                         </div>
                         <div className='w-25 m-auto my-5 py-3'>
@@ -92,7 +84,6 @@ export default function Sidebar(props) {
             return (
                 <div id='Header' className='container animate'>
                     <div className='row align-items-start'>
-
                         {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
                         <div className='w-75 m-auto'>
                             <ul>
@@ -102,10 +93,6 @@ export default function Sidebar(props) {
                                 <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
                                 <li><h4><a className='nonchalant' href='/'>Home</a></h4></li>
                             </ul>
-
-
-
-
                             <Search />
                         </div>
                         <div className='w-25 m-auto'>

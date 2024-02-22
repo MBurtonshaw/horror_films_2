@@ -18,9 +18,6 @@ export default function Login(props) {
 
     const navigate = useNavigate();
 
-    let str = window.location.pathname;
-    let newString = str.split("/").pop();
-
     async function loginUser(e) {
         e.preventDefault();
         if (!data.email) {
@@ -43,7 +40,6 @@ export default function Login(props) {
                 });
             }
         }
-
     }
 
     function content_filler() {
@@ -64,9 +60,8 @@ export default function Login(props) {
                     </div>
                 </form>
                 <div className='mt-5'>
-                                <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
-                               
-                            </div>
+                    <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
+                </div>
             </div>
         );
     }
@@ -105,7 +100,6 @@ export default function Login(props) {
                     <Header />
                     <div>
                         {content_filler()}
-                      
                     </div>
                 </div>
             );
@@ -116,30 +110,26 @@ export default function Login(props) {
                     <Header />
                     <div>
                         <div className='w-50 m-auto position-fixed mt-5'>
-                            <Sidebar context={props.context}/>
+                            <Sidebar context={props.context} />
                         </div>
                         <div className='w-25 m-auto px-5'>
                             {content_filler()}
-                            
                         </div>
                     </div>
                 </div>
             );
         } else {
-            return(
+            return (
                 <div className='row align-items-start'>
                     <Header />
                     <div className='col'>
-                        <Sidebar context={props.context}/>
+                        <Sidebar context={props.context} />
                     </div>
-
                     <div className='col'>
-                            {content_filler()}
-                           
-                        </div>
+                        {content_filler()}
+                    </div>
                 </div>
             );
         }
-        
     }
 }

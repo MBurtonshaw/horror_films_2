@@ -83,8 +83,6 @@ export default function Genres(props) {
         );
     }
 
-
-
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
@@ -155,7 +153,6 @@ export default function Genres(props) {
                     );
                 } else {
                     return (
-
                         <div className='row align-items-start'>
                             <div className='w-50 m-auto col position-fixed mt-5'>
                                 <Header />
@@ -167,14 +164,9 @@ export default function Genres(props) {
                                 {fill_in()}
                             </div>
                         </div>
-
-
                     );
                 }
-
             }
-
-
         }
     }
     //

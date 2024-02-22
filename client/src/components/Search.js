@@ -39,8 +39,8 @@ export default function Search(props) {
     /************************************************************************************************************************
         FUNCTIONS
     ************************************************************************************************************************/
-        let str = window.location.pathname;
-        let newString = str.split("/").pop();
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
     //function to append a message when the searchbar is focused upon/////////////////////////////////////
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
     const appendAlert = (message, type) => {

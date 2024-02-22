@@ -116,7 +116,7 @@ export default function Results(props) {
                         <div className='row align-items-start'>
                             <div className='w-25 m-auto col mt-5'>
                                 <Header />
-                                <Sidebar context={props.context}/>
+                                <Sidebar context={props.context} />
                             </div>
                             <div className='col w-25 m-auto'></div>
                             <div className='col w-50 m-auto'>

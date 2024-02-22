@@ -220,7 +220,6 @@ export default function Main(props) {
             <div>
                 <div>
                     <h2> {season} Recommendations </h2>
-
                     {/* the first card doesn't use the card_filler function because it is supposed to be visible on pageload */}
                     <div>
                         <div className='row align-items-start'>
@@ -247,7 +246,6 @@ export default function Main(props) {
                     <Header />
                     <div id='Header' className='container animate my-5'>
                         <div className=''>
-
                             {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
                             <div className='w-75 m-auto'>
                                 <ul className='little-right'>
@@ -256,19 +254,14 @@ export default function Main(props) {
                                     <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
                                     <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
                                 </ul>
-
                                 <Search />
-
-
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <div className='w-25 m-auto col'></div>
                 <div className='w-25 m-auto col mx-5 my-5'>
                     <h2 className='py-5 my-2'> {season} Recommendations </h2>
-
                     {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
                     <div className='row align-items-start'>
                         <div className='col w-50 m-auto mt-5'>
