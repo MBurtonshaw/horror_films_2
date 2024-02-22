@@ -21,12 +21,11 @@ export class Provider extends Component {
     folded: true
   }
 
-  
-
   render() {
     const { user } = this.state;
     const { error } = this.state;
     const { folded } = this.state;
+
     // any of these values will be available to components connected to context
     const value = {
       user,
@@ -106,14 +105,13 @@ export class Provider extends Component {
         }
         Cookies.set('signedIn?', JSON.stringify(user), { expires: 7 });
       } else {
-        return('Passwords do not match');
+        return ('Passwords do not match');
       }
-  }
- else {
+    }
+    else {
       return ('User does not exist');
     }
   }
-
 
   signOut = async () => {
     let user = {
@@ -126,10 +124,8 @@ export class Provider extends Component {
   }
 
   clicker = async () => {
-    
-    if (this.state.folded === true) {return(this.setState({'folded': false}))}
-    if (this.state.folded === false) {return(this.setState({'folded': true}))}
-    
+    if (this.state.folded === true) { return (this.setState({ 'folded': false })) }
+    if (this.state.folded === false) { return (this.setState({ 'folded': true })) }
   }
 
 }

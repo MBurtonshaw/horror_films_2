@@ -79,16 +79,48 @@ export default function TitlePage(props) {
                 } else {
 
 
+                    if (props.context.folded === false) {
+                        return (
+                            <div className='m-auto'>
+                                <div className='row align-items-start'>
+                                    <div className='w-50 m-auto col mt-5'>
+                                        <Header />
+                                        <Sidebar context={props.context} />
+                                    </div>
+                                    <div className="card-group col w-50 m-auto mt-5">
+                                        <h1 className='w-100 right-space'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                                        {
+                                            films.map((movie, i) => {
+                                                return (
+                                                    <div key={i}>
+                                                        <a href={`/titles/${movie.url}`}>
+                                                            <div className="card round_thumb">
+                                                                <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
+                                                            </div>
+                                                        </a>
+                                                        <p className='py-3'>{movie.title}</p>
+                                                    </div>
+                                                );
+                                            })
+                                        }
+                                    </div>
 
-                    return (
-                        <div className='m-auto'>
-                            <div className='row align-items-start'>
-                                <div className='w-50 m-auto col mt-5'>
-                                    <Header />
-                                    <Sidebar context={props.context}/>
                                 </div>
-                                <div className="card-group col w-50 m-auto mt-5">
-                                    <h1 className='w-100 right-space'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div className='m-auto'>
+
+                                <div className='w-100 m-auto mt-5'>
+                                    <Header />
+                                    <div className='position-fixed'>
+                                        <Sidebar context={props.context} />
+                                    </div>
+
+                                </div>
+                                <div className="card-group w-75 m-auto mt-4 px-5">
+                                    <h1 className='text-center w-100 m-auto py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                     {
                                         films.map((movie, i) => {
                                             return (
@@ -106,8 +138,9 @@ export default function TitlePage(props) {
                                 </div>
 
                             </div>
-                        </div>
-                    );
+                        );
+                    }
+
                 }
             }
         }
