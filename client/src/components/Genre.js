@@ -163,7 +163,7 @@ export default function Genres(props) {
                             </div>
                             <div className='w-25 m-auto col'></div>
                             <div className="card-group col w-50 mx-auto mt-5 right-spacer">
-                                <h1 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h1>
+                                <h2 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
                                 {fill_in()}
                             </div>
                         </div>

@@ -45,19 +45,32 @@ export default function Login(props) {
             </div>
         );
     } else {
-        return (
-            <div>
-                <Header />
-                <div className='row align-items-start'>
-                    <div className='w-50 m-auto col position-fixed mt-5'>
-                        <Sidebar context={props.context}/>
+        if (props.context.folded === true) {
+            return (
+                <div>
+                    <Header />
+                    <div>
+                        <div className='w-50 m-auto position-fixed mt-5'>
+                            <Sidebar context={props.context} />
+                        </div>
+                        <div className='w-25 m-auto px-5'>
+                            {content_filler()}
+                        </div>
                     </div>
-                    <div className='w-25 m-auto col'></div>
-                    <div className='w-25 m-auto col px-5'>
+                </div>
+            );
+        } else {
+            return (
+                <div className='row align-items-start'>
+                    <Header />
+                    <div className='col'>
+                        <Sidebar context={props.context} />
+                    </div>
+                    <div className='col'>
                         {content_filler()}
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }

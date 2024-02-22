@@ -63,6 +63,10 @@ export default function Login(props) {
                         <button type='submit' onSubmit={loginUser}>Login</button>
                     </div>
                 </form>
+                <div className='mt-5'>
+                                <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
+                               
+                            </div>
             </div>
         );
     }
@@ -101,29 +105,41 @@ export default function Login(props) {
                     <Header />
                     <div>
                         {content_filler()}
-                        <div>
-                            <p>Don't have an account yet?</p><a href={'/register'}>Register</a>
-                        </div>
+                      
                     </div>
                 </div>
             );
         }
-        return (
-            <div>
-                <Header />
-                <div className='row align-items-start'>
-                    <div className='w-50 m-auto col position-fixed mt-5'>
-                        <Sidebar context={props.context}/>
-                    </div>
-                    <div className='w-25 m-auto col'></div>
-                    <div className='w-25 m-auto col px-5'>
-                        {content_filler()}
-                        <div>
-                            <p>Don't have an account yet?</p><a href={'/register'}>Register</a>
+        if (props.context.folded === true) {
+            return (
+                <div>
+                    <Header />
+                    <div>
+                        <div className='w-50 m-auto position-fixed mt-5'>
+                            <Sidebar context={props.context}/>
+                        </div>
+                        <div className='w-25 m-auto px-5'>
+                            {content_filler()}
+                            
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return(
+                <div className='row align-items-start'>
+                    <Header />
+                    <div className='col'>
+                        <Sidebar context={props.context}/>
+                    </div>
+
+                    <div className='col'>
+                            {content_filler()}
+                           
+                        </div>
+                </div>
+            );
+        }
+        
     }
 }
