@@ -13,6 +13,8 @@ export default function List(props) {
     let [error, setError] = useState('');
     let [user, setUser] = useState('');
     let [isLoading, setIsLoading] = useState(true);
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
 
     async function getData() {
         if (isLoading) {

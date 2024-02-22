@@ -10,6 +10,8 @@ export default function GenrePage(props) {
     ***************************************************************************************/
     let [types, setTypes] = useState('');
     let [error, setError] = useState('');
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
 
     async function getData() {
         try {
@@ -52,27 +54,28 @@ export default function GenrePage(props) {
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
                             <Header />
-                            <Sidebar />
+                            <Sidebar context={props.context}/>
                         </div>
                         <div className='w-25 m-auto col'></div>
                         <div className="card-group col w-50 m-auto mt-5">
+                            <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                             {
                                 types.map((genre, i) => {
                                     //function to return contents of the cards and leave the innderWidth conditons below more concise
                                     function fill_in() {
                                         return (
-                                            <div>
-                                                <a className='w-100' href={`/genres/${genre}`}>
+                                            <div className='py-3'>
+                                                <a className='w-100 nonchalant' href={`/genres/${genre}`}>
                                                     <img className='w-100 radius' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
 
-                                                    <h5 >{genre}</h5>
+                                                    <h5 className='p-1'>{genre}</h5>
 
                                                 </a>
                                             </div>
                                         );
                                     }
                                     return (
-                                        <div key={i} className='round_thumb'>
+                                        <div key={i} className='oval_thumb'>
                                             {fill_in()}
                                         </div>
                                     );

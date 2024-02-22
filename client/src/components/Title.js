@@ -50,6 +50,9 @@ export default function Title(props) {
         FUNCTIONS
     ***************************************************************************************/
 
+        let str = window.location.pathname;
+        let newString = str.split("/").pop();
+
     //function to match the film's release year with the /decades path it corresponds to
     function decade_filler() {
         let variant;

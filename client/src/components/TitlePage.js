@@ -5,6 +5,8 @@ import Sidebar from './Sidebar';
 export default function TitlePage(props) {
     let [movies, setMovies] = useState('');
     let [isLoading, setIsLoading] = useState(true);
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
 
     async function getData() {
         let films = await props.context.data.movies.movies;
@@ -13,6 +15,8 @@ export default function TitlePage(props) {
     }
 
     useEffect(() => { getData() }, [setMovies]);
+
+
 
     let films = props.context.data.movies.movies;
     if (isLoading) {
@@ -43,6 +47,12 @@ export default function TitlePage(props) {
         if (films.length < 1) {
             return (<h1>Not Found</h1>);
         } else {
+
+
+
+
+
+
             for (let i = 0; i < films.length; i++) {
                 if (window.innerWidth < 768) {
                     return (
@@ -67,15 +77,18 @@ export default function TitlePage(props) {
                         </div>
                     );
                 } else {
+
+
+
                     return (
                         <div className='m-auto'>
                             <div className='row align-items-start'>
-                                <div className='w-50 m-auto col position-fixed mt-5'>
+                                <div className='w-50 m-auto col mt-5'>
                                     <Header />
-                                    <Sidebar />
+                                    <Sidebar context={props.context}/>
                                 </div>
-                                <div className='w-25 m-auto col'></div>
                                 <div className="card-group col w-50 m-auto mt-5">
+                                    <h1 className='w-100 right-space'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                     {
                                         films.map((movie, i) => {
                                             return (
@@ -91,6 +104,7 @@ export default function TitlePage(props) {
                                         })
                                     }
                                 </div>
+
                             </div>
                         </div>
                     );

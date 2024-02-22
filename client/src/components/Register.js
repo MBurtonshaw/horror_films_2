@@ -20,6 +20,9 @@ export default function Register(props) {
     ***************************************************************************************/
     let navigate = useNavigate();
 
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
+
     function registerUser(e) {
         e.preventDefault();
         if (!data.name) {

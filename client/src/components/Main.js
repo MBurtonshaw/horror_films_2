@@ -20,6 +20,9 @@ export default function Main(props) {
 
     useEffect(() => { getData() }, [setFilms, setGenres]);
 
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
+
     const setter = new Date();
     const month = setter.getMonth() + 1;
 
@@ -243,11 +246,11 @@ export default function Main(props) {
             <div className='row align-items-start'>
                 <div className='w-50 m-auto col position-fixed mt-5'>
                     <Header />
-                    <Sidebar />
+                    <Sidebar context={props.context}/>
                 </div>
                 <div className='w-25 m-auto col'></div>
-                <div className='w-25 m-auto col px-5'>
-                    <h2 className='py-5'> {season} Recommendations </h2>
+                <div className='w-25 m-auto col px-5 my-5'>
+                    <h2 className='py-5 mt-5'> {season} Recommendations </h2>
 
                     {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
                     <div className='row align-items-start'>

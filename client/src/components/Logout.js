@@ -10,6 +10,8 @@ export default function Login(props) {
     ***************************************************************************************/
 
     const navigate = useNavigate();
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
 
     function logoutUser(e) {
         e.preventDefault();
@@ -48,7 +50,7 @@ export default function Login(props) {
                 <Header />
                 <div className='row align-items-start'>
                     <div className='w-50 m-auto col position-fixed mt-5'>
-                        <Sidebar />
+                        <Sidebar context={props.context}/>
                     </div>
                     <div className='w-25 m-auto col'></div>
                     <div className='w-25 m-auto col px-5'>

@@ -15,6 +15,8 @@ export default function Genres(props) {
     let [genre, setGenre] = useState('');
     let [isLoading, setIsLoading] = useState(true);
     let [error, setError] = useState('');
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
 
     //function to gather data from movies.json
     async function getData() {
@@ -81,7 +83,7 @@ export default function Genres(props) {
                 <div className='row align-items-start'>
                     <div className='w-50 m-auto col position-fixed mt-5'>
                         <Header />
-                        <Sidebar />
+                        <Sidebar context={props.context}/>
                     </div>
                     <div className='w-25 m-auto col'></div>
                     <div className='w-25 m-auto col px-5'>

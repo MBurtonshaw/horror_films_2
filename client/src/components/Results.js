@@ -2,6 +2,8 @@ import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import NotFound from './NotFound';
 import Error from './Error';
+import Sidebar from './Sidebar';
+import Header from './Header';
 
 export default function Results(props) {
 
@@ -42,6 +44,7 @@ export default function Results(props) {
     /***************************************************************************************
         FUNCTIONS
     ***************************************************************************************/
+
     function body_fill() {
         return (
             <ul>
@@ -110,12 +113,20 @@ export default function Results(props) {
                     );
                 } else {
                     return (
-                        <div>
-                            <h1>
-                                {props.context.actions.capitalizeFirstLetter(term.toLowerCase())}
-                            </h1>
-                            <div>
-                                {body_fill()}
+                        <div className='row align-items-start'>
+                            <div className='w-25 m-auto col mt-5'>
+                                <Header />
+                                <Sidebar context={props.context}/>
+                            </div>
+                            <div className='col w-25 m-auto'></div>
+                            <div className='col w-50 m-auto'>
+                                <h1>
+                                    {props.context.actions.capitalizeFirstLetter(term.toLowerCase())}
+                                </h1>
+
+                                <div>
+                                    {body_fill()}
+                                </div>
                             </div>
                         </div>
                     );

@@ -13,6 +13,8 @@ export default function Decades(props) {
     let { url } = useParams();
     let [movies, setMovies] = useState('');
     let [error, setError] = useState('');
+    let str = window.location.pathname;
+    let newString = str.split("/").pop();
 
     //function to gather data from movies.json - sets category and sorts films based on url and film year
     async function getData() {
@@ -98,7 +100,7 @@ export default function Decades(props) {
                 <div className='row align-items-start'>
                     <div className='w-50 m-auto col position-fixed mt-5'>
                         <Header />
-                        <Sidebar />
+                        <Sidebar context={props.context}/>
                     </div>
                     <div className='w-25 m-auto col'></div>
                     <div className='w-25 m-auto col px-5'>

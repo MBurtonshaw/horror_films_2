@@ -17,18 +17,21 @@ export class Provider extends Component {
   }
 
   state = {
-    error: null
+    error: null,
+    folded: true
   }
 
-
+  
 
   render() {
     const { user } = this.state;
     const { error } = this.state;
+    const { folded } = this.state;
     // any of these values will be available to components connected to context
     const value = {
       user,
       error,
+      folded,
       data: {
         movies
       },
@@ -38,7 +41,8 @@ export class Provider extends Component {
         getMessage: this.getMessage,
         signIn: this.signIn,
         signOut: this.signOut,
-        registerUser: this.registerUser
+        registerUser: this.registerUser,
+        clicker: this.clicker
       }
     }
 
@@ -119,6 +123,13 @@ export class Provider extends Component {
     this.setState({ user });
     Cookies.set('signedIn?', JSON.stringify(''), { expires: 7 });
     //}
+  }
+
+  clicker = async () => {
+    
+    if (this.state.folded === true) {return(this.setState({'folded': false}))}
+    if (this.state.folded === false) {return(this.setState({'folded': true}))}
+    
   }
 
 }
