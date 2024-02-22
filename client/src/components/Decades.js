@@ -68,19 +68,20 @@ export default function Decades(props) {
         //
         return (
             <div>
-                <ul>
+               
                     {fill_array.map((film, i) => {
-                        if (i > 12) {
                             return (
-                                <li key={i}><a href={`/titles/${film.url}`}>{film.title}</a></li>
+                                <div key={i} className='mx-auto p-2'>
+                        <div className='card round_thumb'>
+                            <a href={`/titles/${film.url}`}>
+                                <img className='card-img-top round_thumb' src={`../../photos/titles/${film.url}_round.jpg`} />
+                            </a>
+                        </div>
+                        <a className='nonchalant' href={`/titles/${film.url}`}><h5>{film.title}</h5></a>
+                    </div>
                             );
-                        } else {
-                            return (
-                                <li key={i}><a href={`/titles/${film.url}`}>{film.title}</a></li>
-                            );
-                        }
                     })}
-                </ul>
+               
             </div>
         )
     }
@@ -94,27 +95,12 @@ export default function Decades(props) {
         );
     }
 
-    function reg_filler() {
-        return (
-            <div>
-                <div className='row align-items-start'>
-                    <div className='w-50 m-auto col position-fixed mt-5'>
-                        <Header />
-                        <Sidebar context={props.context}/>
-                    </div>
-                    <div className='w-25 m-auto col'></div>
-                    <div className='w-25 m-auto col px-5'>
-                        {fill_in()}
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
+    
 
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
+        let title_filler = window.location.pathname.slice(9, 18);
     if (error) {
         //error
         return (
@@ -131,10 +117,44 @@ export default function Decades(props) {
                     mobile_filler()
                 );
             } else {
-                //reg size
-                return (
-                    reg_filler()
-                );
+                if (props.context.folded === true) {
+                    return (
+                        <div>
+                            <div>
+                                <div className='mt-5'>
+                                    <Header />
+                                    <div className='py-5'>
+                                        <h2>{`Genre: ${title_filler}`}</h2>
+                                    </div>
+                                    <div className='position-fixed'>
+                                        <Sidebar context={props.context} />
+                                    </div>
+                                </div>
+                                <div className='px-5 card-group w-75 m-auto'>
+                                    {fill_in()}
+                                </div>
+                            </div>
+                        </div>
+                    );
+                } else {
+                    return (
+
+                        <div className='row align-items-start'>
+                            <div className='w-50 m-auto col position-fixed mt-5'>
+                                <Header />
+                                <Sidebar context={props.context} />
+                            </div>
+                            <div className='w-25 m-auto col'></div>
+                            <div className="card-group col w-50 mx-auto mt-5 right-spacer">
+                                <h1 className='w-100 py-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h1>
+                                {fill_in()}
+                            </div>
+                        </div>
+
+
+                    );
+                }
+
             }
         } else {
             //not found

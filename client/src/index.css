@@ -47,6 +47,10 @@ li {
   padding: 1em 3em 2em 0;
 }
 
+.right-spacer {
+  padding: 0em 8em 2em 0;
+}
+
 .card {
   background-color: rgb(245, 115, 10);
 }
@@ -65,10 +69,21 @@ li {
   border-radius: 50%;
 }
 
+.round_tiny_thumb {
+  width: 15%;
+  height: auto;
+  border-radius: 50%;
+  margin: auto;
+}
+
 .oval_thumb {
   border-radius: 50%;
   width: 45%;
   margin: auto;
+}
+
+.spacer {
+  width: 10%;
 }
 
 .round_thumb_loader {
@@ -76,6 +91,13 @@ li {
   background-color: rgba(0, 0, 0, 0.5);
   width: 15em;
   height: 15em;
+}
+
+.oval_thumb_loader {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 25em;
+  height: 12.5em;
 }
 
 .smaller_img {

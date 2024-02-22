@@ -191,7 +191,6 @@ export default function Main(props) {
                     <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
                 <div className='col w-50 m-auto'>
-
                 </div>
             </div>
         );
@@ -202,7 +201,6 @@ export default function Main(props) {
         return (
             <div className='row align-items-start'>
                 <div className='col w-50 m-auto'>
-
                 </div>
                 <div className='col w-50 m-auto'>
                     <a href={`/titles/${number.url}`}>
@@ -244,40 +242,33 @@ export default function Main(props) {
         );
     } else {
         return (
-            <div className='row align-items-start'>
+            <div className='row align-items-start mx-auto'>
                 <div className='w-50 m-auto col position-fixed mt-5'>
                     <Header />
                     <div id='Header' className='container animate my-5'>
-                    <div className=''>
+                        <div className=''>
 
-                        {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
-                        <div className='w-75 m-auto'>
-                            <ul>
-                                <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/'>Home</a></h4></li>
-                            </ul>
-                            
-                            
-                            
-                            
-                            <Search />
-                        </div>
-                        <div className='w-25 m-auto my-5 py-3'>
-           
+                            {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
+                            <div className='w-75 m-auto'>
+                                <ul>
+                                    <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
+                                    <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
+                                    <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
+                                    <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
+                                </ul>
+                                <Search />
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                </div>
                 <div className='w-25 m-auto col'></div>
-                <div className='w-25 m-auto col px-5 my-5'>
-                    <h2 className='py-5 mt-5'> {season} Recommendations </h2>
+                <div className='w-25 m-auto col mx-5 my-5'>
+                    <h2 className='py-5 my-2'> {season} Recommendations </h2>
 
                     {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
                     <div className='row align-items-start'>
-                        <div className='col w-50 m-auto mt-3'>
+                        <div className='col w-50 m-auto mt-5'>
                             <a href={`/titles/${first.url}`}>
                                 <img id={first.url} className='round_thumb' src={`../../photos/titles/${first.url}_round.jpg`} alt={`a movie poster for ${first.title}`} />
                             </a>

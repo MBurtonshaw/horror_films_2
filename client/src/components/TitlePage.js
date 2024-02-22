@@ -16,23 +16,22 @@ export default function TitlePage(props) {
 
     useEffect(() => { getData() }, [setMovies]);
 
-
-
     let films = props.context.data.movies.movies;
     if (isLoading) {
         for (let i = 0; i < films.length; i++) {
             return (
-                <div>
-                    <h1 className='pt-5 mt-5'>
+                <div className='mt-5'>
+                    <Header />
+                    <h1 className='pt-5'>
                         ...Loading...
                     </h1>
                     <div>
-                        <div className="card-group">
+                        <div className="card-group w-75 mx-auto">
                             {
                                 films.map((movie, i) => {
                                     return (
                                         <div key={i}>
-                                            <div className="card round_thumb_loader m-2">
+                                            <div className="card round_thumb_loader m-3">
                                             </div>
                                         </div>
                                     );
@@ -47,12 +46,6 @@ export default function TitlePage(props) {
         if (films.length < 1) {
             return (<h1>Not Found</h1>);
         } else {
-
-
-
-
-
-
             for (let i = 0; i < films.length; i++) {
                 if (window.innerWidth < 768) {
                     return (
@@ -77,16 +70,15 @@ export default function TitlePage(props) {
                         </div>
                     );
                 } else {
-
-
                     if (props.context.folded === false) {
                         return (
                             <div className='m-auto'>
                                 <div className='row align-items-start'>
-                                    <div className='w-50 m-auto col mt-5'>
+                                    <div className='w-50 m-auto col mt-5 position-fixed'>
                                         <Header />
                                         <Sidebar context={props.context} />
                                     </div>
+                                    <div className='col'></div>
                                     <div className="card-group col w-50 m-auto mt-5">
                                         <h1 className='w-100 right-space'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                         {
@@ -104,20 +96,17 @@ export default function TitlePage(props) {
                                             })
                                         }
                                     </div>
-
                                 </div>
                             </div>
                         );
                     } else {
                         return (
                             <div className='m-auto'>
-
                                 <div className='w-100 m-auto mt-5'>
                                     <Header />
                                     <div className='position-fixed'>
                                         <Sidebar context={props.context} />
                                     </div>
-
                                 </div>
                                 <div className="card-group w-75 m-auto mt-4 px-5">
                                     <h1 className='text-center w-100 m-auto py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
@@ -136,11 +125,9 @@ export default function TitlePage(props) {
                                         })
                                     }
                                 </div>
-
                             </div>
                         );
                     }
-
                 }
             }
         }
