@@ -44,32 +44,20 @@ export default function TitlePage(props) {
         }
     } else {
         if (films.length < 1) {
-            return (<h1>Not Found</h1>);
+            return (
+                <h1>
+                    Not Found
+                </h1>
+            );
         } else {
             for (let i = 0; i < films.length; i++) {
                 if (window.innerWidth < 768) {
                     return (
-                        <div className='m-auto'>
-                            <Header />
-                            <div className="card-group">
-                                {
-                                    films.map((movie, i) => {
-                                        return (
-                                            <div key={i}>
-                                                <a href={`/titles/${movie.url}`}>
-                                                    <div className="card round_thumb">
-                                                        <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt={`${movie.title} thumbnail`} />
-                                                    </div>
-                                                </a>
-                                                <p className='py-3'>{movie.title}</p>
-                                            </div>
-                                        );
-                                    })
-                                }
-                            </div>
+                        <div className=''>
+                            
                         </div>
                     );
-                } else {
+                            }
                     if (props.context.folded === false) {
                         return (
                             <div className='m-auto'>
@@ -132,6 +120,6 @@ export default function TitlePage(props) {
                     }
                 }
             }
-        }
+        
     }
 }

@@ -96,15 +96,10 @@ export default function Login(props) {
     } else {
         if (window.innerWidth < 768) {
             return (
-                <div>
-                    <Header />
-                    <div>
-                        {content_filler()}
-                    </div>
+                <div className=''>
                 </div>
             );
-        }
-        if (props.context.folded === true) {
+        } else if (props.context.folded === true) {
             return (
                 <div>
                     <Header />

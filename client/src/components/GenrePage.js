@@ -68,27 +68,62 @@ export default function GenrePage(props) {
             );
         }
     } else {
-        if (props.context.folded === false) {
+        if (window.innerWidth < 768) {
             return (
-                <div className='m-auto'>
-                    <div className='row align-items-start'>
-                        <div className='w-50 m-auto col position-fixed mt-5'>
-                            <div className='right-spacest'>
-                                <Header />
+                <div className=''>
+                  
+                </div>
+            );
+        } 
+            if (props.context.folded === false) {
+                return (
+                    <div className='m-auto'>
+                        <div className='row align-items-start'>
+                            <div className='w-50 m-auto col position-fixed mt-5'>
+                                <div className='right-spacest'>
+                                    <Header />
+                                </div>
+                                <Sidebar context={props.context} />
                             </div>
+                            <div className='w-25 m-auto col'></div>
+                            <div className="card-group col w-50 mx-auto mt-5 right-spacer">
+                                <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                                {
+                                    types.map((genre, i) => {
+                                        //function to return contents of the cards and leave the innderWidth conditons below more concise
+                                        return (
+                                            <div key={i} className='oval_thumb'>
+                                                <div className='py-3 mx-auto'>
+                                                    <a className='w-100 nonchalant' href={`/genres/${genre}`}>
+                                                        <img className='w-100 radius' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
+                                                        <h5 className='p-1'>{genre}</h5>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        );
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className='w-100 m-auto mt-5'>
+                        <Header />
+                        <div className='position-fixed'>
                             <Sidebar context={props.context} />
                         </div>
-                        <div className='w-25 m-auto col'></div>
-                        <div className="card-group col w-50 mx-auto mt-5 right-spacer">
+                        <div className="card-group w-50 mx-auto mt-5">
                             <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                             {
                                 types.map((genre, i) => {
                                     //function to return contents of the cards and leave the innderWidth conditons below more concise
                                     return (
-                                        <div key={i} className='oval_thumb'>
-                                            <div className='py-3 mx-auto'>
-                                                <a className='w-100 nonchalant' href={`/genres/${genre}`}>
-                                                    <img className='w-100 radius' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
+                                        <div key={i} className='mx-auto'>
+                                            <div className='py-3'>
+                                                <a className='nonchalant' href={`/genres/${genre}`}>
+                                                    <img className='radius wide_adjust' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
                                                     <h5 className='p-1'>{genre}</h5>
                                                 </a>
                                             </div>
@@ -98,35 +133,8 @@ export default function GenrePage(props) {
                             }
                         </div>
                     </div>
-                </div>
-            )
-        } else {
-            return (
-                <div className='w-100 m-auto mt-5'>
-                    <Header />
-                    <div className='position-fixed'>
-                        <Sidebar context={props.context} />
-                    </div>
-                    <div className="card-group w-50 mx-auto mt-5">
-                        <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
-                        {
-                            types.map((genre, i) => {
-                                //function to return contents of the cards and leave the innderWidth conditons below more concise
-                                return (
-                                    <div key={i} className='mx-auto'>
-                                        <div className='py-3'>
-                                            <a className='nonchalant' href={`/genres/${genre}`}>
-                                                <img className='radius wide_adjust' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
-                                                <h5 className='p-1'>{genre}</h5>
-                                            </a>
-                                        </div>
-                                    </div>
-                                );
-                            })
-                        }
-                    </div>
-                </div>
-            )
-        }
+                )
+            }
+        
     }
 }
