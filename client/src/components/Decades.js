@@ -81,7 +81,6 @@ export default function Decades(props) {
                         </div>
                     );
                 })}
-
             </div>
         )
     }
@@ -112,35 +111,42 @@ export default function Decades(props) {
             //mobile
             if (window.innerWidth < 768) {
                 return (
-                    mobile_filler()
-                );
-            } else {
-                if (props.context.folded === true) {
-                    return (
-                        <div className='mt-5'>
-                            <Header />
-                            <div className='position-fixed'>
-                                <Sidebar context={props.context} />
-                            </div>
+                    <div>
+                        <div className='w-50 mx-auto mt-5'>
+                            <Header context={props.context} />
+                        </div>
+                        <div className='w-75 mx-auto'>
                             <h2 className='w-100 pt-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
                             {fill_in()}
                         </div>
-                    );
-                } else {
-                    return (
-                        <div className='row align-items-start'>
-                            <div className='w-50 m-auto col position-fixed mt-5'>
-                                <Header />
-                                <Sidebar context={props.context} />
-                            </div>
-                            <div className='w-25 m-auto col'></div>
-                            <div className="col w-50 mx-auto mt-5 right-spacer">
-                                <h2 className='w-100 py-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
-                                {fill_in()}
-                            </div>
+                    </div>
+                );
+            }
+            if (props.context.folded === true) {
+                return (
+                    <div className='mt-5'>
+                        <Header />
+                        <div className='position-fixed'>
+                            <Sidebar context={props.context} />
                         </div>
-                    );
-                }
+                        <h2 className='w-100 pt-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
+                        {fill_in()}
+                    </div>
+                );
+            } else {
+                return (
+                    <div className='row align-items-start'>
+                        <div className='w-50 m-auto col position-fixed mt-5'>
+                            <Header />
+                            <Sidebar context={props.context} />
+                        </div>
+                        <div className='w-25 m-auto col'></div>
+                        <div className="col w-50 mx-auto mt-5 right-spacer">
+                            <h2 className='w-100 py-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
+                            {fill_in()}
+                        </div>
+                    </div>
+                );
             }
         } else {
             //not found

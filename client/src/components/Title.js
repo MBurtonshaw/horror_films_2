@@ -96,10 +96,18 @@ export default function Title(props) {
     let genres;
     let filmMakers;
 
+    function width_checker() {
+        if (window.innerWidth > 992) {
+            return ('w-75');
+        } else {
+            return ('mx-auto px-2');
+        }
+    }
+
     //function to create the accordion component
     function accordion_fill() {
         return (
-            <div className="accordion w-75 m-auto col">
+            <div className={`accordion m-auto col ${width_checker()}`}>
                 <div className="accordion-item">
                     <h2 className="accordion-header">
                         <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -203,7 +211,6 @@ export default function Title(props) {
             return (
                 <div>
                     <div>
-
                         <div><h1 >...Loading...</h1><div></div></div>
                         <div></div>
                         <div></div>
@@ -236,11 +243,9 @@ export default function Title(props) {
         );
     } else {
         if (isLoading === true) {
-
             return (loader_fill_in());
 
         } else if (isLoading === false && currentFilm.url !== url) {
-
             return (
                 <div>
                     <NotFound message={url} />
@@ -286,67 +291,73 @@ export default function Title(props) {
             if (window.innerWidth < 992) {
                 return (
                     <div>
-                        {cookie_handler()}
-                        <div className='row align-items-start'>
-                            <div className='w-25 m-auto col'>
-                                <a href='/titles'><img className='smaller_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                        <div className='m-auto'>
+                            <div className='mt-5 w-50 mx-auto'>
+                                <Header context={props.context} />
                             </div>
-                            <div className='col'>
-                                {accordion_fill()}
+                            {
+                                cookie_handler()
+                            }
+                            <div className='my-5'>
+                                <div className='my-5'>
+                                    <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                                </div>
+                                <div className=''>
+                                    {accordion_fill()}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+            if (props.context.folded === true) {
+                return (
+                    <div className='row align-items-start'>
+                        <div className='col position-fixed'>
+                            <Sidebar context={props.context} />
+                        </div>
+                        <div className='w-75 m-auto'>
+                            <div className='mt-5'>
+                                <Header />
+                            </div>
+                            {
+                                cookie_handler()
+                            }
+                            <div className='row align-items-start my-5'>
+                                <div className='col'>
+                                    {accordion_fill()}
+                                </div>
+                                <div className='w-50 m-auto col'>
+                                    <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 );
             } else {
-                if (props.context.folded === true) {
-                    return (
-                        <div className='row align-items-start'>
-                            <div className='col position-fixed'>
-                                <Sidebar context={props.context} />
+                return (
+                    <div className='row align-items-start'>
+                        <div className='col w-50 my-5'>
+                            <div className='right-spacest'>
+                                <Header />
                             </div>
-                            <div className='w-75 m-auto'>
-                                <div className='mt-5'>
-                                    <Header />
+                            <Sidebar context={props.context} />
+                        </div>
+                        <div className='col w-50 m-auto'>
+                            {
+                                cookie_handler()
+                            }
+                            <div className='row align-items-start my-5 py-5'>
+                                <div className='col'>
+                                    {accordion_fill()}
                                 </div>
-                                {
-                                    cookie_handler()
-                                }
-                                <div className='row align-items-start my-5'>
-                                    <div className='col'>
-                                        {accordion_fill()}
-                                    </div>
-                                    <div className='w-50 m-auto col'>
-                                        <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                                    </div>
+                                <div className='w-50 m-auto col'>
+                                    <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
                                 </div>
                             </div>
                         </div>
-                    );
-                } else {
-                    return (
-                        <div className='row align-items-start'>
-                            <div className='col w-50 my-5'>
-                                <div className='right-spacest'>
-                                    <Header />
-                                </div>
-                                <Sidebar context={props.context} />
-                            </div>
-                            <div className='col w-50 m-auto'>
-                                {
-                                    cookie_handler()
-                                }
-                                <div className='row align-items-start my-5 py-5'>
-                                    <div className='col'>
-                                        {accordion_fill()}
-                                    </div>
-                                    <div className='w-50 m-auto col'>
-                                        <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                }
+                    </div>
+                );
             }
         }
     }

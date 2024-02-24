@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react';
-import Sidebar from './Sidebar';
 import Header from './Header';
 import Search from './Search';
 
@@ -217,80 +216,72 @@ export default function Main(props) {
     ***************************************************************************************/
     if (window.innerWidth < 768) {
         return (
-            <div>
-                <div>
-                    <h2> {season} Recommendations </h2>
-                    {/* the first card doesn't use the card_filler function because it is supposed to be visible on pageload */}
-                    <div>
-                        <div className='row align-items-start'>
-                            <div className='col'>
-                                <a href={`/titles/${first.url}`}>
-                                    <img id={first.url} className='smaller_img' src={`../../photos/titles/${first.url}_mini.jpg`} alt={`a movie poster for ${first.title}`} />
-                                </a>
-                                <p>{first.memo}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {card_filler_mobile(second)}
-                    {card_filler_mobile(third)}
-                    {card_filler_mobile(fourth)}
-                    {card_filler_mobile(fifth)}
-                    {card_filler_mobile(sixth)}
+            <div >
+                <div className='w-50 m-auto mt-5'>
+                    <Header context={props.context} />
                 </div>
-            </div>
-        );
-    } else {
-        return (
-            <div className='row align-items-start mx-auto'>
-                <div className='w-50 m-auto col position-fixed mt-5'>
-                    <Header />
-                    <div id='Header' className='container animate my-5'>
-                        <div className=''>
-                            {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
-                            <div className='w-75 m-auto'>
-                                <ul className='little-right'>
-                                    <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
-                                    <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
-                                    <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
-                                    <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
-                                </ul>
-                                <Search />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='w-25 m-auto col'></div>
-                <div className='w-25 m-auto col mx-5 my-5'>
-                    <h2 className='py-5 my-2'> {season} Recommendations </h2>
-                    {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
-                    <div className='row align-items-start'>
-                        <div className='col w-50 m-auto mt-5'>
-                            <a href={`/titles/${first.url}`}>
-                                <img id={first.url} className='round_thumb' src={`../../photos/titles/${first.url}_round.jpg`} alt={`a movie poster for ${first.title}`} />
-                            </a>
-                            <p className='py-3 w-75 m-auto'>{first.memo}</p>
-                        </div>
-                        <div className='col w-50 m-auto'>
-                        </div>
-                    </div>
-                    {card_filler_2(second)}
-                    {card_filler_1(third)}
-                    {card_filler_2(fourth)}
-                    {card_filler_1(fifth)}
-                    <div className='row align-items-start mb-5'>
-                        <div className='col w-50 m-auto'>
-                        </div>
-                        <div className='col w-50 m-auto'>
-                            <a href={`/titles/${sixth.url}`}>
-                                <img id={sixth.url} className='round_thumb' src={`../../photos/titles/${sixth.url}_round.jpg`} alt={`a movie poster for ${sixth.title}`} />
-                            </a>
-                            <p className='py-3 w-75 m-auto'>{sixth.memo}</p>
-                        </div>
-                    </div>
-                </div>
+                <h2 className='py-5 my-2'> {season} Recommendations </h2>
+                {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
+                {card_filler_mobile(first)}
+                {card_filler_mobile(second)}
+                {card_filler_mobile(third)}
+                {card_filler_mobile(fourth)}
+                {card_filler_mobile(fifth)}
+                {card_filler_mobile(sixth)}
             </div>
         );
     }
+    return (
+        <div className='row align-items-start mx-auto'>
+            <div className='w-50 m-auto col position-fixed mt-5'>
+                <Header />
+                <div id='Header' className='container animate my-5'>
+                    <div className=''>
+                        {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
+                        <div className='w-75 m-auto'>
+                            <ul className='little-right'>
+                                <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
+                                <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
+                                <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
+                                <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
+                            </ul>
+                            <Search />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className='w-25 m-auto col'></div>
+            <div className='w-25 m-auto col mx-5 my-5'>
+                <h2 className='py-5 my-2'> {season} Recommendations </h2>
+                {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
+                <div className='row align-items-start'>
+                    <div className='col w-50 m-auto mt-5'>
+                        <a href={`/titles/${first.url}`}>
+                            <img id={first.url} className='round_thumb' src={`../../photos/titles/${first.url}_round.jpg`} alt={`a movie poster for ${first.title}`} />
+                        </a>
+                        <p className='py-3 w-75 m-auto'>{first.memo}</p>
+                    </div>
+                    <div className='col w-50 m-auto'>
+                    </div>
+                </div>
+                {card_filler_2(second)}
+                {card_filler_1(third)}
+                {card_filler_2(fourth)}
+                {card_filler_1(fifth)}
+                <div className='row align-items-start mb-5'>
+                    <div className='col w-50 m-auto'>
+                    </div>
+                    <div className='col w-50 m-auto'>
+                        <a href={`/titles/${sixth.url}`}>
+                            <img id={sixth.url} className='round_thumb' src={`../../photos/titles/${sixth.url}_round.jpg`} alt={`a movie poster for ${sixth.title}`} />
+                        </a>
+                        <p className='py-3 w-75 m-auto'>{sixth.memo}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+
 }
 
 
