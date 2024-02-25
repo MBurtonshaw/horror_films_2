@@ -182,14 +182,14 @@ export default function Main(props) {
     //number parameter is to be entered as 'first' 'second' 'third' 'fourth', etc.
     function card_filler_1(number) {
         return (
-            <div className='row align-items-start'>
+            <div className='row align-items-start background_box py-5 my-3'>
                 <div className='col w-50 m-auto'>
                     <a href={`/titles/${number.url}`}>
                         <img id={number.url} className='round_thumb' src={`../../photos/titles/${number.url}_round.jpg`} alt={`a movie poster for ${number.title}`} />
                     </a>
-                    <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
                 <div className='col w-50 m-auto'>
+                <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
             </div>
         );
@@ -198,14 +198,14 @@ export default function Main(props) {
     //number parameter is to be entered as 'first' 'second' 'third' 'fourth', etc.
     function card_filler_2(number) {
         return (
-            <div className='row align-items-start'>
+            <div className='row align-items-start background_box py-5 my-3'>
                 <div className='col w-50 m-auto'>
+                <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
                 <div className='col w-50 m-auto'>
                     <a href={`/titles/${number.url}`}>
                         <img id={number.url} className='round_thumb' src={`../../photos/titles/${number.url}_round.jpg`} alt={`a movie poster for ${number.title}`} />
                     </a>
-                    <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
             </div>
         );
@@ -233,10 +233,11 @@ export default function Main(props) {
     }
     return (
         <div className='row align-items-start mx-auto'>
-            <div className='w-50 m-auto col position-fixed mt-5'>
+            <div id='home_sidebar' className='w-50 col position-fixed'>
                 <Header />
+                
                 <div id='Header' className='container animate my-5'>
-                    <div className=''>
+
                         {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
                         <div className='w-75 m-auto'>
                             <ul className='little-right'>
@@ -246,7 +247,7 @@ export default function Main(props) {
                                 <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
                             </ul>
                             <Search />
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -254,30 +255,12 @@ export default function Main(props) {
             <div className='w-25 m-auto col mx-5 my-5'>
                 <h2 className='py-5 my-2'> {season} Recommendations </h2>
                 {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
-                <div className='row align-items-start'>
-                    <div className='col w-50 m-auto mt-5'>
-                        <a href={`/titles/${first.url}`}>
-                            <img id={first.url} className='round_thumb' src={`../../photos/titles/${first.url}_round.jpg`} alt={`a movie poster for ${first.title}`} />
-                        </a>
-                        <p className='py-3 w-75 m-auto'>{first.memo}</p>
-                    </div>
-                    <div className='col w-50 m-auto'>
-                    </div>
-                </div>
+                {card_filler_1(first)}
                 {card_filler_2(second)}
                 {card_filler_1(third)}
                 {card_filler_2(fourth)}
                 {card_filler_1(fifth)}
-                <div className='row align-items-start mb-5'>
-                    <div className='col w-50 m-auto'>
-                    </div>
-                    <div className='col w-50 m-auto'>
-                        <a href={`/titles/${sixth.url}`}>
-                            <img id={sixth.url} className='round_thumb' src={`../../photos/titles/${sixth.url}_round.jpg`} alt={`a movie poster for ${sixth.title}`} />
-                        </a>
-                        <p className='py-3 w-75 m-auto'>{sixth.memo}</p>
-                    </div>
-                </div>
+                {card_filler_2(sixth)}
             </div>
         </div>
     );
