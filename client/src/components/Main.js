@@ -168,11 +168,11 @@ export default function Main(props) {
     function card_filler_mobile(number) {
         return (
             <div>
-                <div>
+                <div className='background_box my-5 py-5'>
                     <a href={`/titles/${number.url}`}>
-                        <img id={number.url} className='smaller_img' src={`../../photos/titles/${number.url}_mini.jpg`} alt={`a movie poster for ${number.title}`} />
+                        <img id={number.url} className='round_thumb' src={`../../photos/titles/${number.url}_round.jpg`} alt={`a movie poster for ${number.title}`} />
                     </a>
-                    <p>{`${number.memo}`}</p>
+                    <p className='m-auto mx-5 pt-5'>{`${number.memo}`}</p>
                 </div>
             </div>
         );
@@ -189,7 +189,7 @@ export default function Main(props) {
                     </a>
                 </div>
                 <div className='col w-50 m-auto'>
-                <p className='py-3 w-75 m-auto'>{number.memo}</p>
+                    <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
             </div>
         );
@@ -200,7 +200,7 @@ export default function Main(props) {
         return (
             <div className='row align-items-start background_box py-5 my-3'>
                 <div className='col w-50 m-auto'>
-                <p className='py-3 w-75 m-auto'>{number.memo}</p>
+                    <p className='py-3 w-75 m-auto'>{number.memo}</p>
                 </div>
                 <div className='col w-50 m-auto'>
                     <a href={`/titles/${number.url}`}>
@@ -220,7 +220,7 @@ export default function Main(props) {
                 <div className='w-50 m-auto mt-5'>
                     <Header context={props.context} />
                 </div>
-                <h2 className='py-5 my-2'> {season} Recommendations </h2>
+                <h2 className='pt-5 my-2'> {season} Recommendations </h2>
                 {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
                 {card_filler_mobile(first)}
                 {card_filler_mobile(second)}
@@ -235,18 +235,18 @@ export default function Main(props) {
         <div className='row align-items-start mx-auto'>
             <div id='home_sidebar' className='w-50 col position-fixed'>
                 <Header />
-                
+
                 <div id='Header' className='container animate my-5'>
 
-                        {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
-                        <div className='w-75 m-auto'>
-                            <ul className='little-right'>
-                                <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
-                            </ul>
-                            <Search />
+                    {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
+                    <div className='w-75 m-auto'>
+                        <ul className='little-right'>
+                            <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
+                            <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
+                            <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
+                            <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
+                        </ul>
+                        <Search />
 
                     </div>
                 </div>

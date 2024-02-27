@@ -57,18 +57,18 @@ export default function TitlePage(props) {
                             <div className='w-50 m-auto mt-5'>
                                 <Header context={props.context} />
                             </div>
-                            <div className="card-group w-75 m-auto mt-4 px-5">
-                                <h1 className='text-center w-100 m-auto py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                            <div className="card-group w-100 m-auto mt-4">
+                                <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                 {
                                     films.map((movie, i) => {
                                         return (
-                                            <div key={i} className='mx-auto'>
-                                                <a href={`/titles/${movie.url}`}>
-                                                    <div className="card round_thumb">
+                                            <div key={i} className='mx-auto background_box my-3'>
+                                                <a className='nonchalant' href={`/titles/${movie.url}`}>
+                                                    <div className="card round_thumb w-50 mx-auto mt-4">
                                                         <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
                                                     </div>
+                                                    <h5 className='py-3'>{movie.title}</h5>
                                                 </a>
-                                                <p className='py-3'>{movie.title}</p>
                                             </div>
                                         );
                                     })

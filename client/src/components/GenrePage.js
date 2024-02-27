@@ -71,23 +71,25 @@ export default function GenrePage(props) {
         }
     } else {
         if (window.innerWidth < 768) {
+            console.log(types)
             return (
                 <div className='m-auto'>
-                    <div className='w-50 mx-auto mt-5'>
+                    <div className='w-50 m-auto mt-5'>
                         <Header context={props.context} />
                     </div>
-                    <h1 className='text-center w-100 m-auto py-5'>{props.context.actions.capitalizeFirstLetter(newString)}</h1>
-                    <div className="card-group w-75 mx-auto m-5">
+                    <div className="card-group w-100 m-auto mt-4">
+                        <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                         {
                             types.map((genre, i) => {
+                                console.log(genre)
                                 return (
-                                    <div key={i} className='mx-auto'>
-                                        <a href={`/genres/${genre}`}>
-                                            <div className="card round_thumb">
-                                                <img className="card-img-top round_thumb" src={`../../photos/genres/${genre}.jpg`} alt="Card image cap" />
+                                    <div key={i} className='mx-auto background_box my-3'>
+                                        <a className='nonchalant' href={`/genres/${genre}`}>
+                                            <div className="card round_thumb w-50 mx-auto mt-4">
+                                                <img className="card-img-top round_thumb" src={`../../photos/genres/${genre}_round.jpg`} alt="Card image cap" />
                                             </div>
+                                            <h5 className='py-3'>{genre}</h5>
                                         </a>
-                                        <p className='py-3'>{genre}</p>
                                     </div>
                                 );
                             })
