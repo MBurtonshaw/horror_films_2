@@ -54,7 +54,7 @@ export default function TitlePage(props) {
                 if (window.innerWidth < 768) {
                     return (
                         <div className='m-auto'>
-                            <div className='w-50 m-auto mt-5'>
+                            <div className='w-50 m-auto mt-3'>
                                 <Header context={props.context} />
                             </div>
                             <div className="card-group w-100 m-auto mt-4">
@@ -79,7 +79,7 @@ export default function TitlePage(props) {
                 }
                 if (props.context.folded === false) {
                     return (
-                        <div className='m-auto'>
+                        <div className='m-auto background_box'>
                             <div className='row align-items-start'>
                                 <div className='w-50 m-auto col mt-5 position-fixed'>
                                     <div className='right-spacest'>
@@ -117,7 +117,7 @@ export default function TitlePage(props) {
                                     <Sidebar context={props.context} />
                                 </div>
                             </div>
-                            <div className="card-group w-75 m-auto mt-4 px-5">
+                            <div className="card-group w-75 m-auto mt-4 px-5 background_box">
                                 <h1 className='text-center w-100 m-auto py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                 {
                                     films.map((movie, i) => {

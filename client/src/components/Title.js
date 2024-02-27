@@ -336,7 +336,7 @@ export default function Title(props) {
                 );
             } else {
                 return (
-                    <div className='row align-items-start'>
+                    <div className='row align-items-start background_box'>
                         <div className='col w-50 my-5'>
                             <div className='right-spacest'>
                                 <Header />

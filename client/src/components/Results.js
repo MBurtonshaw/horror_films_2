@@ -14,32 +14,33 @@ export default function Results(props) {
     let [movies, setMovies] = useState('');
     let [isLoading, setIsLoading] = useState(true);
     let [error, setError] = useState('');
-    let movieArray = [];
     let { url } = useParams();
 
     //function to set a term from url to state then sort movies based on that term
     async function getData() {
         try {
-            setTerm(window.location.pathname.slice(9));
-            movieArray = await props.context.data.movies.movies;
-
-            for (let i = 0; i < movieArray.length; i++) {
-                let newType = term.toLowerCase();
-                let newArray = [];
-                movieArray.forEach((film) => {
-                    if (film.url.includes(newType)) {
-                        newArray.push(film);
-                    }
+            let movieArray = await props.context.data.movies.movies;
+            let result = window.location.pathname.slice(9);
+            if (movieArray.length < 1) {
+                return null;
+            } else {
+                for (let i = 0; i < movieArray.length; i++) {
+                    let newArray = [];
+                    movieArray.forEach(title => {
+                        if (title.url.toLowerCase().includes(result.toLowerCase())) {
+                            newArray.push(title);
+                        }
+                    });
                     setMovies(newArray);
-                });
+                }
+                setIsLoading(false);
             }
-            setIsLoading(false);
         } catch (err) {
             setError(err.message);
         }
     }
 
-    useEffect(() => { getData() });
+    useEffect(() => { getData() }, [setMovies]);
 
     /***************************************************************************************
         FUNCTIONS

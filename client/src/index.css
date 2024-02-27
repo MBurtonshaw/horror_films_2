@@ -35,6 +35,10 @@ body:after {
   background-size: cover;
 }
 
+#page_widener {
+  width: 100%;
+}
+
 li {
   list-style: none;
 }
@@ -44,10 +48,7 @@ li {
   border: 1px solid rgb(245, 115, 10);
 }
 
-#home_sidebar {
-  margin-top: 15em;
-  padding-right: 3em;
-}
+
 
 .accordion a {
   color: rgb(92, 200, 137);

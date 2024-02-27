@@ -7,6 +7,7 @@ export default function Search(props) {
         STATE AND ASYNC FUNCTIONS
     ************************************************************************************************************************/
     let [error, setError] = useState('');
+    let [isLoading, setIsLoading] = useState(true);
 
     //sorting movies by title
     async function getData() {
@@ -19,9 +20,15 @@ export default function Search(props) {
                     titleArray.push(waiter[i]);
                 }
             }
+            let str = window.location.pathname;
+            let newString = str.split("/").pop();
+            //function to append a message when the searchbar is focused upon/////////////////////////////////////
+            
+
         } catch (err) {
             setError(err.message);
         }
+        setIsLoading(false);
     }
 
     //function to change url based on search term from state
@@ -39,31 +46,7 @@ export default function Search(props) {
     /************************************************************************************************************************
         FUNCTIONS
     ************************************************************************************************************************/
-    let str = window.location.pathname;
-    let newString = str.split("/").pop();
-    //function to append a message when the searchbar is focused upon/////////////////////////////////////
-    const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
-    const appendAlert = (message, type) => {
-
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = [
-            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-            `   <div class='thinner'>${message}</div>`,
-            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-            '</div>'
-        ].join('');
-        if (alertPlaceholder.childElementCount === 0) {
-            alertPlaceholder.append(wrapper);
-        }
-    }
-    const alertTrigger = document.getElementById('searchBar');
-    if (alertTrigger) {
-        alertTrigger.addEventListener('click', () => {
-            appendAlert(
-                `Please replace any spaces in your search term with an underscore ( _ )`, 'dark'
-            )
-        })
-    }  //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
 
     let titleArray = [];
 
@@ -73,19 +56,22 @@ export default function Search(props) {
     /************************************************************************************************************************
         RENDER
     ************************************************************************************************************************/
-    if (error) {
-        return (
-            <div>
-                <Error message={error} />
-            </div>
-        );
-    } else {
-        return (
-            <div>
-                <input id='searchBar' name='searchInput' type='text' ></input>
-                <button id='searchButton' htmlFor='searchInput' onClick={() => clicker()}> Find </button>
-                <div id="liveAlertPlaceholder"></div>
-            </div>
-        );
-    }
+
+        if (error) {
+            return (
+                <div>
+                    <Error message={error} />
+                </div>
+            );
+        } else {
+
+            return (
+                <div>
+                    <input id='searchBar' name='searchInput' type='text' ></input>
+                    <button id='searchButton' htmlFor='searchInput' onClick={() => clicker()}> Find </button>
+                    <div id="liveAlertPlaceholder"></div>
+                </div>
+            );
+        }
+    
 }

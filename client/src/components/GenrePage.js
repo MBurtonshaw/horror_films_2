@@ -71,10 +71,10 @@ export default function GenrePage(props) {
         }
     } else {
         if (window.innerWidth < 768) {
-            console.log(types)
+   
             return (
                 <div className='m-auto'>
-                    <div className='w-50 m-auto mt-5'>
+                    <div className='w-50 m-auto mt-3'>
                         <Header context={props.context} />
                     </div>
                     <div className="card-group w-100 m-auto mt-4">
@@ -100,7 +100,7 @@ export default function GenrePage(props) {
         }
         if (props.context.folded === false) {
             return (
-                <div className='m-auto'>
+                <div className='m-auto background_box'>
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
                             <div className='right-spacest'>
@@ -134,19 +134,20 @@ export default function GenrePage(props) {
             return (
                 <div className='w-100 m-auto mt-5'>
                     <Header />
+                    <div className=''>
                     <div className='position-fixed'>
                         <Sidebar context={props.context} />
                     </div>
-                    <div className="card-group w-50 mx-auto mt-5">
+                    <div className="card-group w-50 mx-auto mt-5 background_box">
                         <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                         {
                             types.map((genre, i) => {
                                 //function to return contents of the cards and leave the innderWidth conditons below more concise
                                 return (
-                                    <div key={i} className='mx-auto'>
+                                    <div key={i} className='px-4 mx-auto'>
                                         <div className='py-3'>
                                             <a className='nonchalant' href={`/genres/${genre}`}>
-                                                <img className='radius wide_adjust' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
+                                                <img className='round_thumb wide_adjust' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
                                                 <h5 className='p-1'>{genre}</h5>
                                             </a>
                                         </div>
@@ -154,6 +155,7 @@ export default function GenrePage(props) {
                                 );
                             })
                         }
+                    </div>
                     </div>
                 </div>
             )

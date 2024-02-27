@@ -9,6 +9,7 @@
             "directors" : [ "Fred Walton" ],
             "writers" : [ "Fred Walton", "Steve Feke" ],
             "photo" : "../../photos/titles/the_sitter",
+            "memo" : "A teenage babysitter receives disturbing phone calls while watching some children.",
             "prime_link" : "",
             "youtube_link" : "https://www.youtube.com/watch?v=--BSM6J6tGI"
         },
@@ -21,6 +22,7 @@
             "directors" : [ "David Robert Mitchell" ],
             "writers" : [ "David Robert Mitchell" ],
             "photo" : "../../photos/titles/it_follows",
+            "memo" : "A woman is cursed to be followed by an entity until her death.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B011KKFPGW/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=emhePra9Zm4"
         },
@@ -33,6 +35,7 @@
             "directors" : [ "John Fawcett" ],
             "writers" : [ "Karen Walton" ],
             "photo" : "../../photos/titles/ginger_snaps",
+            "memo" : "Two sisters suddenly have to learn to deal with some physical changes.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B008X1O7KM/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=PaVuuiA0fO0"
         },
@@ -45,6 +48,7 @@
             "directors" : [ "Bruce McDonald" ],
             "writers" : [ "Tony Burgess" ],
             "photo" : "../../photos/titles/pontypool",
+            "memo" : "A local Canadian radio host finds himself reporting on strange stories during a snowstorm.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B0CH5YZVT9/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=jQ4DmindUIA"
         },
@@ -57,6 +61,7 @@
             "directors" : [ "Stan Winston" ],
             "writers" : [ "Mark Patrick Carducci", "Gary Gerani", "Richard C. Weinman", "Sam Winston" ],
             "photo" : "../../photos/titles/pumpkinhead",
+            "memo" : "A man calls on a vengeful creature to punish those that wronged him.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B00HH3WIBW/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=qbl_E1rgbC8"
         },
@@ -69,6 +74,7 @@
             "directors" : [ "David Cronenberg" ],
             "writers" : [ "David Cronenberg" ],
             "photo" : "../../photos/titles/shivers",
+            "memo" : "",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B00O8NPCQW/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=CQ9iL41uXug"
         },
@@ -81,6 +87,7 @@
             "directors" : [ "John Carpenter" ],
             "writers" : [ "John Carpenter" ],
             "photo" : "../../photos/titles/prince_of_darkness",
+            "memo" : "",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B000I9WWEA/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://youtu.be/SbxxUe9C0n4?si=WcE3Nr3MSOzhamQa"
         },
@@ -93,18 +100,20 @@
             "directors" : [ "Frank Darabont" ],
             "writers" : [ "Steven King", "Frank Darabont" ],
             "photo" : "../../photos/titles/the_mist",
+            "memo" : "Something's in the mist that's descended upon a small town in Maine.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B003TNQEF0/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=ph1umRRFTNU"
         },
         {
             "id" : 9,
             "title" : "From Dusk Till Dawn",
-            "url" : "dusk_till_dawn",
+            "url" : "from_dusk_till_dawn",
             "year" : 1996,
             "genres" : ["Creature", "Campy", "Body", "Gore"],
             "directors" : [ "Robert Rodriguez" ],
             "writers" : [ "Robert Kurtzman", "Quentin Tarantino" ],
-            "photo" : "../../photos/titles/dusk_till_dawn",
+            "photo" : "../../photos/titles/from_dusk_till_dawn",
+            "memo" : "Two criminal brothers take a family hostage in order to find safety over the Mexican border.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B009JZUJIK/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=H5Vk7qiAfNk"
         },
@@ -117,6 +126,7 @@
             "directors" : [ "Antonia Bird" ],
             "writers" : [ "Ted Griffin" ],
             "photo" : "../../photos/titles/ravenous",
+            "memo" : "Following the Mexican-American War, a military regiment takes in a stranger on a snowy night.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B009EEVOP8/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=GQMYF4yKnyU"
         },
@@ -129,6 +139,7 @@
             "directors" : [ "Terence Fisher" ],
             "writers" : [ "Jimmy Sangster" ],
             "photo" : "../../photos/titles/curse_of_frankenstein",
+            "memo" : "A scientist devotes his studies to raising the dead, regardless of consequences.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B00DKN7XHC/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=FCNrxjaVf2M"
         },
@@ -141,6 +152,7 @@
             "directors" : [ "Bob Clark" ],
             "writers" : [ "A. Roy Moore" ],
             "photo" : "../../photos/titles/black_christmas",
+            "memo" : "It's Christmas, and people are celebrating; but a sorority house is receiving disturbing phone calls.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B07X7KZ98B/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=BawUDjjgAsc"
         },
@@ -153,6 +165,7 @@
             "directors" : [ "Michael Haneke" ],
             "writers" : [ "Michael Haneke" ],
             "photo" : "../../photos/titles/funny_games",
+            "memo" : "",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B0091WEFZO/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=QKh5xTo_I14"
         },
@@ -165,6 +178,7 @@
             "directors" : [ "Robert Eggers" ],
             "writers" : [ "Robert Eggers" ],
             "photo" : "../../photos/titles/the_vvitch",
+            "memo" : "In Colonial America, a baby is stolen from an outcast family and taken to the woods.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B01BT3SDQO/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=0otnn7hgnek"
         },
@@ -177,6 +191,7 @@
             "directors" : ["Robert Eggers" ],
             "writers" : [ "Robert Eggers" ],
             "photo" : "../../photos/titles/the_lighthouse",
+            "memo" : "Things become strange between two lighthouse keepers while alone on an island.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B07Z4236MR/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=1TZXfVEdXyA"
         },
@@ -189,6 +204,7 @@
             "directors" : [ "Ari Aster"],
             "writers" : [ "Ari Aster" ],
             "photo" : "../../photos/titles/hereditary",
+            "memo" : "A grandmother's death causes problems to surface in her daughter's family.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B07GRB9NF3/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=W1WgJB4EkGU"
         },
@@ -201,6 +217,7 @@
             "directors" : [ "Jordan Peele" ],
             "writers" : [ "Jordan Peele" ],
             "photo" : "../../photos/titles/get_out",
+            "memo" : "",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B06Y1H48K7/ref=atv_dp_share_cu_r",
             "youtube_link" : ""
         },
@@ -213,6 +230,7 @@
             "directors" : [ "Adam Wingard", "David Bruckner", "Ti West", "Glenn McQuaid", "Joe Swanberg", "Radio Silence" ],
             "writers" : [ "Simon Barrett", "David Bruckner", "Nicholas Tecosky", "Ti West", "Glenn McQuaid", "Matt Bettinelli-Olpin, Tyler Gillett, Justin Martinez, Chad Villella" ],
             "photo" : "../../photos/titles/vhs",
+            "memo" : "",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B00944CJRK/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=YHvBw3zCebk"
         },
@@ -225,6 +243,7 @@
             "directors" : ["Scott Derrickson"],
             "writers" : [ "Scott Derrickson" ],
             "photo" : "../../photos/titles/black_phone",
+            "memo" : "Boys around town are being kidnapped by a man with a black van.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B0B5W5R4X3/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=0OFW1jZznac"
         },
@@ -237,6 +256,7 @@
             "directors" : [ "Ti West" ],
             "writers" : [ "Mia Goth", "Ti West" ],
             "photo" : "../../photos/titles/pearl",
+            "memo" : "A woman yearns for fame while working on a farm, waiting for her husband to return from war.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B0B8MY88QP/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=JXqgN-a1N7g"
         },
@@ -249,6 +269,7 @@
             "directors" : [ "Tobe Hooper" ],
             "writers" : [ "Tobe Hooper" ],
             "photo" : "../../photos/titles/texas_chainsaw_massacre",
+            "memo" : "Local graves are being desecrated, and a van full of people has just stumbled onto the wrong property.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B077T2DG12/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=2ujekuaOPv0"
         },
@@ -261,6 +282,7 @@
             "directors" : [ "Sam Raimi" ],
             "writers" : [ "Sam Raimi" ],
             "photo" : "../../photos/titles/evil_dead",
+            "memo" : "In a cabin in the woods, someone reads from an ancient book and causes the Deadites to rise.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B0BQSC8DCK/ref=atv_dp_share_cu_r",
             "youtube_link" : ""
         },
@@ -273,6 +295,7 @@
             "directors" : [ "Sam Raimi" ],
             "writers" : [ "Sam Raimi" ],
             "photo" : "../../photos/titles/evil_dead_2",
+            "memo" : "",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B007WN5S8M/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=uzb6fMc5Z8w"
         },
@@ -285,6 +308,7 @@
             "directors" : [ "Patrick Brice" ],
             "writers" : [ "Mark Duplass", "Patrick Brice" ],
             "photo" : "../../photos/titles/creep",
+            "memo" : "",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B011KKCH0O/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=XmMbhCa3ikc"
         },
@@ -297,6 +321,7 @@
             "directors" : [ "John Carpenter" ],
             "writers" : [ "John Carpenter", "Debra Hill" ],
             "photo" : "../../photos/titles/halloween",
+            "memo" : "An escaped mental patient stalks high school girls on Halloween night.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B09L2NZ5GK/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=-_8KR4U5Yhk"
         },
@@ -309,6 +334,7 @@
             "directors" : [ "John Carpenter" ],
             "writers" : [ "Bill Lancaster", "John Carpenter" ],
             "photo" : "../../photos/titles/the_thing",
+            "memo" : "Somewhere in Antarctica, American researchers rescue a dog and take it back to camp.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B0CMR2Y5CN/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=osB4KmgfIDM"
         },
@@ -321,6 +347,7 @@
             "directors" : [ "Wes Craven" ],
             "writers" : [ "Kevin Williamson" ],
             "photo" : "../../photos/titles/scream",
+            "memo" : "High school students are being murdered by a killer who loves horror movies.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B00AYB1BIK/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=IQO7FAeV_lM"
         },
@@ -333,6 +360,7 @@
             "directors" : [ "Stuart Gordon" ],
             "writers" : [ "Stuart Gordon", "William J. Norris", "Dennis Paoli" ],
             "photo" : "../../photos/titles/re_animator",
+            "memo" : "Herbert West has concocted a formula to bring the recently dead back to life.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B075F41LJF/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=Ih6QRaKLryQ"
         },
@@ -345,6 +373,7 @@
             "directors" : [ "Robert Rodriguez" ],
             "writers" : [ "Robert Rodriguez" ],
             "photo" : "../../photos/titles/planet_terror",
+            "memo" : "A group of people band together as a virus causes everyone else to mutate and attack.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B002I7IC58/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=gUkJvulfu6k"
         },
@@ -357,6 +386,7 @@
             "directors" : [ "Joe Dante" ],
             "writers" : [ "Chris Columbus" ],
             "photo" : "../../photos/titles/gremlins",
+            "memo" : "A father buys his son a rare pet as a Christmas present from a mysterious shop in Chinatown.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B00KQ9Z1SQ/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=WB9hY4tmV3w"
         },
@@ -369,6 +399,7 @@
             "directors" : [ "Stephen Cognetti" ],
             "writers" : [ "Stephen Cognetti" ],
             "photo" : "../../photos/titles/hell_house_llc",
+            "memo" : "A group of people record their life in an abandoned hotel while converting it into a haunted house attraction.",
             "prime_link" : "https://www.amazon.com/gp/video/detail/B07X3NDRZ7/ref=atv_dp_share_cu_r",
             "youtube_link" : "https://www.youtube.com/watch?v=SlIbSDNSTao"
         }

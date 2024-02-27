@@ -70,32 +70,32 @@ export default function GenrePage(props) {
             console.log(props.decades)
             return (
                 <div className='m-auto'>
-                            <div className='w-50 m-auto mt-5'>
-                                <Header context={props.context} />
-                            </div>
-                            <div className="card-group w-100 m-auto mt-4">
-                                <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
-                                {
-                                    props.decades.map((decade, i) => {
-                                        return (
-                                            <div key={i} className='mx-auto background_box my-3'>
-                                                <a className='nonchalant' href={`/decades/${decade.url}`}>
-                                                    <div className="card round_thumb w-50 mx-auto mt-4">
-                                                        <img className="card-img-top round_thumb" src={`../../photos/decades/${decade.name}.jpg`} alt="Card image cap" />
-                                                    </div>
-                                                    <h5 className='py-3'>{decade.name}</h5>
-                                                </a>
+                    <div className='w-50 m-auto mt-3'>
+                        <Header context={props.context} />
+                    </div>
+                    <div className="card-group w-100 m-auto mt-4">
+                        <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                        {
+                            props.decades.map((decade, i) => {
+                                return (
+                                    <div key={i} className='mx-auto background_box my-3'>
+                                        <a className='nonchalant' href={`/decades/${decade.url}`}>
+                                            <div className="card round_thumb w-50 mx-auto mt-4">
+                                                <img className="card-img-top round_thumb" src={`../../photos/decades/${decade.name}.jpg`} alt="Card image cap" />
                                             </div>
-                                        );
-                                    })
-                                }
-                            </div>
-                        </div>
+                                            <h5 className='py-3'>{decade.name}</h5>
+                                        </a>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
+                </div>
             );
         }
         if (props.context.folded === false) {
             return (
-                <div className='m-auto'>
+                <div className='m-auto background_box'>
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
                             <div className='right-spacest'>
@@ -127,31 +127,30 @@ export default function GenrePage(props) {
             )
         } else {
             return (
-                <div className='m-auto'>
-                    <div className='w-100 m-auto mt-5'>
-                        <Header />
-                        <div className='position-fixed'>
-                            <Sidebar context={props.context} />
-                        </div>
-                    </div>
+                <div className='w-100 m-auto mt-5'>
+                    <Header />
                     <div className=''>
-                        <h1 className='text-center w-100 m-auto py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
-                        <div className="card-group w-50 mt-5 m-auto">
-                            {
-                                props.decades.map((decade, i) => {
-                                    return (
-                                        <div key={i} className='mx-auto'>
-                                            <a href={`/decades/${decade.url}`}>
-                                                <div className="card round_thumb">
-                                                    <img className="card-img-top round_thumb" src={`../../photos/decades/${decade.name}.jpg`} alt="Card image cap" />
-                                                </div>
+                    <div className='position-fixed'>
+                        <Sidebar context={props.context} />
+                    </div>
+                    <div className="card-group w-50 mx-auto mt-5 background_box">
+                        <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                        {
+                            types.map((decade, i) => {
+                                //function to return contents of the cards and leave the innderWidth conditons below more concise
+                                return (
+                                    <div key={i} className='px-4 mx-auto'>
+                                        <div className='py-3'>
+                                            <a className='nonchalant' href={`/decades/${decade.url}`}>
+                                                <img className='round_thumb wide_adjust' src={`../../photos/decades/${decade.name.toLowerCase()}.jpg`} alt="..." />
+                                                <h5 className='p-1'>{decade.name}</h5>
                                             </a>
-                                            <p className='py-3'>{decade.name}</p>
                                         </div>
-                                    );
-                                })
-                            }
-                        </div>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
                     </div>
                 </div>
             );
