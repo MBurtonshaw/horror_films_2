@@ -53,8 +53,8 @@ export default function TitlePage(props) {
             for (let i = 0; i < films.length; i++) {
                 if (window.innerWidth < 768) {
                     return (
-                        <div className='m-auto'>
-                            <div className='w-50 m-auto mt-3'>
+                        <div className='w-100 m-auto mt-5'>
+                            <div className='w-50 mx-auto'>
                                 <Header context={props.context} user={props.user} />
                             </div>
                             <div className="card-group w-100 m-auto background_box">

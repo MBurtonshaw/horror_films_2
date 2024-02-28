@@ -243,8 +243,8 @@ export default function List(props) {
                             <div className='w-50 mx-auto'>
                                 <Header />
                             </div>
-                            <div className="card-group w-100 py-5 mx-auto mt-5 row align-items-start background_box">
-                                <h1 className='my-5 mt-2'> My List </h1>
+                            <div className="card-group w-100 m-auto background_box row align-items-start mt-3">
+                                <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'> My List </h1>
                                 {mapper()}
                             </div>
                         </div>
