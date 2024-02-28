@@ -57,7 +57,7 @@ export default function TitlePage(props) {
                             <div className='w-50 m-auto mt-3'>
                                 <Header context={props.context} user={props.user}/>
                             </div>
-                            <div className="card-group w-100 m-auto mt-4">
+                            <div className="card-group w-100 m-auto">
                                 <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                 {
                                     films.map((movie, i) => {
