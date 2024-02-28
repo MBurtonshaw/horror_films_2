@@ -59,17 +59,21 @@ export default function List(props) {
             if (window.innerWidth < 768) {
                 return (
                     filmList.map((item, i) =>
-                        <li key={i}>
-                            <div>
-                                <a href={`/titles/${item.url}`}> {item.title} </a>
-                            </div>
-                            <div>
+                        <div className='my-2'>
+                            <li key={i}>
+                                <div className='w-100 py-2'>
+                                    <a href={`/titles/${item.url}`}> <img className='round_thumb' src={`../../photos/titles/${item.url}_round.jpg`} /> </a>
+                                </div>
+                                <div className='py-2'>
+                                    <span className='w-100 mx-auto'>{item.title}</span>
+                                </div>
                                 <button onClick={() => {
                                     Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
                                     window.location.reload();
                                 }}>remove</button>
-                            </div>
-                        </li>
+
+                            </li>
+                        </div>
                     )
                 );
             }
@@ -233,6 +237,19 @@ export default function List(props) {
                     );
                 }
             } else {
+                if (window.innerWidth < 768) {
+                    return (
+                        <div className='w-100 m-auto mt-5'>
+                            <div className='w-50 mx-auto'>
+                                <Header />
+                            </div>
+                            <div className="card-group w-100 py-5 mx-auto mt-5 row align-items-start background_box">
+                                <h1 className='my-5 mt-2'> My List </h1>
+                                {mapper()}
+                            </div>
+                        </div>
+                    );
+                }
                 if (props.context.folded === true) {
                     return (
                         <div className='w-100 m-auto mt-5'>
@@ -255,7 +272,7 @@ export default function List(props) {
                                 </div>
                                 <div className='col'></div>
                                 <div className='col'>
-                                <h1 className='my-5'> My List </h1>
+                                    <h1 className='my-5'> My List </h1>
                                     {mapper()}
                                 </div>
 
