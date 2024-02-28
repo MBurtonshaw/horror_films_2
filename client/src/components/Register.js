@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Error from './Error';
+import Header from './Header';
 
 export default function Register(props) {
 
@@ -19,9 +20,6 @@ export default function Register(props) {
         FUNCTIONS
     ***************************************************************************************/
     let navigate = useNavigate();
-
-    let str = window.location.pathname;
-    let newString = str.split("/").pop();
 
     function registerUser(e) {
         e.preventDefault();
@@ -75,27 +73,32 @@ export default function Register(props) {
         if (window.innerWidth < 768) {
             return (
                 <div>
-                    <h1>Register</h1>
-                    <form action='/login' method='POST' onSubmit={registerUser}>
-                        <div>
-                            <div>
-                                <label htmlFor='name'>Name</label>
-                                <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
+                    <div className='mt-5 w-50 mx-auto'>
+                        <Header context={props.context} user={props.user} />
+                    </div>
+                    <div className='px-5 background_box'>
+                        <h1 className='my-3 mt-5'>Register</h1>
+                        <form action='/register' method='POST' onSubmit={registerUser}>
+                            <div className='text-center'>
+                                <div>
+                                    <label className='w-100' htmlFor='name'>Name</label>
+                                    <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
+                                </div>
+                                <div>
+                                    <label className='w-100' htmlFor='email'>Email</label>
+                                    <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
+                                </div>
+                                <div>
+                                    <label className='w-100' htmlFor='password'>Password</label>
+                                    <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
+                                </div>
+                                <button className='my-2' type='submit' onSubmit={registerUser}>Register</button>
                             </div>
-                            <div>
-                                <label htmlFor='email'>Email</label>
-                                <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
-                            </div>
-                            <div>
-                                <label htmlFor='password'>Password</label>
-                                <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
-                            </div>
-                            <button type='submit' onSubmit={registerUser}>Register</button>
+                        </form>
+                        <div className='my-5'>
+                            <p>Already have an account?</p>
+                            <a href='/login'><button>Login</button></a>
                         </div>
-                    </form>
-                    <div>
-                        <p>Already have an account?</p>
-                        <a href='/login'>Login</a>
                     </div>
                 </div>
             );

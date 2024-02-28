@@ -86,7 +86,7 @@ export default function GenrePage(props) {
                                     <div key={i} className='mx-auto background_box my-3'>
                                         <a className='nonchalant' href={`/genres/${genre}`}>
                                             <div className="card round_thumb w-50 mx-auto mt-4">
-                                                <img className="card-img-top round_thumb" src={`../../photos/genres/${genre}_round.jpg`} alt="Card image cap" />
+                                                <img className="card-img-top round_thumb" src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="Card image cap" />
                                             </div>
                                             <h5 className='py-3'>{genre}</h5>
                                         </a>

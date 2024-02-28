@@ -43,6 +43,29 @@ export default function Login(props) {
     }
 
     function content_filler() {
+        if (window.innerWidth < 768) {
+            return (
+                <div className='m-5'>
+                    <h1>Login</h1>
+                    <form action='/login' method='POST' onSubmit={loginUser}>
+                        <div>
+                            <div>
+                                <label className='w-100' htmlFor='email'>Email</label>
+                                <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
+                            </div>
+                            <div>
+                                <label className='w-100' htmlFor='password'>Password</label>
+                                <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
+                            </div>
+                            <button className='my-2' type='submit' onSubmit={loginUser}>Login</button>
+                        </div>
+                    </form>
+                    <div className='mt-5'>
+                        <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
+                    </div>
+                </div>
+            );
+        }
         return (
             <div className='m-5 p-5'>
                 <h1>Login</h1>
@@ -96,7 +119,15 @@ export default function Login(props) {
     } else {
         if (window.innerWidth < 768) {
             return (
-                <div className=''>
+                <div>
+                    <div className='mt-5 w-50 mx-auto'>
+                        <Header context={props.context} user={props.user} />
+                    </div>
+                    <div>
+                        <div className='px-5 background_box'>
+                            {content_filler()}
+                        </div>
+                    </div>
                 </div>
             );
         } else if (props.context.folded === true) {

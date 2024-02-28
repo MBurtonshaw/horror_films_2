@@ -39,7 +39,19 @@ export default function Login(props) {
     if (window.innerWidth < 768) {
         return (
             <div>
-                {content_filler()}
+                <div className='mt-5 w-50 mx-auto'>
+                    <Header context={props.context} user={props.user} />
+                </div>
+                <div className='p-5 background_box'>
+                    <h1>Logout</h1>
+                    <form action='/login' method='POST' onSubmit={logoutUser}>
+                        <div>
+                            <h2 className='mt-5'>Are you sure?</h2>
+                            <button className='mt-2' onClick={logoutUser}>Logout</button>
+                        </div>
+                    </form>
+                    <a href={'/'}><button className='mt-2'>Home</button></a>
+                </div>
             </div>
         );
     } else {

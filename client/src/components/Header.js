@@ -2,11 +2,11 @@ import { React } from 'react';
 
 export default function Header(props) {
     if (window.innerWidth < 768) {
-        if (props.context.user !== undefined && props.context.user !== '') {
+        if (props.user !== undefined && props.user !== '') {
              return (
                 <div id='Header' className='container'>
                     <h1><a href='/' className='nonchalant'>Horror Films</a></h1>
-                    <div className="dropdown m-auto pt-3">
+                    <div className="dropdown m-auto py-3">
                         <button className="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img id='menu_icon' className='w-25' alt='a menu icon, three horizontal bars' src='../../photos/menu_icon.png'></img>
                         </button>
