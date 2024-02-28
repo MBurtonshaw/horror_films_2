@@ -39,6 +39,19 @@ body:after {
   width: 100%;
 }
 
+.thin_col {
+  min-width: 10em;
+  max-width: 10em;
+}
+
+.arrow_downward {
+  margin-top: 2em;
+}
+
+.wide_col {
+  min-width: 20em;
+}
+
 li {
   list-style: none;
 }
@@ -93,6 +106,11 @@ li {
   border-radius: 50%;
 }
 
+.round_thumb_2 {
+  border-radius: 50%;
+  width: 12em;
+}
+
 .round_tiny_thumb {
   width: 15%;
   height: auto;
@@ -110,11 +128,17 @@ li {
   width: 10%;
 }
 
+
+
 .round_thumb_loader {
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
   width: 15em;
   height: 15em;
+}
+
+.straightener {
+  margin-left: -2em;
 }
 
 .oval_thumb_loader {

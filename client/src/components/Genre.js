@@ -56,14 +56,14 @@ export default function Genres(props) {
         return (
             fill_array.map((film, i) => {
                 return (
-                    <div key={i} className='mx-auto background_box my-3'>
-                                            <a className='nonchalant' href={`/titles/${film.url}`}>
-                                                <div className="card round_thumb w-50 mx-auto mt-4">
-                                                    <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
-                                                </div>
-                                                <h5 className='py-3'>{film.title}</h5>
-                                            </a>
-                                        </div>
+                    <div key={i} className='mx-auto my-3'>
+                        <a className='nonchalant' href={`/titles/${film.url}`}>
+                            <div className="card round_thumb w-75 mx-auto mt-4">
+                                <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
+                            </div>
+                            <h5 className='py-3'>{film.title}</h5>
+                        </a>
+                    </div>
                 );
             }
             )
@@ -128,16 +128,16 @@ export default function Genres(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div className='m-auto'>
-                            <div className='w-50 m-auto mt-3'>
-                                <Header context={props.context} />
-                            </div>
-                            <div className="card-group w-100 m-auto mt-4">
-                                <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
-                                {
-                                    fill_in()
-                                }
-                            </div>
+                        <div className='w-50 m-auto mt-3'>
+                            <Header context={props.context} />
                         </div>
+                        <div className="card-group w-100 m-auto mt-4">
+                            <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                            {
+                                fill_in()
+                            }
+                        </div>
+                    </div>
                 );
             }
             if (props.context.folded === true) {
@@ -153,7 +153,7 @@ export default function Genres(props) {
                                     <Sidebar context={props.context} />
                                 </div>
                             </div>
-                            <div className='px-5 card-group w-75 m-auto'>
+                            <div className='px-5 card-group w-75 m-auto background_box'>
                                 {fill_in()}
                             </div>
                         </div>
@@ -161,10 +161,9 @@ export default function Genres(props) {
                 );
             } else {
                 return (
-                    <div className='row align-items-start'>
+                    <div className='row align-items-start background_box'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
-                            <Header />
-                            <Sidebar context={props.context} />
+                            <Sidebar context={props.context} user={props.user}/>
                         </div>
                         <div className='w-25 m-auto col'></div>
                         <div className="card-group col w-50 mx-auto mt-5 right-spacer">

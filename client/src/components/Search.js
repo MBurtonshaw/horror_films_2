@@ -23,7 +23,7 @@ export default function Search(props) {
             let str = window.location.pathname;
             let newString = str.split("/").pop();
             //function to append a message when the searchbar is focused upon/////////////////////////////////////
-            
+
 
         } catch (err) {
             setError(err.message);
@@ -57,21 +57,21 @@ export default function Search(props) {
         RENDER
     ************************************************************************************************************************/
 
-        if (error) {
-            return (
-                <div>
-                    <Error message={error} />
-                </div>
-            );
-        } else {
+    if (error) {
+        return (
+            <div>
+                <Error message={error} />
+            </div>
+        );
+    } else {
 
-            return (
-                <div>
-                    <input id='searchBar' name='searchInput' type='text' ></input>
-                    <button id='searchButton' htmlFor='searchInput' onClick={() => clicker()}> Find </button>
-                    <div id="liveAlertPlaceholder"></div>
-                </div>
-            );
-        }
-    
+        return (
+            <div>
+                <input id='searchBar' name='searchInput' type='text' ></input>
+                <button id='searchButton' htmlFor='searchInput' onClick={() => clicker()}> Find </button>
+                <div id="liveAlertPlaceholder"></div>
+            </div>
+        );
+    }
+
 }

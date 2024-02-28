@@ -17,6 +17,7 @@ export default function Title(props) {
     let [isChecked, setIsChecked] = useState();
     let [isLoading, setIsLoading] = useState(true);
     let [error, setError] = useState('');
+    let [ user, setUser ] = useState('');
 
     //async function to match the corresponding film with the url
     async function getData() {
@@ -39,13 +40,15 @@ export default function Title(props) {
                     }
                 }
             }
+            let logger = await props.user;
+            setUser(logger);
         } catch (err) {
             setError(err.message);
         }
         setIsLoading(false);
     }
 
-    useEffect(() => { getScreenSize() }, [setSizeClass]);
+
     useEffect(() => { getData() }, [setIsLoading]);
 
     /**************************************************************************************
@@ -341,7 +344,7 @@ export default function Title(props) {
                             <div className='right-spacest'>
                                 <Header />
                             </div>
-                            <Sidebar context={props.context} />
+                            <Sidebar context={props.context} user={props.user}/>
                         </div>
                         <div className='col w-50 m-auto'>
                             {

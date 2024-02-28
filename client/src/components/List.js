@@ -77,13 +77,13 @@ export default function List(props) {
                 return (
                     filmList.map((item, i) =>
 
-                        <div key={i} className='row align-items-start w-25 mx-auto my-3'>
-                            <div className='mx-auto col'>
-                                <div className='row align-items-start w-75 mx-auto'>
-                                    <a className='' href={`/titles/${item.url}`}>
-                                        <img className='round_thumb' src={`../../photos/titles/${item.url}_round.jpg`} />
+                        <div key={i} className='w-25 mx-auto my-3'>
+                            <div className='mx-auto'>
+                                <div>
+                                    <a href={`/titles/${item.url}`}>
+                                        <img className='round_thumb_2' src={`../../photos/titles/${item.url}_round.jpg`} />
                                     </a>
-                                    <div className='m-auto my-5'>
+                                    <div className='mx-auto my-3'>
                                         <a className='nonchalant' href={`/titles/${item.url}`}> {item.title} </a>
                                         <div className='w-50 mx-auto my-2'>
                                             <button onClick={() => {
@@ -102,13 +102,13 @@ export default function List(props) {
                 return (
                     filmList.map((item, i) =>
 
-                        <div key={i} className='row align-items-start w-50 mx-auto my-3'>
+                        <div key={i} className='row align-items-start w-50 mx-auto my-5'>
                             <div className='w-50 mx-auto col'>
-                                <div className='row align-items-start'>
-                                    <a className='col' href={`/titles/${item.url}`}>
+                                <div className=''>
+                                    <a className='' href={`/titles/${item.url}`}>
                                         <img className='round_thumb' src={`../../photos/titles/${item.url}_round.jpg`} />
                                     </a>
-                                    <div className='col'>
+                                    <div className='mt-3'>
                                         <a className='w-100 nonchalant my-auto' href={`/titles/${item.url}`}> {item.title} </a>
                                         <div className='w-50 m-auto'>
                                             <button onClick={() => {
@@ -240,7 +240,7 @@ export default function List(props) {
                             <div className='position-fixed'>
                                 <Sidebar context={props.context} />
                             </div>
-                            <div className="card-group w-75 mx-auto mt-5 row align-items-start">
+                            <div className="card-group w-75 mx-auto mt-5 row align-items-start background_box">
                                 <h1 className='my-5 mt-2'> My List </h1>
                                 {mapper()}
                             </div>
@@ -248,17 +248,14 @@ export default function List(props) {
                     );
                 } else {
                     return (
-                        <div className='m-auto'>
+                        <div className='m-auto background_box'>
                             <div className='row align-items-start'>
                                 <div className='w-50 m-auto col position-fixed mt-5'>
-                                    <div className='right-spacest'>
-                                        <Header />
-                                    </div>
                                     <Sidebar context={props.context} />
                                 </div>
-                                <h1 className='my-5'> My List </h1>
                                 <div className='col'></div>
                                 <div className='col'>
+                                <h1 className='my-5'> My List </h1>
                                     {mapper()}
                                 </div>
 

@@ -18,7 +18,8 @@ export class Provider extends Component {
 
   state = {
     error: null,
-    folded: true
+    folded: true,
+    user: ''
   }
 
   render() {
@@ -92,6 +93,7 @@ export class Provider extends Component {
   }
 
   signIn = async (emailAddress, passphrase) => {
+    try{
     let applicant = Cookies.get(`user: ${emailAddress}`);
     if (applicant !== undefined) {
       let salt = await bcrypt.genSalt(10);
@@ -104,6 +106,7 @@ export class Provider extends Component {
           password: newPass
         }
         Cookies.set('signedIn?', JSON.stringify(user), { expires: 7 });
+        this.setState({ user });
       } else {
         return ('Passwords do not match');
       }
@@ -111,6 +114,9 @@ export class Provider extends Component {
     else {
       return ('User does not exist');
     }
+  } catch(err) {
+    this.setState({'error': err.message})
+  }
   }
 
   signOut = async () => {

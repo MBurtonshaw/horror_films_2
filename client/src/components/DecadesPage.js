@@ -71,7 +71,7 @@ export default function GenrePage(props) {
             return (
                 <div className='m-auto'>
                     <div className='w-50 m-auto mt-3'>
-                        <Header context={props.context} />
+                        <Header context={props.context} user={props.user}/>
                     </div>
                     <div className="card-group w-100 m-auto mt-4">
                         <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
@@ -98,10 +98,7 @@ export default function GenrePage(props) {
                 <div className='m-auto background_box'>
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
-                            <div className='right-spacest'>
-                                <Header />
-                            </div>
-                            <Sidebar context={props.context} />
+                            <Sidebar context={props.context} user={props.user}/>
                         </div>
                         <div className='col'></div>
                         <div className="card-group col w-50 m-auto mt-5 right-spacer">
@@ -112,7 +109,7 @@ export default function GenrePage(props) {
                                     return (
                                         <div key={i} className='m-auto'>
                                             <a className='nonchalant' href={`/decades/${item.url}`}>
-                                                <img className='radius' src={`../../photos/decades/${item.name}.jpg`} alt={`a description of ${item.name} horror`} />
+                                                <img className='round_thumb' src={`../../photos/decades/${item.name}.jpg`} alt={`a description of ${item.name} horror`} />
                                                 <div className=''>
                                                     <h5>{item.name}</h5>
                                                 </div>
@@ -127,31 +124,30 @@ export default function GenrePage(props) {
             )
         } else {
             return (
-                <div className='w-100 m-auto mt-5'>
-                    <Header />
-                    <div className=''>
-                    <div className='position-fixed'>
-                        <Sidebar context={props.context} />
-                    </div>
-                    <div className="card-group w-50 mx-auto mt-5 background_box">
-                        <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
-                        {
-                            types.map((decade, i) => {
-                                //function to return contents of the cards and leave the innderWidth conditons below more concise
-                                return (
-                                    <div key={i} className='px-4 mx-auto'>
-                                        <div className='py-3'>
-                                            <a className='nonchalant' href={`/decades/${decade.url}`}>
-                                                <img className='round_thumb wide_adjust' src={`../../photos/decades/${decade.name.toLowerCase()}.jpg`} alt="..." />
-                                                <h5 className='p-1'>{decade.name}</h5>
-                                            </a>
+                <div className='mt-5'>
+                    <Header context={props.context} user={props.user}/>
+                        <div className='position-fixed'>
+                            <Sidebar context={props.context}/>
+                        </div>
+                        <div className="card-group w-75 mx-auto mt-5 background_box">
+                            <h1 className='w-100 py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                            {
+                                types.map((decade, i) => {
+                                    //function to return contents of the cards and leave the innderWidth conditons below more concise
+                                    return (
+                                        <div key={i} className='px-4 mx-auto'>
+                                            <div className='py-3'>
+                                                <a className='nonchalant' href={`/decades/${decade.url}`}>
+                                                    <img className='round_thumb wide_adjust' src={`../../photos/decades/${decade.name.toLowerCase()}.jpg`} alt="..." />
+                                                    <h5 className='p-1'>{decade.name}</h5>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            })
-                        }
-                    </div>
-                    </div>
+                                    );
+                                })
+                            }
+                        </div>
+
                 </div>
             );
         }

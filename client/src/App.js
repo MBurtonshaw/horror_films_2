@@ -90,25 +90,25 @@ function App() {
             <Route
               path='/titles'
               element={
-                <TitlePageWithContext />
+                <TitlePageWithContext user={user}/>
               }
             />
             <Route
               path='/genres/:url'
               element={
-                <GenreWithContext />
+                <GenreWithContext user={user}/>
               }
             />
             <Route
               path='/genres'
               element={
-                <GenrePageWithContext />
+                <GenrePageWithContext user={user}/>
               }
             />
             <Route
               path='/results/:url'
               element={
-                <ResultsWithContext />
+                <ResultsWithContext user={user}/>
               }
             />
             <Route
@@ -126,13 +126,14 @@ function App() {
                       { 'name': '2020s', 'url': '20s' }
                     ]
                   }
+                  user={user}
                 />
               }
             />
             <Route
               path='/decades/:url'
               element={
-                <DecadesWithContext />
+                <DecadesWithContext user={user}/>
               }
             />
             <Route
@@ -144,26 +145,26 @@ function App() {
             <Route
               path='/login'
               element={
-                <LoginWithContext />
+                <LoginWithContext user={user}/>
               }
             />
             <Route
               path='/logout'
               element={
-                <LogoutWithContext />
+                <LogoutWithContext user={user}/>
               }
             />
             <Route
               path='/register'
               element={
-                <RegisterWithContext />
+                <RegisterWithContext user={user}/>
               }
             />
             <Route
               path='*'
               element={
                 <div className='py-5 my-5 mx-auto'>
-                  <NotFound message={url} />
+                  <NotFound message={url} user={user}/>
                 </div>
               }
             />

@@ -99,40 +99,57 @@ export default function Results(props) {
                     <NotFound message={url} />
                 </div>
             );
-        } else {
-            for (let m = 0; m < movies.length; m++) {
-                if (window.innerWidth < 768) {
-                    return (
-                        <div>
-                            <h1>
-                                {props.context.actions.capitalizeFirstLetter(term.toLowerCase())}
-                            </h1>
-                            <div>
-                                {body_fill()}
-                            </div>
-                        </div>
-                    );
-                } else {
-                    return (
-                        <div className='row align-items-start'>
-                            <div className='w-25 m-auto col mt-5'>
-                                <Header />
-                                <Sidebar context={props.context} />
-                            </div>
-                            <div className='col w-25 m-auto'></div>
-                            <div className='col w-50 m-auto'>
-                                <h1>
-                                    {props.context.actions.capitalizeFirstLetter(term.toLowerCase())}
-                                </h1>
+        }
+        if (window.innerWidth < 768) {
+            return (
+                <div>
+                    <h1>
+                        {props.context.actions.capitalizeFirstLetter(term.toLowerCase())}
+                    </h1>
+                    <div>
+                        {body_fill()}
+                    </div>
+                </div>
+            );
+        }
+        if (props.context.folded === true) {
+            return (
+                <div className='row align-items-start'>
+                    <div className='w-25 m-auto col mt-5'>
+                        <Header context={props.context} user={props.user}/>
+                        <Sidebar context={props.context} />
+                    </div>
+                    <div className='col w-25 m-auto'></div>
+                    <div className='col w-50 m-auto'>
+                        <h1>
+                            {props.context.actions.capitalizeFirstLetter(term.toLowerCase())}
+                        </h1>
 
-                                <div>
-                                    {body_fill()}
-                                </div>
-                            </div>
+                        <div>
+                            {body_fill()}
                         </div>
-                    );
-                }
-            }
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <div className='row align-items-start'>
+                    <div className='w-25 m-auto col mt-5'>
+                        <Header context={props.context} user={props.user} />
+                        <Sidebar context={props.context} user={props.user} />
+                    </div>
+                    <div className='col w-25 m-auto'></div>
+                    <div className='col w-50 m-auto'>
+                        <h1>
+                            {props.context.actions.capitalizeFirstLetter(term.toLowerCase())}
+                        </h1>
+
+                        <div>
+                            {body_fill()}
+                        </div>
+                    </div>
+                </div>
+            );
         }
     }
 }

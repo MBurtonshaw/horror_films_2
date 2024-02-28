@@ -6,23 +6,17 @@ import Header from './Header';
 export default function Sidebar(props) {
 
     let [user, setUser] = useState('');
+    let [isLoading, setIsLoading] = useState(true);
 
-    function getData() {
-        if (!document.cookie) {
+    async function getData() {
+        let logger = await props.user;
+        if (logger === undefined || logger === '') {
             setUser('');
+
         } else {
-            let logger = Cookies.get('signedIn?');
-            if (logger === undefined) {
-                return null;
-            } else {
-                let newLogger = JSON.parse(logger);
-                if (newLogger === '') {
-                    setUser('');
-                } else {
-                    setUser(newLogger);
-                }
-            }
+            setUser(logger);
         }
+        setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setUser]);
@@ -50,63 +44,61 @@ export default function Sidebar(props) {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //props.user comes from App.js, where it is derived from a cookie set in /contexts/context.js
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
-    if (user === '') {
-        if (props.context.folded === false) {
-            return (
-                <div id='Header' className='container animate my-5'>
-                    <div className=''>
-                        {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
-                        <div className='w-75 m-auto'>
-                            <ul>
-                                <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/'>Home</a></h4></li>
-                            </ul>
-                            <Search />
-                        </div>
-                        <div className='w-25 m-auto my-5 py-3'>
-                            {arrow_button()}
-                        </div>
-                    </div>
-                </div>
-            );
-        } else {
-            return (
-                <div className='w-25 my-5 py-5'>
-                    {arrow_button()}
-                </div>
-            );
-        }
+    if (isLoading) {
+        return null;
     } else {
         if (props.context.folded === false) {
-            return (
-                <div id='Header' className='container animate'>
-                    <div className='row align-items-start'>
-                        {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
-                        <div className='w-75 m-auto'>
-                            <ul>
-                                <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
-                                <li><h4><a className='nonchalant' href='/'>Home</a></h4></li>
-                            </ul>
-                            <Search />
+            if (user !== undefined) {
+                    return (
+                        <div id='Header' className='container animate'>
+                            <div className=''>
+                                {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
+                                <div>
+                                    <div className='my-4'>
+                                        <Header context={props.context} user={props.user}/>
+                                    </div>
+                                    <ul className='straightener'>
+                                        <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
+                                        <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
+                                        <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
+                                        <li><h4><a className='nonchalant' href='/list'>My List</a></h4></li>
+                                        <li><h4><a className='nonchalant' href='/logout'>Logout</a></h4></li>
+                                        <li><h4><a className='nonchalant' href='/'>Home</a></h4></li>
+                                    </ul>
+                                    <Search />
+                                </div>
+                                <div className='arrow_downward'>
+                                    {arrow_button()}
+                                </div>
+                            </div>
                         </div>
-                        <div className='w-25 m-auto'>
-                            {arrow_button()}
-                        </div>
+                    );
+            }
+            else {
+                <div id='Header' className='container animate my-5'>
+                    {/* <a href="https://www.flaticon.com/free-icons/left-arrow" title="left arrow icons">Left arrow icons created by syafii5758 - Flaticon</a> */}
+                    <div className='w-75 mx-auto'>
+                        <ul>
+                            <li><h4><a className='nonchalant' href='/titles'>Titles</a></h4></li>
+                            <li><h4><a className='nonchalant' href='/genres'>Genres</a></h4></li>
+                            <li><h4><a className='nonchalant' href='/decades'>Decades</a></h4></li>
+                            <li><h4><a className='nonchalant' href='/login'>Login</a></h4></li>
+                            <li><h4><a className='nonchalant' href='/'>Home</a></h4></li>
+                        </ul>
+                        <Search />
+                    </div>
+                    <div className='w-25 m-auto my-5 py-3'>
+                        {arrow_button()}
                     </div>
                 </div>
-            );
+            }
         } else {
             return (
-                <div className='w-25 my-5'>
+                <div className='w-25 m-auto my-5 py-3'>
                     {arrow_button()}
                 </div>
             );
         }
     }
 }
+

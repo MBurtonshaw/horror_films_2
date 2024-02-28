@@ -82,10 +82,7 @@ export default function TitlePage(props) {
                         <div className='m-auto background_box'>
                             <div className='row align-items-start'>
                                 <div className='w-50 m-auto col mt-5 position-fixed'>
-                                    <div className='right-spacest'>
-                                        <Header />
-                                    </div>
-                                    <Sidebar context={props.context} />
+                                    <Sidebar context={props.context} user={props.user} />
                                 </div>
                                 <div className='col'></div>
                                 <div className="card-group col w-50 m-auto mt-5">

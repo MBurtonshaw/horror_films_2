@@ -127,7 +127,7 @@ export default function Main(props) {
     }
 
     function user_info() {
-        if (document.cookie.signedIn === '') {
+        if (props.user !== undefined && props.user !== '') {
             return (
                 <div className='w-75 h-100 m-auto'>
                     <ul className='little-right'>

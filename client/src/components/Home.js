@@ -12,7 +12,7 @@ export default function Home(props) {
     return (
         <div>
             <div>
-                <Main context={props.context} />
+                <Main context={props.context} user={props.user} />
             </div>
         </div>
     );
