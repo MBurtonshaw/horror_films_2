@@ -17,7 +17,7 @@ export default function Title(props) {
     let [isChecked, setIsChecked] = useState();
     let [isLoading, setIsLoading] = useState(true);
     let [error, setError] = useState('');
-    let [ user, setUser ] = useState('');
+    let [user, setUser] = useState('');
 
     //async function to match the corresponding film with the url
     async function getData() {
@@ -88,11 +88,6 @@ export default function Title(props) {
     }
 
     //Sets the screen width to state which is used later in the Amazon Prime & YouTube icons' classLists
-    function getScreenSize() {
-
-        setSizeClass('socials');
-
-    }
 
     let movie;
     let authors;
@@ -179,14 +174,74 @@ export default function Title(props) {
 
     //function to handle the Amazon Prime & YouTube icons
     function link_fill_in() {
+        if (window.innerWidth < 992) {
+            if (window.innerWidth < 550) {
+                if (movie.prime_link.length > 2 && movie.youtube_link.length > 2) {
+                    return (
+                        <div>
+                            <a href={movie.prime_link}>
+                                <img className='socials_mobile' src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
+                            </a>
+                            <a href={movie.youtube_link}>
+                                <img className='socials_mobile' src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
+                            </a>
+                        </div>
+                    );
+                } else if (movie.prime_link.length > 2 && movie.youtube_link.length < 2) {
+                    return (
+                        <div>
+                            <a href={movie.prime_link}>
+                                <img className='socials_mobile' src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
+                            </a>
+                        </div>
+                    );
+                } else if (movie.prime_link.length < 2 && movie.youtube_link.length > 2) {
+                    return (
+                        <div>
+                            <a href={movie.youtube_link}>
+                                <img className='socials_mobile' src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
+                            </a>
+                        </div>
+                    );
+                }
+            }
+            if (movie.prime_link.length > 2 && movie.youtube_link.length > 2) {
+                return (
+                    <div>
+                        <a href={movie.prime_link}>
+                            <img className='socials_medium' src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
+                        </a>
+                        <a href={movie.youtube_link}>
+                            <img className='socials_medium' src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
+                        </a>
+                    </div>
+                );
+            } else if (movie.prime_link.length > 2 && movie.youtube_link.length < 2) {
+                return (
+                    <div>
+                        <a href={movie.prime_link}>
+                            <img className='socials_medium' src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
+                        </a>
+                    </div>
+                );
+            } else if (movie.prime_link.length < 2 && movie.youtube_link.length > 2) {
+                return (
+                    <div>
+                        <a href={movie.youtube_link}>
+                            <img className='socials_medium' src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
+                        </a>
+                    </div>
+                );
+            }
+        }
         if (movie.prime_link.length > 2 && movie.youtube_link.length > 2) {
             return (
                 <div>
                     <a href={movie.prime_link}>
-                        <img className={`${sizeClass}`} src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
+                        <img className='socials' src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
                     </a>
                     <a href={movie.youtube_link}>
-                        <img className={`${sizeClass}`} src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
+                        <img className='socials' src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
                     </a>
                 </div>
             );
@@ -194,7 +249,7 @@ export default function Title(props) {
             return (
                 <div>
                     <a href={movie.prime_link}>
-                        <img className={`${sizeClass}`} src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
+                        <img className='socials' src='../../photos/prime_icon.jpg' alt='icon for a link to Amazon Prime Video'></img>
                     </a>
                 </div>
             );
@@ -202,7 +257,7 @@ export default function Title(props) {
             return (
                 <div>
                     <a href={movie.youtube_link}>
-                        <img className={`${sizeClass}`} src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
+                        <img className='socials' src='../../photos/youtube_icon.jpg' alt='icon for a link to YouTube'></img>
                     </a>
                 </div>
             );
@@ -315,8 +370,8 @@ export default function Title(props) {
             }
             if (props.context.folded === true) {
                 return (
-                    <div className='row align-items-start'>
-                        <div className='col position-fixed'>
+                    <div className=''>
+                        <div className='position-fixed'>
                             <Sidebar context={props.context} />
                         </div>
                         <div className='w-75 m-auto'>
@@ -327,6 +382,7 @@ export default function Title(props) {
                                 cookie_handler()
                             }
                             <div className='row align-items-start my-5'>
+
                                 <div className='col'>
                                     {accordion_fill()}
                                 </div>
@@ -341,10 +397,7 @@ export default function Title(props) {
                 return (
                     <div className='row align-items-start background_box'>
                         <div className='col w-50 my-5'>
-                            <div className='right-spacest'>
-                                <Header />
-                            </div>
-                            <Sidebar context={props.context} user={props.user}/>
+                            <Sidebar context={props.context} user={props.user} />
                         </div>
                         <div className='col w-50 m-auto'>
                             {

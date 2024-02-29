@@ -71,7 +71,6 @@ export default function List(props) {
                                     Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
                                     window.location.reload();
                                 }}>remove</button>
-
                             </li>
                         </div>
                     )
@@ -80,7 +79,6 @@ export default function List(props) {
             if (props.context.folded === true) {
                 return (
                     filmList.map((item, i) =>
-
                         <div key={i} className='w-25 mx-auto my-3'>
                             <div className='mx-auto'>
                                 <div>
@@ -99,13 +97,11 @@ export default function List(props) {
                                 </div>
                             </div>
                         </div>
-
                     )
                 );
             } else {
                 return (
                     filmList.map((item, i) =>
-
                         <div key={i} className='row align-items-start w-50 mx-auto my-5'>
                             <div className='w-50 mx-auto col'>
                                 <div className=''>
@@ -146,16 +142,14 @@ export default function List(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div>
+                        <h1> My List </h1>
                         <div>
-                            <h1> My List </h1>
+                            <h2>Please login first</h2>
                             <div>
-                                <h2>Please login first</h2>
-                                <div>
-                                    <a href='/login'>Login</a>
-                                </div>
-                                <div >
-                                    <a href='/'>Home</a>
-                                </div>
+                                <a href='/login'>Login</a>
+                            </div>
+                            <div >
+                                <a href='/'>Home</a>
                             </div>
                         </div>
                     </div>
@@ -163,16 +157,14 @@ export default function List(props) {
             } else {
                 return (
                     <div>
+                        <h1> My List </h1>
                         <div>
-                            <h1> My List </h1>
+                            <h2>Please login first</h2>
                             <div>
-                                <h2>Please login first</h2>
-                                <div>
-                                    <a href='/login'>Login</a>
-                                </div>
-                                <div >
-                                    <a href='/'>Home</a>
-                                </div>
+                                <a href='/login'>Login</a>
+                            </div>
+                            <div >
+                                <a href='/'>Home</a>
                             </div>
                         </div>
                     </div>
@@ -184,16 +176,14 @@ export default function List(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div>
+                        <h1> My List </h1>
                         <div>
-                            <h1> My List </h1>
+                            <h2>Please login first</h2>
                             <div>
-                                <h2>Please login first</h2>
-                                <div>
-                                    <a href='/login'>Login</a>
-                                </div>
-                                <div >
-                                    <a href='/'>Home</a>
-                                </div>
+                                <a href='/login'>Login</a>
+                            </div>
+                            <div >
+                                <a href='/'>Home</a>
                             </div>
                         </div>
                     </div>
@@ -201,16 +191,14 @@ export default function List(props) {
             } else {
                 return (
                     <div>
+                        <h1> My List </h1>
                         <div>
-                            <h1> My List </h1>
+                            <h2>Please login first</h2>
                             <div>
-                                <h2>Please login first</h2>
-                                <div>
-                                    <a href='/login'>Login</a>
-                                </div>
-                                <div >
-                                    <a href='/'>Home</a>
-                                </div>
+                                <a href='/login'>Login</a>
+                            </div>
+                            <div >
+                                <a href='/'>Home</a>
                             </div>
                         </div>
                     </div>
@@ -222,17 +210,13 @@ export default function List(props) {
                 if (window.innerWidth < 768) {
                     return (
                         <div>
-                            <div>
-                                <h1> Loading... </h1>
-                            </div>
+                            <h1> Loading... </h1>
                         </div>
                     );
                 } else {
                     return (
                         <div>
-                            <div>
-                                <h1> Loading... </h1>
-                            </div>
+                            <h1> Loading... </h1>
                         </div>
                     );
                 }
@@ -275,27 +259,11 @@ export default function List(props) {
                                     <h1 className='my-5'> My List </h1>
                                     {mapper()}
                                 </div>
-
                             </div>
                         </div>
                     );
                 }
                 //if the signedIn? cookie has user data, this is returned
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
         }
     }

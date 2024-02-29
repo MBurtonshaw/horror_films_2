@@ -71,7 +71,6 @@ export default function GenrePage(props) {
         }
     } else {
         if (window.innerWidth < 768) {
-
             return (
                 <div className='m-auto'>
                     <div className='w-50 m-auto mt-3'>
@@ -104,7 +103,7 @@ export default function GenrePage(props) {
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
                             <div className='row align-items-start'>
-                                
+
                                 <div>
                                     <Sidebar context={props.context} user={props.user} />
                                 </div>
@@ -118,7 +117,7 @@ export default function GenrePage(props) {
                                     //function to return contents of the cards and leave the innderWidth conditons below more concise
                                     return (
                                         <div key={i} className='oval_thumb'>
-                                            <div className='py-3 mx-auto'>
+                                            <div className='p-5 mx-auto'>
                                                 <a className='w-100 nonchalant' href={`/genres/${genre}`}>
                                                     <img className='w-100 round_thumb' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
                                                     <h5 className='p-1'>{genre}</h5>
@@ -146,10 +145,10 @@ export default function GenrePage(props) {
                                 types.map((genre, i) => {
                                     //function to return contents of the cards and leave the innderWidth conditons below more concise
                                     return (
-                                        <div key={i} className='px-4 mx-auto'>
+                                        <div key={i} className='px-2 mx-auto'>
                                             <div className='py-3'>
                                                 <a className='nonchalant' href={`/genres/${genre}`}>
-                                                    <img className='round_thumb wide_adjust' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
+                                                    <img className='round_thumb_3' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
                                                     <h5 className='p-1'>{genre}</h5>
                                                 </a>
                                             </div>
@@ -162,6 +161,5 @@ export default function GenrePage(props) {
                 </div>
             )
         }
-
     }
 }

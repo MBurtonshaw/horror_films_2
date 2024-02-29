@@ -86,7 +86,7 @@ export default function Decades(props) {
                     return (
                         <div key={i} className='mx-auto my-3'>
                             <a className='nonchalant' href={`/titles/${film.url}`}>
-                                <div className="card round_thumb w-75 mx-auto mt-4">
+                                <div className="card round_thumb mx-auto px-2 mt-4">
                                     <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
                                 </div>
                                 <h5 className='py-3'>{film.title}</h5>
@@ -101,18 +101,16 @@ export default function Decades(props) {
                     return (
                         <div key={i} className='mx-auto my-3'>
                             <a className='nonchalant' href={`/titles/${film.url}`}>
-                                <div className="card round_thumb w-50 mx-auto mt-4">
+                                <div className="card round_thumb w-25 mx-auto mt-4">
                                     <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
                                 </div>
                                 <h5 className='py-3'>{film.title}</h5>
                             </a>
                         </div>
                     );
-                }
-                )
+                })
             );
         }
-
     }
 
     /**************************************************************************************
@@ -129,9 +127,6 @@ export default function Decades(props) {
     } else {
         //by classics, mobile size
         if (url === 'classics' || url === '70s' || url === '80s' || url === '90s' || url === '00s' || url === '10s' || url === '20s') {
-            for (let f = 0; f < movies.length; f++) {
-                fill_array.push(movies[f]);
-            }
             //mobile
             if (window.innerWidth < 768) {
                 return (
@@ -170,11 +165,8 @@ export default function Decades(props) {
                                 <div className='position-fixed'>
                                     <Sidebar context={props.context} />
                                 </div>
-                                <div className='py-5 w-75 mx-auto background_box'>
+                                <div className='py-5 w-75 mx-auto background_box my-5'>
                                     <h2>{`Decade: ${props.context.actions.capitalizeFirstLetter(title_filler)}`}</h2>
-
-
-
                                     <div className='px-5 card-group m-auto'>
                                         {fill_in()}
                                     </div>
