@@ -348,21 +348,19 @@ export default function Title(props) {
             //logic to handle different screen widths
             if (window.innerWidth < 992) {
                 return (
-                    <div>
-                        <div className='m-auto'>
-                            <div className='mt-5 w-50 mx-auto'>
-                                <Header context={props.context} />
-                            </div>
-                            {
-                                cookie_handler()
-                            }
+                    <div className='m-auto'>
+                        <div className='w-50 m-auto mt-5'>
+                            <Header context={props.context} user={props.user} />
+                        </div>
+                        {
+                            cookie_handler()
+                        }
+                        <div className='my-5'>
                             <div className='my-5'>
-                                <div className='my-5'>
-                                    <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                                </div>
-                                <div className=''>
-                                    {accordion_fill()}
-                                </div>
+                                <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                            </div>
+                            <div className=''>
+                                {accordion_fill()}
                             </div>
                         </div>
                     </div>

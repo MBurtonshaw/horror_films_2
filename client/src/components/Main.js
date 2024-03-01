@@ -160,10 +160,9 @@ export default function Main(props) {
     ***************************************************************************************/
     if (window.innerWidth < 768) {
         return (
-            <div >
-                <div className='w-50 m-auto mt-5'>
-                    <Header context={props.context} />
-                </div>
+            <div className='m-auto'>
+                    <div className='w-50 m-auto mt-5'> <Header context={props.context} user={props.user} />
+                    </div>
                 <h2 className='pt-5 my-2'> {season} Recommendations </h2>
                 {/* the first two cards don't use the card_filler functions because they are supposed to be visible on pageload */}
                 {card_filler_mobile(first)}

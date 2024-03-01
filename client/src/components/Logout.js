@@ -19,8 +19,20 @@ export default function Login(props) {
     }
 
     function content_filler() {
-        return (
+        if (window.innerWidth < 768) {
             <div className='m-5 p-5'>
+                <h1>Logout</h1>
+                <form action='/login' method='POST' onSubmit={logoutUser}>
+                    <div>
+                        <h2 className='mt-5'>Are you sure?</h2>
+                        <button className='mt-2' onClick={logoutUser}>Logout</button>
+                    </div>
+                </form>
+                <a href={'/'}><button className='mt-2'>Home</button></a>
+            </div>
+        }
+        return (
+            <div className='m-5 p-5 col'>
                 <h1>Logout</h1>
                 <form action='/login' method='POST' onSubmit={logoutUser}>
                     <div>
@@ -59,19 +71,20 @@ export default function Login(props) {
             return (
                 <div>
                     <Header />
-                    <div>
-                        <div className='w-50 m-auto position-fixed mt-5'>
+                    <div className='row align-items-start'>
+                        <div className='w-50 m-auto mt-5 col'>
                             <Sidebar context={props.context} />
                         </div>
-                        <div className='w-25 m-auto px-5'>
-                            {content_filler()}
-                        </div>
+
+                    {content_filler()}
+
+                    <div className='col'></div>
                     </div>
                 </div>
             );
         } else {
             return (
-                <div className='row align-items-start'>
+                <div className='row align-items-start background_box'>
                     <Header />
                     <div className='col'>
                         <Sidebar context={props.context} />

@@ -1,4 +1,5 @@
 import { React } from 'react';
+import Search from './Search';
 
 export default function Header(props) {
     if (window.innerWidth < 768) {
@@ -31,6 +32,7 @@ export default function Header(props) {
                                     <a href='/decades'>Decades</a>
                                 </button>
                             </li>
+                            <li><Search /></li>
                             <li>
                                 <button className="dropdown-item" type="button">
                                     <a href='/list'>My List</a>
@@ -74,6 +76,7 @@ export default function Header(props) {
                                     <a href='/decades'>Decades</a>
                                 </button>
                             </li>
+                            <li><Search /></li>
                             <li>
                                 <button className="dropdown-item" type="button">
                                     <a href='/login'>Login</a>

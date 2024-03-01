@@ -134,19 +134,36 @@ export default function Login(props) {
             return (
                 <div>
                     <Header />
-                    <div>
-                        <div className='w-50 m-auto position-fixed mt-5'>
+                    <div className='row align-items-start'>
+                        <div className='w-50 m-auto mt-5 col'>
                             <Sidebar context={props.context} />
                         </div>
-                        <div className='w-25 m-auto px-5'>
-                            {content_filler()}
+                        <div className='m-5 p-5 col'>
+                            <h1>Login</h1>
+                            <form action='/login' method='POST' onSubmit={loginUser}>
+                                <div>
+                                    <div>
+                                        <label className='w-100' htmlFor='email'>Email</label>
+                                        <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
+                                    </div>
+                                    <div>
+                                        <label className='w-100' htmlFor='password'>Password</label>
+                                        <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
+                                    </div>
+                                    <button type='submit' onSubmit={loginUser}>Login</button>
+                                </div>
+                            </form>
+                            <div className='mt-5'>
+                                <p>Already have an account?</p><a href={'/login'}><button>Login</button></a>
+                            </div>
                         </div>
+                        <div className='col'></div>
                     </div>
                 </div>
             );
         } else {
             return (
-                <div className='row align-items-start'>
+                <div className='row align-items-start background_box'>
                     <Header />
                     <div className='col'>
                         <Sidebar context={props.context} />

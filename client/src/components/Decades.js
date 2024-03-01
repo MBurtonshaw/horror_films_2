@@ -131,9 +131,9 @@ export default function Decades(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div className='m-auto'>
-                        <div className='w-50 m-auto mt-3'>
-                            <Header context={props.context} user={props.user} />
-                        </div>
+                    <div className='w-50 m-auto mt-5'>
+                        <Header context={props.context} user={props.user} />
+                    </div>
                         <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                         <div className="card-group m-auto mt-4 background_box">
                             {
