@@ -58,7 +58,7 @@ export default function Genres(props) {
                 return (
                     <div key={i} className='mx-auto my-3'>
                         <a className='nonchalant' href={`/titles/${film.url}`}>
-                            <div className="card round_thumb w-75 mx-auto mt-4">
+                            <div className="card round_thumb mx-auto mt-4">
                                 <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
                             </div>
                             <h5 className='py-3'>{film.title}</h5>
@@ -67,19 +67,6 @@ export default function Genres(props) {
                 );
             }
             )
-        );
-    }
-
-    function mobile_filler() {
-        return (
-            <div>
-                <Header />
-                <div>
-                    <ul>
-                        {fill_in()}
-                    </ul>
-                </div>
-            </div>
         );
     }
 
@@ -163,8 +150,8 @@ export default function Genres(props) {
                         <div className='w-50 m-auto col position-fixed mt-5'>
                             <Sidebar context={props.context} user={props.user} />
                         </div>
-                        <div className='w-25 m-auto col'></div>
-                        <div className="card-group col w-50 mx-auto mt-5 right-spacer">
+                        <div className='col'></div>
+                        <div className="card-group col mx-auto mt-5 right-spacer">
                             <h2 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
                             {fill_in()}
                         </div>

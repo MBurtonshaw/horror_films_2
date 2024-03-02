@@ -98,7 +98,12 @@ export default function GenrePage(props) {
                 <div className='m-auto background_box'>
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
-                            <Sidebar context={props.context} user={props.user} />
+                            <div className='row align-items-start'>
+                                <div>
+                                    <Sidebar context={props.context} user={props.user} />
+                                </div>
+
+                            </div>
                         </div>
                         <div className='col'></div>
                         <div className="card-group col w-50 m-auto mt-5 right-spacer">
@@ -135,7 +140,7 @@ export default function GenrePage(props) {
                             types.map((decade, i) => {
                                 //function to return contents of the cards and leave the innderWidth conditons below more concise
                                 return (
-                                    <div key={i} className='px-4 mx-auto'>
+                                    <div key={i} className='mx-auto'>
                                         <div className='py-3'>
                                             <a className='nonchalant' href={`/decades/${decade.url}`}>
                                                 <img className='round_thumb' src={`../../photos/decades/${decade.name.toLowerCase()}.jpg`} alt="..." />

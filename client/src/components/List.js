@@ -83,7 +83,7 @@ export default function List(props) {
                             <div className='mx-auto'>
                                 <div>
                                     <a href={`/titles/${item.url}`}>
-                                        <img className='round_thumb_2' src={`../../photos/titles/${item.url}_round.jpg`} />
+                                        <img className='round_thumb' src={`../../photos/titles/${item.url}_round.jpg`} />
                                     </a>
                                     <div className='mx-auto my-3'>
                                         <a className='nonchalant' href={`/titles/${item.url}`}> {item.title} </a>
@@ -102,21 +102,17 @@ export default function List(props) {
             } else {
                 return (
                     filmList.map((item, i) =>
-                        <div key={i} className='row align-items-start w-50 mx-auto my-5'>
-                            <div className='w-50 mx-auto col'>
-                                <div className=''>
-                                    <a className='' href={`/titles/${item.url}`}>
-                                        <img className='round_thumb' src={`../../photos/titles/${item.url}_round.jpg`} />
-                                    </a>
-                                    <div className='mt-3'>
-                                        <a className='w-100 nonchalant my-auto' href={`/titles/${item.url}`}> {item.title} </a>
-                                        <div className='w-50 m-auto'>
-                                            <button onClick={() => {
-                                                Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
-                                                window.location.reload();
-                                            }}>remove</button>
-                                        </div>
-                                    </div>
+                        <div key={i} className='mx-auto my-5'>
+                            <a className='' href={`/titles/${item.url}`}>
+                                <img className='round_thumb' src={`../../photos/titles/${item.url}_round.jpg`} />
+                            </a>
+                            <div className='mt-3'>
+                                <a className='nonchalant m-auto' href={`/titles/${item.url}`}> {item.title} </a>
+                                <div className='m-auto'>
+                                    <button onClick={() => {
+                                        Cookies.remove(`myList-${user.email}-${item.id}`, { path: `/` });
+                                        window.location.reload();
+                                    }}>remove</button>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +221,7 @@ export default function List(props) {
                     return (
                         <div className='w-100 m-auto mt-5'>
                             <div className='w-50 mx-auto'>
-                                <Header />
+                                <Header context={props.context} user={props.user}/>
                             </div>
                             <div className="card-group w-100 m-auto background_box row align-items-start mt-3">
                                 <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'> My List </h1>
