@@ -148,7 +148,7 @@ export default function GenrePage(props) {
                                         <div key={i} className='px-2 mx-auto'>
                                             <div className='py-3'>
                                                 <a className='nonchalant' href={`/genres/${genre}`}>
-                                                    <img className='round_thumb_3' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt="..." />
+                                                    <img className='round_thumb_3' src={`../../photos/genres/${genre.toLowerCase()}.jpg`} alt="..." />
                                                     <h5 className='p-1'>{genre}</h5>
                                                 </a>
                                             </div>
