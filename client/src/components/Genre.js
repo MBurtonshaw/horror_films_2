@@ -128,9 +128,9 @@ export default function Genres(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div className='m-auto'>
-                    <div className='w-50 m-auto mt-5'>
-                        <Header context={props.context} user={props.user}/>
-                    </div>
+                        <div className='w-50 m-auto mt-5'>
+                            <Header context={props.context} user={props.user} />
+                        </div>
                         <div className="card-group w-100 m-auto mt-4">
                             <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                             {
@@ -142,19 +142,17 @@ export default function Genres(props) {
             }
             if (props.context.folded === true) {
                 return (
-                    <div>
-                        <div>
-                            <div className='mt-5'>
-                                <Header />
-                                <div className='py-5'>
-                                    <h2>{`Genre: ${title_filler}`}</h2>
-                                </div>
-                                <div className='position-fixed'>
-                                    <Sidebar context={props.context} />
-                                </div>
+                    <div className='w-100 m-auto mt-5'>
+                        <Header />
+                        <div className=''>
+                            <div className='position-fixed'>
+                                <Sidebar context={props.context} />
                             </div>
-                            <div className='px-5 card-group w-75 m-auto background_box'>
-                                {fill_in()}
+                            <div className="card-group w-75 mx-auto mt-5 background_box">
+                                <h1 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h1>
+                                {
+                                    fill_in()
+                                }
                             </div>
                         </div>
                     </div>
@@ -163,7 +161,7 @@ export default function Genres(props) {
                 return (
                     <div className='row align-items-start background_box'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
-                            <Sidebar context={props.context} user={props.user}/>
+                            <Sidebar context={props.context} user={props.user} />
                         </div>
                         <div className='w-25 m-auto col'></div>
                         <div className="card-group col w-50 mx-auto mt-5 right-spacer">

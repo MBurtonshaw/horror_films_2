@@ -69,16 +69,16 @@ export default function Login(props) {
     } else {
         if (props.context.folded === true) {
             return (
-                <div>
+                <div className='mt-5'>
                     <Header />
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto mt-5 col'>
                             <Sidebar context={props.context} />
                         </div>
 
-                    {content_filler()}
+                        {content_filler()}
 
-                    <div className='col'></div>
+                        <div className='col'></div>
                     </div>
                 </div>
             );

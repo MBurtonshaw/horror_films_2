@@ -132,7 +132,8 @@ export default function Login(props) {
             );
         } else if (props.context.folded === true) {
             return (
-                <div>
+
+                <div className='mt-5'>
                     <Header />
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto mt-5 col'>
@@ -154,7 +155,7 @@ export default function Login(props) {
                                 </div>
                             </form>
                             <div className='mt-5'>
-                                <p>Already have an account?</p><a href={'/login'}><button>Login</button></a>
+                                <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
                             </div>
                         </div>
                         <div className='col'></div>
