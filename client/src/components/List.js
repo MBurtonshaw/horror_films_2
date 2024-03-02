@@ -236,22 +236,22 @@ export default function List(props) {
                 }
                 if (props.context.folded === true) {
                     return (
-                        <div className='w-100 m-auto mt-5'>
+                        <div className='w-100 mx-auto mt-5'>
                             <Header />
                             <div className='position-fixed'>
                                 <Sidebar context={props.context} />
                             </div>
-                            <div className="card-group w-75 mx-auto mt-5 row align-items-start background_box">
-                                <h1 className='my-5 mt-2'> My List </h1>
+                            <div className="card-group w-75 mx-auto row align-items-start background_box">
+                                <h1 className='py-5'> My List </h1>
                                 {mapper()}
                             </div>
                         </div>
                     );
                 } else {
                     return (
-                        <div className='m-auto background_box'>
+                        <div className='mx-auto background_box'>
                             <div className='row align-items-start'>
-                                <div className='w-50 m-auto col position-fixed mt-5'>
+                                <div className='w-50 mx-auto col position-fixed mt-5'>
                                     <Sidebar context={props.context} />
                                 </div>
                                 <div className='col'></div>

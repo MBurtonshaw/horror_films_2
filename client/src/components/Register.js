@@ -118,6 +118,10 @@ export default function Register(props) {
                                 <form action='/login' method='POST' onSubmit={registerUser}>
                                     <div>
                                         <div>
+                                            <label className='w-100' htmlFor='email'>First Name</label>
+                                            <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
+                                        </div>
+                                        <div>
                                             <label className='w-100' htmlFor='email'>Email</label>
                                             <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
                                         </div>
@@ -149,6 +153,10 @@ export default function Register(props) {
                                 <h1>Register</h1>
                                 <form action='/login' method='POST' onSubmit={registerUser}>
                                     <div>
+                                        <div>
+                                            <label className='w-100' htmlFor='email'>First Name</label>
+                                            <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
+                                        </div>
                                         <div>
                                             <label className='w-100' htmlFor='email'>Email</label>
                                             <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
