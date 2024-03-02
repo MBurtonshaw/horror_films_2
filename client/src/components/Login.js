@@ -42,11 +42,10 @@ export default function Login(props) {
         }
     }
 
-    function content_filler() {
+    function form_filler() {
         if (window.innerWidth < 768) {
             return (
-                <div className='m-5'>
-                    <h1>Login</h1>
+                <div>
                     <form action='/login' method='POST' onSubmit={loginUser}>
                         <div>
                             <div>
@@ -66,56 +65,65 @@ export default function Login(props) {
                 </div>
             );
         }
-        return (
-            <div className='m-5 p-5'>
-                <h1>Login</h1>
-                <form action='/login' method='POST' onSubmit={loginUser}>
-                    <div>
+        if (props.context.folded === true) {
+            return (
+                <div>
+                    <form action='/login' method='POST' onSubmit={loginUser}>
                         <div>
-                            <label className='w-100' htmlFor='email'>Email</label>
-                            <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
+                            <div>
+                                <label className='w-100' htmlFor='email'>Email</label>
+                                <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
+                            </div>
+                            <div>
+                                <label className='w-100' htmlFor='password'>Password</label>
+                                <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
+                            </div>
+                            <button type='submit' onSubmit={loginUser}>Login</button>
                         </div>
-                        <div>
-                            <label className='w-100' htmlFor='password'>Password</label>
-                            <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
-                        </div>
-                        <button type='submit' onSubmit={loginUser}>Login</button>
+                    </form>
+                    <div className='mt-5'>
+                        <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
                     </div>
-                </form>
-                <div className='mt-5'>
-                    <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
                 </div>
-            </div>
-        );
+            )
+        } else {
+            return (
+                <div>
+                    <form action='/login' method='POST' onSubmit={loginUser}>
+                        <div>
+                            <div>
+                                <label className='w-100' htmlFor='email'>Email</label>
+                                <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
+                            </div>
+                            <div>
+                                <label className='w-100' htmlFor='password'>Password</label>
+                                <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
+                            </div>
+                            <button type='submit' onSubmit={loginUser}>Login</button>
+                        </div>
+                    </form>
+                    <div className='mt-5'>
+                        <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
+                    </div>
+                </div>
+            );
+        }
     }
 
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
     if (error) {
-        if (window.innerWidth < 768) {
-            return (
+        return (
+            <div>
+                <Error message={error} />
                 <div>
-                    <Error message={error} />
-                    <div>
-                        <div><a href='/login'>Back</a></div>
-                        <div><a href='/register'>Register</a></div>
-                        <div><a href='/'>Home</a></div>
-                    </div>
+                    <div><a href='/login'>Back</a></div>
+                    <div><a href='/register'>Register</a></div>
+                    <div><a href='/'>Home</a></div>
                 </div>
-            );
-        } else {
-            return (
-                <div>
-                    <Error message={error} />
-                    <div>
-                        <div><a href='/login'>Back</a></div>
-                        <div><a href='/register'>Register</a></div>
-                        <div><a href='/'>Home</a></div>
-                    </div>
-                </div>
-            );
-        }
+            </div>
+        );
     } else {
         if (window.innerWidth < 768) {
             return (
@@ -125,37 +133,30 @@ export default function Login(props) {
                     </div>
                     <div>
                         <div className='px-5 background_box'>
-                            {content_filler()}
+                            <div className='m-5'>
+                                <h1>Login</h1>
+                                {
+                                    form_filler()
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
             );
         } else if (props.context.folded === true) {
             return (
-
                 <div className='mt-5'>
                     <Header />
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto mt-5 col'>
                             <Sidebar context={props.context} />
                         </div>
-                        <div className='m-5 p-5 col'>
-                            <h1>Login</h1>
-                            <form action='/login' method='POST' onSubmit={loginUser}>
-                                <div>
-                                    <div>
-                                        <label className='w-100' htmlFor='email'>Email</label>
-                                        <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
-                                    </div>
-                                    <div>
-                                        <label className='w-100' htmlFor='password'>Password</label>
-                                        <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
-                                    </div>
-                                    <button type='submit' onSubmit={loginUser}>Login</button>
-                                </div>
-                            </form>
-                            <div className='mt-5'>
-                                <p>Don't have an account yet?</p><a href={'/register'}><button>Register</button></a>
+                        <div className='col'>
+                            <div className='m-5 p-5'>
+                                <h1>Login</h1>
+                                {
+                                    form_filler()
+                                }
                             </div>
                         </div>
                         <div className='col'></div>
@@ -170,7 +171,12 @@ export default function Login(props) {
                         <Sidebar context={props.context} />
                     </div>
                     <div className='col'>
-                        {content_filler()}
+                        <div className='m-5 p-5'>
+                            <h1>Login</h1>
+                            {
+                                form_filler()
+                            }
+                        </div>
                     </div>
                 </div>
             );

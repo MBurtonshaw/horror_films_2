@@ -13,6 +13,7 @@ export default function Decades(props) {
     let { url } = useParams();
     let [movies, setMovies] = useState('');
     let [error, setError] = useState('');
+    let [isLoading, setIsLoading] = useState(true);
     let str = window.location.pathname;
     let newString = str.split("/").pop();
 
@@ -48,12 +49,13 @@ export default function Decades(props) {
                 pictures = props.context.actions.removeDuplicates(pictures);
                 setMovies(pictures);
             }
+            //setIsLoading(false);
         } catch (err) {
             setError(err.message);
         }
     }
 
-    useEffect(() => { getData() }, [setMovies]);
+    useEffect(() => { getData() }, [setMovies, setIsLoading]);
     /**************************************************************************************
         fUNCTIONS
     ***************************************************************************************/
@@ -65,26 +67,29 @@ export default function Decades(props) {
         for (let f = 0; f < movies.length; f++) {
             fill_array.push(movies[f]);
         }
-        fill_array.map((film, i) => {
-            return (
-                <div key={i} className='mx-auto my-3'>
-                    <div>
-                        <a className='nonchalant' href={`/titles/${film.url}`}>
-                            <div className="card round_thumb mx-auto mt-4">
-                                <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
-                            </div>
-                            <h5 className='py-3'>{film.title}</h5>
-                        </a>
-                    </div>
-                </div>
-            );
-        }
-        )
-        if (props.context.folded === true) {
+        if (window.innerWidth < 768) {
             return (
                 fill_array.map((film, i) => {
                     return (
                         <div key={i} className='mx-auto my-3'>
+                            <div>
+                                <a className='nonchalant' href={`/titles/${film.url}`}>
+                                    <div className="card round_thumb mx-auto mt-4 w-50">
+                                        <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
+                                    </div>
+                                    <h5 className='py-3'>{film.title}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    );
+                })
+            );
+        }
+        return (
+            fill_array.map((film, i) => {
+                return (
+                    <div key={i} className='mx-auto my-3'>
+                        <div>
                             <a className='nonchalant' href={`/titles/${film.url}`}>
                                 <div className="card round_thumb mx-auto mt-4">
                                     <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
@@ -92,31 +97,19 @@ export default function Decades(props) {
                                 <h5 className='py-3'>{film.title}</h5>
                             </a>
                         </div>
-                    );
-                })
-            );
-        } else {
-            return (
-                fill_array.map((film, i) => {
-                    return (
-                        <div key={i} className='mx-auto my-3'>
-                            <a className='nonchalant' href={`/titles/${film.url}`}>
-                                <div className="card round_thumb w-25 mx-auto mt-4">
-                                    <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
-                                </div>
-                                <h5 className='py-3'>{film.title}</h5>
-                            </a>
-                        </div>
-                    );
-                })
-            );
-        }
+                    </div>
+                );
+            })
+        );
     }
 
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
     let title_filler = window.location.pathname.slice(9, 18);
+    if (isLoading === true) {
+        return ('');
+    }
     if (error) {
         //error
         return (
@@ -131,26 +124,13 @@ export default function Decades(props) {
             if (window.innerWidth < 768) {
                 return (
                     <div className='m-auto'>
-                    <div className='w-50 m-auto mt-5'>
-                        <Header context={props.context} user={props.user} />
-                    </div>
-                        <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                        <div className='w-50 m-auto mt-5'>
+                            <Header context={props.context} user={props.user} />
+                        </div>
+                        <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{`Decade: ${props.context.actions.capitalizeFirstLetter(title_filler)}`}</h1>
                         <div className="card-group m-auto mt-4 background_box">
                             {
-                                fill_array.map((film, i) => {
-                                    return (
-                                        <div key={i} className='mx-auto my-3'>
-                                            <div>
-                                                <a className='nonchalant' href={`/titles/${film.url}`}>
-                                                    <div className="card round_thumb mx-auto mt-4 w-50">
-                                                        <img className="card-img-top round_thumb" src={`../../photos/titles/${film.url}_round.jpg`} alt="Card image cap" />
-                                                    </div>
-                                                    <h5 className='py-3'>{film.title}</h5>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    );
-                                })
+                                fill_in()
                             }
                         </div>
                     </div>
@@ -158,19 +138,17 @@ export default function Decades(props) {
             }
             if (props.context.folded === true) {
                 return (
-                    <div>
-                        <div>
-                            <div className='mt-5'>
-                                <Header context={props.context} user={props.user} />
-                                <div className='position-fixed'>
-                                    <Sidebar context={props.context} />
-                                </div>
-                                <div className='py-5 w-75 mx-auto background_box my-5'>
-                                    <h2>{`Decade: ${props.context.actions.capitalizeFirstLetter(title_filler)}`}</h2>
-                                    <div className='px-5 card-group m-auto'>
-                                        {fill_in()}
-                                    </div>
-                                </div>
+                    <div className='mt-5'>
+                        <Header context={props.context} user={props.user} />
+                        <div className='position-fixed'>
+                            <Sidebar context={props.context} user={props.user} />
+                        </div>
+                        <div className='py-5 w-75 mx-auto background_box my-5'>
+                            <h2>{`Decade: ${props.context.actions.capitalizeFirstLetter(title_filler)}`}</h2>
+                            <div className='px-5 card-group m-auto'>
+                                {
+                                    fill_in()
+                                }
                             </div>
                         </div>
                     </div>
@@ -181,10 +159,14 @@ export default function Decades(props) {
                         <div className='w-50 m-auto col position-fixed mt-5'>
                             <Sidebar context={props.context} user={props.user} />
                         </div>
-                        <div className='w-25 m-auto col'></div>
-                        <div className="col w-50 mx-auto mt-5 right-spacer">
-                            <h2 className='w-100 py-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
-                            {fill_in()}
+                        <div className='col'></div>
+                        <div className="col mx-auto mt-5 right-spacer">
+                            <h2 className='py-5'>{`Decade: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
+                            <div className='card-group m-auto'>
+                                {
+                                    fill_in()
+                                }
+                            </div>
                         </div>
                     </div>
                 );

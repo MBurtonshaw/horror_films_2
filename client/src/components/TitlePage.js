@@ -16,6 +16,39 @@ export default function TitlePage(props) {
 
     useEffect(() => { getData() }, [setMovies]);
 
+    function content_filler() {
+        if (window.innerWidth < 768) {
+            return (
+                films.map((movie, i) => {
+                    return (
+                        <div key={i} className='mx-auto my-3'>
+                            <a className='nonchalant' href={`/titles/${movie.url}`}>
+                                <div className="card round_thumb w-50 mx-auto mt-4">
+                                    <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
+                                </div>
+                                <h5 className='py-3'>{movie.title}</h5>
+                            </a>
+                        </div>
+                    );
+                })
+            );
+        }
+        return (
+            films.map((movie, i) => {
+                return (
+                    <div key={i}>
+                        <a href={`/titles/${movie.url}`}>
+                            <div className="card round_thumb">
+                                <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
+                            </div>
+                        </a>
+                        <p className='py-3'>{movie.title}</p>
+                    </div>
+                );
+            })
+        );
+    }
+
     let films = props.context.data.movies.movies;
     if (isLoading) {
         for (let i = 0; i < films.length; i++) {
@@ -28,7 +61,7 @@ export default function TitlePage(props) {
                     <div>
                         <div className="card-group w-75 mx-auto">
                             {
-                                films.map((movie, i) => {
+                                films.map((i) => {
                                     return (
                                         <div key={i}>
                                             <div className="card round_thumb_loader m-3">
@@ -60,18 +93,7 @@ export default function TitlePage(props) {
                             <div className="card-group w-100 m-auto background_box">
                                 <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                 {
-                                    films.map((movie, i) => {
-                                        return (
-                                            <div key={i} className='mx-auto my-3'>
-                                                <a className='nonchalant' href={`/titles/${movie.url}`}>
-                                                    <div className="card round_thumb w-50 mx-auto mt-4">
-                                                        <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
-                                                    </div>
-                                                    <h5 className='py-3'>{movie.title}</h5>
-                                                </a>
-                                            </div>
-                                        );
-                                    })
+                                    content_filler()
                                 }
                             </div>
                         </div>
@@ -88,18 +110,7 @@ export default function TitlePage(props) {
                                 <div className="card-group col w-50 m-auto mt-5">
                                     <h1 className='w-100 right-space'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                     {
-                                        films.map((movie, i) => {
-                                            return (
-                                                <div key={i}>
-                                                    <a href={`/titles/${movie.url}`}>
-                                                        <div className="card round_thumb">
-                                                            <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
-                                                        </div>
-                                                    </a>
-                                                    <p className='py-3'>{movie.title}</p>
-                                                </div>
-                                            );
-                                        })
+                                        content_filler()
                                     }
                                 </div>
                             </div>
@@ -117,18 +128,7 @@ export default function TitlePage(props) {
                             <div className="card-group w-75 m-auto mt-4 px-5 background_box">
                                 <h1 className='text-center w-100 m-auto py-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                                 {
-                                    films.map((movie, i) => {
-                                        return (
-                                            <div key={i} className='mx-auto'>
-                                                <a href={`/titles/${movie.url}`}>
-                                                    <div className="card round_thumb">
-                                                        <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
-                                                    </div>
-                                                </a>
-                                                <p className='py-3'>{movie.title}</p>
-                                            </div>
-                                        );
-                                    })
+                                    content_filler()
                                 }
                             </div>
                         </div>
@@ -136,6 +136,5 @@ export default function TitlePage(props) {
                 }
             }
         }
-
     }
 }

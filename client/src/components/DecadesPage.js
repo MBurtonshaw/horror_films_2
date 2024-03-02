@@ -9,7 +9,7 @@ export default function GenrePage(props) {
         STATE AND ASYNC FUNCTIONS
     ***************************************************************************************/
     let [types, setTypes] = useState('');
-    let [error, setError] = useState('');
+    let [error] = useState('');
     let [isLoading, setIsLoading] = useState(true);
     let str = window.location.pathname;
     let newString = str.split("/").pop();
@@ -22,7 +22,7 @@ export default function GenrePage(props) {
         }
     }
 
-    useEffect(() => { getData() }, [setTypes]);
+    useEffect(() => { getData() }, [setTypes, setIsLoading]);
 
     /**************************************************************************************
         RENDER
@@ -51,7 +51,7 @@ export default function GenrePage(props) {
                         <div>
                             <div className="card-group">
                                 {
-                                    props.decades.map((movie, i) => {
+                                    props.decades.map((i) => {
                                         return (
                                             <div key={i} className='mx-auto px-5'>
                                                 <div className="card round_thumb_loader m-2">
@@ -115,9 +115,7 @@ export default function GenrePage(props) {
                                         <div key={i} className='m-auto'>
                                             <a className='nonchalant' href={`/decades/${item.url}`}>
                                                 <img className='round_thumb' src={`../../photos/decades/${item.name}.jpg`} alt={`a description of ${item.name} horror`} />
-                                                <div className=''>
-                                                    <h5>{item.name}</h5>
-                                                </div>
+                                                <h5>{item.name}</h5>
                                             </a>
                                         </div>
                                     );

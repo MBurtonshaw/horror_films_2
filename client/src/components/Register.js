@@ -43,6 +43,28 @@ export default function Register(props) {
         }
     }
 
+    function form_filler() {
+        return (
+            <form action='/register' method='POST' onSubmit={registerUser}>
+                <div>
+                    <div>
+                        <label className='w-100' htmlFor='name'>First Name</label>
+                        <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
+                    </div>
+                    <div>
+                        <label className='w-100' htmlFor='email'>Email</label>
+                        <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
+                    </div>
+                    <div>
+                        <label className='w-100' htmlFor='password'>Password</label>
+                        <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
+                    </div>
+                    <button type='submit' onSubmit={registerUser}>Login</button>
+                </div>
+            </form>
+        );
+    }
+
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
@@ -79,23 +101,9 @@ export default function Register(props) {
                     </div>
                     <div className='px-5 background_box'>
                         <h1 className='my-3 mt-5'>Register</h1>
-                        <form action='/register' method='POST' onSubmit={registerUser}>
-                            <div className='text-center'>
-                                <div>
-                                    <label className='w-100' htmlFor='name'>Name</label>
-                                    <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
-                                </div>
-                                <div>
-                                    <label className='w-100' htmlFor='email'>Email</label>
-                                    <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
-                                </div>
-                                <div>
-                                    <label className='w-100' htmlFor='password'>Password</label>
-                                    <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
-                                </div>
-                                <button className='my-2' type='submit' onSubmit={registerUser}>Register</button>
-                            </div>
-                        </form>
+                        {
+                            form_filler()
+                        }
                         <div className='my-5'>
                             <p>Already have an account?</p>
                             <a href='/login'><button>Login</button></a>
@@ -115,23 +123,9 @@ export default function Register(props) {
 
                             <div className='m-5 p-5 col'>
                                 <h1>Register</h1>
-                                <form action='/login' method='POST' onSubmit={registerUser}>
-                                    <div>
-                                        <div>
-                                            <label className='w-100' htmlFor='email'>First Name</label>
-                                            <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
-                                        </div>
-                                        <div>
-                                            <label className='w-100' htmlFor='email'>Email</label>
-                                            <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
-                                        </div>
-                                        <div>
-                                            <label className='w-100' htmlFor='password'>Password</label>
-                                            <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
-                                        </div>
-                                        <button type='submit' onSubmit={registerUser}>Login</button>
-                                    </div>
-                                </form>
+                                {
+                                    form_filler()
+                                }
                                 <div className='mt-5'>
                                     <p>Already have an account?</p><a href={'/login'}><button>Login</button></a>
                                 </div>
@@ -151,23 +145,9 @@ export default function Register(props) {
                         <div className='col'>
                             <div className='m-5 p-5'>
                                 <h1>Register</h1>
-                                <form action='/login' method='POST' onSubmit={registerUser}>
-                                    <div>
-                                        <div>
-                                            <label className='w-100' htmlFor='email'>First Name</label>
-                                            <input type='text' id='name' name='name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })}></input>
-                                        </div>
-                                        <div>
-                                            <label className='w-100' htmlFor='email'>Email</label>
-                                            <input type='email' id='email' name='email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}></input>
-                                        </div>
-                                        <div>
-                                            <label className='w-100' htmlFor='password'>Password</label>
-                                            <input type='password' id='password' name='password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })}></input>
-                                        </div>
-                                        <button type='submit' onSubmit={registerUser}>Login</button>
-                                    </div>
-                                </form>
+                                {
+                                    form_filler()
+                                }
                                 <div className='mt-5'>
                                     <p>Already have an account?</p><a href={'/login'}><button>Login</button></a>
                                 </div>

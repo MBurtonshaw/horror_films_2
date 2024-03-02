@@ -47,24 +47,33 @@ export default function Results(props) {
     ***************************************************************************************/
 
     function body_fill() {
+        if (window.innerWidth < 768) {
+            movies.map((movie, i) => {
+                return (
+                    <div key={i} className='mx-auto'>
+                        <a href={`/titles/${movie.url}`}>
+                            <div className="card round_thumb w-75 m-auto">
+                                <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
+                            </div>
+                        </a>
+                        <p className='py-3'>{movie.title}</p>
+                    </div>
+                );
+            })
+        }
         return (
-            <ul>
-                {
-                    //mapping movies from state
-                    movies.map((film, i) => {
-                        //adding the flashcard animation class to later entries on the list
-                        if (i > 10) {
-                            return (
-                                <li key={i}><a href={`/titles/${film.url}`}>{film.title}</a></li>
-                            );
-                        } else {
-                            return (
-                                <li key={i}><a href={`/titles/${film.url}`}>{film.title}</a></li>
-                            );
-                        }
-                    })
-                }
-            </ul>
+            movies.map((movie, i) => {
+                return (
+                    <div key={i} className='mx-auto'>
+                        <a href={`/titles/${movie.url}`}>
+                            <div className="card round_thumb">
+                                <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
+                            </div>
+                        </a>
+                        <p className='py-3'>{movie.title}</p>
+                    </div>
+                );
+            })
         );
     }
 
@@ -104,25 +113,13 @@ export default function Results(props) {
             return (
                 <div className='m-auto'>
                     <div className='w-50 m-auto mt-5'>
-                        <Header context={props.context} user={props.user}/></div>
+                        <Header context={props.context} user={props.user} />
+                    </div>
                     <div className="card-group m-auto mt-4 px-5 background_box">
                         <h1 className='text-center w-100 m-auto py-5'>{`Results: ${props.context.actions.capitalizeFirstLetter(url)}`}</h1>
-                        <div>
-                            {
-                                movies.map((movie, i) => {
-                                    return (
-                                        <div key={i} className='mx-auto'>
-                                            <a href={`/titles/${movie.url}`}>
-                                                <div className="card round_thumb w-75 m-auto">
-                                                    <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
-                                                </div>
-                                            </a>
-                                            <p className='py-3'>{movie.title}</p>
-                                        </div>
-                                    );
-                                })
-                            }
-                        </div>
+                        {
+                            body_fill()
+                        }
                     </div>
                 </div>
             );
@@ -139,18 +136,7 @@ export default function Results(props) {
                     <div className="card-group w-75 m-auto mt-4 px-5 background_box">
                         <h1 className='text-center w-100 m-auto py-5'>{`Results: ${url.toUpperCase()}`}</h1>
                         {
-                            movies.map((movie, i) => {
-                                return (
-                                    <div key={i} className='mx-auto'>
-                                        <a href={`/titles/${movie.url}`}>
-                                            <div className="card round_thumb">
-                                                <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
-                                            </div>
-                                        </a>
-                                        <p className='py-3'>{movie.title}</p>
-                                    </div>
-                                );
-                            })
+                            body_fill()
                         }
                     </div>
                 </div>
@@ -166,18 +152,7 @@ export default function Results(props) {
                         <div className="card-group col w-50 m-auto mt-5">
                             <h1 className='w-100 right-space'>{`Results: ${url.toUpperCase()}`}</h1>
                             {
-                                movies.map((movie, i) => {
-                                    return (
-                                        <div key={i}>
-                                            <a href={`/titles/${movie.url}`}>
-                                                <div className="card round_thumb">
-                                                    <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
-                                                </div>
-                                            </a>
-                                            <p className='py-3'>{movie.title}</p>
-                                        </div>
-                                    );
-                                })
+                                body_fill()
                             }
                         </div>
                     </div>

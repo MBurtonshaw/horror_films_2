@@ -93,30 +93,30 @@ export class Provider extends Component {
   }
 
   signIn = async (emailAddress, passphrase) => {
-    try{
-    let applicant = Cookies.get(`user: ${emailAddress}`);
-    if (applicant !== undefined) {
-      let salt = await bcrypt.genSalt(10);
-      let newType = JSON.parse(applicant);
-      let newPass = await bcrypt.hash(passphrase, salt);
-      let newnewPass = await bcrypt.hash(newType.password, salt);
-      if (newPass === newnewPass) {
-        let user = {
-          email: emailAddress,
-          password: newPass
+    try {
+      let applicant = Cookies.get(`user: ${emailAddress}`);
+      if (applicant !== undefined) {
+        let salt = await bcrypt.genSalt(10);
+        let newType = JSON.parse(applicant);
+        let newPass = await bcrypt.hash(passphrase, salt);
+        let newnewPass = await bcrypt.hash(newType.password, salt);
+        if (newPass === newnewPass) {
+          let user = {
+            email: emailAddress,
+            password: newPass
+          }
+          Cookies.set('signedIn?', JSON.stringify(user), { expires: 7 });
+          this.setState({ user });
+        } else {
+          return ('Passwords do not match');
         }
-        Cookies.set('signedIn?', JSON.stringify(user), { expires: 7 });
-        this.setState({ user });
-      } else {
-        return ('Passwords do not match');
       }
+      else {
+        return ('User does not exist');
+      }
+    } catch (err) {
+      this.setState({ 'error': err.message })
     }
-    else {
-      return ('User does not exist');
-    }
-  } catch(err) {
-    this.setState({'error': err.message})
-  }
   }
 
   signOut = async () => {

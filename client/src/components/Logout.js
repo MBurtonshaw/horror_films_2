@@ -75,9 +75,9 @@ export default function Login(props) {
                         <div className='w-50 m-auto mt-5 col'>
                             <Sidebar context={props.context} />
                         </div>
-
-                        {content_filler()}
-
+                        {
+                            content_filler()
+                        }
                         <div className='col'></div>
                     </div>
                 </div>
@@ -90,7 +90,9 @@ export default function Login(props) {
                         <Sidebar context={props.context} />
                     </div>
                     <div className='col'>
-                        {content_filler()}
+                        {
+                            content_filler()
+                        }
                     </div>
                 </div>
             );
