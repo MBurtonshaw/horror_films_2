@@ -39,8 +39,8 @@ export default function List(props) {
                             }
                         }
                     );
-                    setIsLoading(false);
                 }
+                //setIsLoading(false);
             }
         }
     }
@@ -129,139 +129,78 @@ export default function List(props) {
     //checking if there are any cookies present. It not, this is returned
     if (error) {
         return (
-            <div>
+            <div className='m-5 p-5'>
                 <Error message={error} />
             </div>
         );
+    }
+    if (isLoading) {
+        return (
+            <div>
+                <h1> Loading... </h1>
+            </div>
+        );
     } else {
-        if (!document.cookie) {
-            if (window.innerWidth < 768) {
-                return (
+        if (!document.cookie || JSON.parse(Cookies.get('signedIn?')) === '' || JSON.parse(Cookies.get('signedIn?')) === undefined) {
+            return (
+                <div>
+                    <h1> My List </h1>
                     <div>
-                        <h1> My List </h1>
+                        <h2>Please login first</h2>
                         <div>
-                            <h2>Please login first</h2>
-                            <div>
-                                <a href='/login'>Login</a>
-                            </div>
-                            <div >
-                                <a href='/'>Home</a>
-                            </div>
+                            <a href='/login'>Login</a>
+                        </div>
+                        <div >
+                            <a href='/'>Home</a>
                         </div>
                     </div>
-                );
-            } else {
-                return (
-                    <div>
-                        <h1> My List </h1>
-                        <div>
-                            <h2>Please login first</h2>
-                            <div>
-                                <a href='/login'>Login</a>
-                            </div>
-                            <div >
-                                <a href='/'>Home</a>
-                            </div>
-                        </div>
-                    </div>
-                );
-            }
-            //checks if there is a 'signedIn?' cookie present, and checking if it is empty
-            //if it's empty, that means the user is currently signed out, and returns the following
-        } else if (JSON.parse(Cookies.get('signedIn?')) === '' || JSON.parse(Cookies.get('signedIn?')) === undefined) {
-            if (window.innerWidth < 768) {
-                return (
-                    <div>
-                        <h1> My List </h1>
-                        <div>
-                            <h2>Please login first</h2>
-                            <div>
-                                <a href='/login'>Login</a>
-                            </div>
-                            <div >
-                                <a href='/'>Home</a>
-                            </div>
-                        </div>
-                    </div>
-                );
-            } else {
-                return (
-                    <div>
-                        <h1> My List </h1>
-                        <div>
-                            <h2>Please login first</h2>
-                            <div>
-                                <a href='/login'>Login</a>
-                            </div>
-                            <div >
-                                <a href='/'>Home</a>
-                            </div>
-                        </div>
-                    </div>
-                );
-            }
+                </div>
+            );
         } else {
             //loading screen based on isLoading from getData function
-            if (isLoading) {
-                if (window.innerWidth < 768) {
-                    return (
-                        <div>
-                            <h1> Loading... </h1>
+            if (window.innerWidth < 768) {
+                return (
+                    <div className='w-100 m-auto mt-5'>
+                        <div className='w-50 mx-auto'>
+                            <Header context={props.context} user={props.user} />
                         </div>
-                    );
-                } else {
-                    return (
-                        <div>
-                            <h1> Loading... </h1>
+                        <div className="card-group w-100 m-auto background_box row align-items-start mt-3">
+                            <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'> My List </h1>
+                            {mapper()}
                         </div>
-                    );
-                }
+                    </div>
+                );
+            }
+            if (props.context.folded === true) {
+                return (
+                    <div className='w-100 mx-auto mt-5'>
+                        <Header />
+                        <div className='position-fixed'>
+                            <Sidebar context={props.context} />
+                        </div>
+                        <div className="card-group w-75 mx-auto row align-items-start background_box">
+                            <h1 className='py-5'> My List </h1>
+                            {mapper()}
+                        </div>
+                    </div>
+                );
             } else {
-                if (window.innerWidth < 768) {
-                    return (
-                        <div className='w-100 m-auto mt-5'>
-                            <div className='w-50 mx-auto'>
-                                <Header context={props.context} user={props.user}/>
-                            </div>
-                            <div className="card-group w-100 m-auto background_box row align-items-start mt-3">
-                                <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'> My List </h1>
-                                {mapper()}
-                            </div>
-                        </div>
-                    );
-                }
-                if (props.context.folded === true) {
-                    return (
-                        <div className='w-100 mx-auto mt-5'>
-                            <Header />
-                            <div className='position-fixed'>
+                return (
+                    <div className='mx-auto background_box'>
+                        <div className='row align-items-start'>
+                            <div className='w-50 mx-auto col position-fixed mt-5'>
                                 <Sidebar context={props.context} />
                             </div>
-                            <div className="card-group w-75 mx-auto row align-items-start background_box">
-                                <h1 className='py-5'> My List </h1>
+                            <div className='col'></div>
+                            <div className='col'>
+                                <h1 className='my-5'> My List </h1>
                                 {mapper()}
                             </div>
                         </div>
-                    );
-                } else {
-                    return (
-                        <div className='mx-auto background_box'>
-                            <div className='row align-items-start'>
-                                <div className='w-50 mx-auto col position-fixed mt-5'>
-                                    <Sidebar context={props.context} />
-                                </div>
-                                <div className='col'></div>
-                                <div className='col'>
-                                    <h1 className='my-5'> My List </h1>
-                                    {mapper()}
-                                </div>
-                            </div>
-                        </div>
-                    );
-                }
-                //if the signedIn? cookie has user data, this is returned
+                    </div>
+                );
             }
+            //if the signedIn? cookie has user data, this is returned
         }
     }
 }
-

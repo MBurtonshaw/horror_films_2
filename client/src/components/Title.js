@@ -45,7 +45,7 @@ export default function Title(props) {
         } catch (err) {
             setError(err.message);
         }
-        setIsLoading(false);
+        //setIsLoading(false);
     }
 
 
@@ -293,126 +293,128 @@ export default function Title(props) {
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
-    if (error) {
+
+    if (isLoading === true) {
+        return (
+            loader_fill_in()
+        );
+
+    } else if (isLoading === false && currentFilm.url !== url) {
         return (
             <div>
-                <Error message={error} />
-            </div>
-        );
-    } else {
-        if (isLoading === true) {
-            return (loader_fill_in());
+                <NotFound message={url} />
+            </div>)
 
-        } else if (isLoading === false && currentFilm.url !== url) {
+    } else if (currentFilm.url === url && isLoading === false) {
+        if (error) {
             return (
-                <div>
-                    <NotFound message={url} />
-                </div>)
+                <div className='m-5 p-5'>
+                    <Error message={error} />
+                </div>
+            );
+        }
 
-        } else if (currentFilm.url === url && isLoading === false) {
+        movie = currentFilm;
+        authors = movie.writers.map((artist, i) => <li key={i}>{artist}</li>);
+        genres = movie.genres.map((type, i) => <li key={i}><a href={`/genres/${type}`}>{type}</a></li>);
+        filmMakers = movie.directors.map((person, i) => <li key={i}>{person}</li>);
 
-            movie = currentFilm;
-            authors = movie.writers.map((artist, i) => <li key={i}>{artist}</li>);
-            genres = movie.genres.map((type, i) => <li key={i}><a href={`/genres/${type}`}>{type}</a></li>);
-            filmMakers = movie.directors.map((person, i) => <li key={i}>{person}</li>);
-
-            function cookie_handler() {
-                if (props.user === '' || props.user === undefined) {
+        function cookie_handler() {
+            if (props.user === '' || props.user === undefined) {
+                return (
+                    <div className='mt-5'>
+                        <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
+                    </div>
+                );
+            } else {
+                if (isChecked === true) {
                     return (
                         <div className='mt-5'>
                             <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
+                            <p className='mt-2'>added to list</p>
                         </div>
                     );
                 } else {
-                    if (isChecked === true) {
-                        return (
-                            <div className='mt-5'>
-                                <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
-                                <p className='mt-2'>added to list</p>
-                            </div>
-                        );
-                    } else {
-                        return (
-                            <div className='mt-5'>
-                                <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
-                                <button className='mt-2' onClick={() => {
-                                    //needs logic to determine what to do when cookie doesn't exist yet
-                                    Cookies.set(`myList-${props.user.email}-${movie.id}`, `${movie.title}`, { expires: 7 });
-                                    setIsChecked(true);
-                                }}>Add to My List</button>
-                            </div>
-                        );
-                    }
+                    return (
+                        <div className='mt-5'>
+                            <h1><a className='nonchalant' href='/titles'>{movie.title}</a></h1>
+                            <button className='mt-2' onClick={() => {
+                                //needs logic to determine what to do when cookie doesn't exist yet
+                                Cookies.set(`myList-${props.user.email}-${movie.id}`, `${movie.title}`, { expires: 7 });
+                                setIsChecked(true);
+                            }}>Add to My List</button>
+                        </div>
+                    );
                 }
             }
-            //logic to handle different screen widths
-            if (window.innerWidth < 992) {
-                return (
-                    <div className='m-auto'>
-                        <div className='w-50 m-auto mt-5'>
-                            <Header context={props.context} user={props.user} />
+        }
+        //logic to handle different screen widths
+        if (window.innerWidth < 992) {
+            return (
+                <div className='m-auto'>
+                    <div className='w-50 m-auto mt-5'>
+                        <Header context={props.context} user={props.user} />
+                    </div>
+                    {
+                        cookie_handler()
+                    }
+                    <div className='my-5'>
+                        <div className='my-5'>
+                            <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
+                        </div>
+                        <div className=''>
+                            {accordion_fill()}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        if (props.context.folded === true) {
+            return (
+                <div className=''>
+                    <div className='position-fixed'>
+                        <Sidebar context={props.context} />
+                    </div>
+                    <div className='w-75 m-auto'>
+                        <div className='mt-5'>
+                            <Header />
                         </div>
                         {
                             cookie_handler()
                         }
-                        <div className='my-5'>
-                            <div className='my-5'>
-                                <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                            </div>
-                            <div className=''>
+                        <div className='row align-items-start my-5'>
+
+                            <div className='col'>
                                 {accordion_fill()}
                             </div>
-                        </div>
-                    </div>
-                );
-            }
-            if (props.context.folded === true) {
-                return (
-                    <div className=''>
-                        <div className='position-fixed'>
-                            <Sidebar context={props.context} />
-                        </div>
-                        <div className='w-75 m-auto'>
-                            <div className='mt-5'>
-                                <Header />
-                            </div>
-                            {
-                                cookie_handler()
-                            }
-                            <div className='row align-items-start my-5'>
-
-                                <div className='col'>
-                                    {accordion_fill()}
-                                </div>
-                                <div className='w-50 m-auto col'>
-                                    <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                                </div>
+                            <div className='w-50 m-auto col'>
+                                <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
                             </div>
                         </div>
                     </div>
-                );
-            } else {
-                return (
-                    <div className='row align-items-start background_box'>
-                        <div className='col w-50 my-5'>
-                            <Sidebar context={props.context} user={props.user} />
-                        </div>
-                        <div className='col w-50 m-auto'>
-                            {
-                                cookie_handler()
-                            }
-                            <div className='row align-items-start my-5 py-5'>
-                                <div className='col'>
-                                    {accordion_fill()}
-                                </div>
-                                <div className='w-50 m-auto col'>
-                                    <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
-                                </div>
+                </div>
+            );
+        } else {
+            return (
+                <div className='row align-items-start background_box'>
+                    <div className='col w-50 my-5'>
+                        <Sidebar context={props.context} user={props.user} />
+                    </div>
+                    <div className='col w-50 m-auto'>
+                        {
+                            cookie_handler()
+                        }
+                        <div className='row align-items-start my-5 py-5'>
+                            <div className='col'>
+                                {accordion_fill()}
+                            </div>
+                            <div className='w-50 m-auto col'>
+                                <a href='/titles'><img className='small_img' src={`${movie.photo}.jpg`} alt={`Film art for ${movie.title}`}></img></a>
                             </div>
                         </div>
                     </div>
-                );
-            }
+                </div>
+            );
         }
     }
 }

@@ -14,8 +14,6 @@ export default function GenrePage(props) {
     let str = window.location.pathname;
     let newString = str.split("/")[1];
 
-
-
     async function getData() {
         try {
             let genres = await props.context.data.movies.genres;
@@ -25,11 +23,11 @@ export default function GenrePage(props) {
                     genreArray.push(genres[i].name);
                     setTypes(genreArray);
                 }
-                setIsLoading(false);
             }
         } catch (err) {
             setError(err.message);
         }
+        //setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setTypes]);
@@ -37,13 +35,7 @@ export default function GenrePage(props) {
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
-    if (error) {
-        return (
-            <div className='m-5 p-5'>
-                <Error message={error} />
-            </div>
-        );
-    }
+    
     if (isLoading) {
         for (let i = 0; i < types.length; i++) {
             return (
@@ -70,6 +62,13 @@ export default function GenrePage(props) {
             );
         }
     } else {
+        if (error) {
+            return (
+                <div className='m-5 p-5'>
+                    <Error message={error} />
+                </div>
+            );
+        }
         if (window.innerWidth < 768) {
             return (
                 <div className='m-auto'>

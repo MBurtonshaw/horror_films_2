@@ -1,16 +1,22 @@
 import { React, useState, useEffect } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
+import Error from './Error';
 
 export default function TitlePage(props) {
     let [movies, setMovies] = useState('');
     let [isLoading, setIsLoading] = useState(true);
+    let [error, setError] = useState('');
     let str = window.location.pathname;
     let newString = str.split("/").pop();
 
     async function getData() {
-        let films = await props.context.data.movies.movies;
-        setMovies(films);
+        try {
+            let films = await props.context.data.movies.movies;
+            setMovies(films);
+        } catch (err) {
+            setError(err.message);
+        }
         setIsLoading(false);
     }
 
@@ -36,7 +42,7 @@ export default function TitlePage(props) {
         return (
             films.map((movie, i) => {
                 return (
-                    <div key={i}>
+                    <div key={i} className='mx-auto'>
                         <a href={`/titles/${movie.url}`}>
                             <div className="card round_thumb">
                                 <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
@@ -83,6 +89,13 @@ export default function TitlePage(props) {
                 </h1>
             );
         } else {
+            if (error) {
+                return (
+                    <div className='m-5 p-5'>
+                        <Error message={error} />
+                    </div>
+                );
+            }
             for (let i = 0; i < films.length; i++) {
                 if (window.innerWidth < 768) {
                     return (

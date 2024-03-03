@@ -9,62 +9,74 @@ export default function GenrePage(props) {
         STATE AND ASYNC FUNCTIONS
     ***************************************************************************************/
     let [types, setTypes] = useState('');
-    let [error] = useState('');
+    let [error, setError] = useState('');
     let [isLoading, setIsLoading] = useState(true);
     let str = window.location.pathname;
     let newString = str.split("/").pop();
 
     async function getData() {
-        let decades = await props.decades;
-        if (decades.length > 1) {
-            setTypes(decades);
-            setIsLoading(false);
+        try {
+            let decades = await props.decades;
+            if (decades.length > 1) {
+                setTypes(decades);
+            }
+        } catch (err) {
+            setError(err.message);
         }
+        setIsLoading(false);
     }
 
-    useEffect(() => { getData() }, [setTypes, setIsLoading]);
+    useEffect(() => { getData() }, [setTypes]);
 
     /**************************************************************************************
         RENDER
     ***************************************************************************************/
-    if (error) {
-        return (
-            <div >
-                <Error message={error} />
-            </div>
-        );
-    } else {
-        if (isLoading) {
-            if (window.innerWidth < 768) {
+    if (isLoading) {
+        if (window.innerWidth < 768) {
+            if (props.decades !== '' && props.decades !== undefined) {
                 return (
-                    <div className=''>
-
-                    </div>
-                );
-            }
-            for (let i = 0; i < props.decades.length; i++) {
-                return (
-                    <div>
-                        <h1 className='pt-5 mt-5'>
-                            ...Loading...
-                        </h1>
-                        <div>
-                            <div className="card-group">
-                                {
-                                    props.decades.map((i) => {
-                                        return (
-                                            <div key={i} className='mx-auto px-5'>
-                                                <div className="card round_thumb_loader m-2">
-                                                </div>
-                                            </div>
-                                        );
-                                    })
-                                }
+                    <div className='m-auto'>
+                        <div className='w-50 m-auto mt-5'>
+                            <Header />
+                        </div>
+                        <div className="card-group w-100 m-auto mt-4">
+                            <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>...Loading...</h1>
+                            <div className='mx-auto background_box my-3'>
+                                <div className='box_loader'></div>
                             </div>
                         </div>
                     </div>
                 );
             }
+        }
+        for (let i = 0; i < props.decades.length; i++) {
+            return (
+                <div>
+                    <h1 className='pt-5 mt-5'>
+                        ...Loading...
+                    </h1>
+                    <div className="card-group">
+                        {
+                            props.decades.map((i) => {
+                                return (
+                                    <div key={i} className='mx-auto px-5'>
+                                        <div className="card round_thumb_loader m-2">
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
+                </div>
+            );
+        }
+    } else {
+        if (error) {
+            return (
+                <div >
+                    <Error message={error} />
+                </div>
+            );
         }
         if (window.innerWidth < 768) {
             return (
@@ -72,7 +84,6 @@ export default function GenrePage(props) {
                     <div className='w-50 m-auto mt-5'>
                         <Header context={props.context} user={props.user} />
                     </div>
-
                     <div className="card-group w-100 m-auto mt-4">
                         <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
                         {
@@ -99,10 +110,7 @@ export default function GenrePage(props) {
                     <div className='row align-items-start'>
                         <div className='w-50 m-auto col position-fixed mt-5'>
                             <div className='row align-items-start'>
-                                <div>
-                                    <Sidebar context={props.context} user={props.user} />
-                                </div>
-
+                                <Sidebar context={props.context} user={props.user} />
                             </div>
                         </div>
                         <div className='col'></div>

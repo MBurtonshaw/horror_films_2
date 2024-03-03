@@ -33,10 +33,10 @@ export default function Genres(props) {
                     }
                 }
             }
-            setIsLoading(false);
         } catch (err) {
             setError(err.message);
         }
+        //setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setGenre]);
@@ -75,89 +75,87 @@ export default function Genres(props) {
     ***************************************************************************************/
     let title_filler = window.location.pathname.slice(8, 18);
     //error
-    if (error) {
-        return (
-            <div>
-                <Error message={error} />
-            </div>
-        );
-    } else {
-        //loading
-        if (isLoading === true) {
-            if (window.innerWidth < 768) {
-                return (
-                    <div>
-                        <h1>Loading...</h1>
-                    </div>
-                );
-            }
+    
+    //loading
+    if (isLoading === true) {
+        if (window.innerWidth < 768) {
             return (
                 <div>
                     <h1>Loading...</h1>
                 </div>
             );
-        } else if (isLoading === false && genre === '') {
-            //not found
-            if (window.innerWidth < 768) {
-                return (
-                    <div>
-                        <NotFound message={url} />
-                    </div>
-                );
-            }
+        }
+        return (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        );
+    } else if (isLoading === false && genre === '') {
+        //not found
+        if (window.innerWidth < 768) {
             return (
                 <div>
                     <NotFound message={url} />
                 </div>
             );
+        }
+        return (
+            <div>
+                <NotFound message={url} />
+            </div>
+        );
+    } else {
+        if (error) {
+            return (
+                <div className='m-5 p-5'>
+                    <Error message={error} />
+                </div>
+            );
+        }
+        //return functions by screen size
+        if (window.innerWidth < 768) {
+            return (
+                <div className='m-auto'>
+                    <div className='w-50 m-auto mt-5'>
+                        <Header context={props.context} user={props.user} />
+                    </div>
+                    <div className="card-group w-100 m-auto mt-4">
+                        <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                        {
+                            fill_in()
+                        }
+                    </div>
+                </div>
+            );
+        }
+        if (props.context.folded === true) {
+            return (
+                <div className='w-100 m-auto mt-5'>
+                    <Header />
+                    <div className='position-fixed'>
+                        <Sidebar context={props.context} />
+                    </div>
+                    <div className="card-group w-75 mx-auto mt-5 background_box">
+                        <h1 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h1>
+                        {
+                            fill_in()
+                        }
+                    </div>
+                </div>
+            );
         } else {
-            //return functions by screen size
-            if (window.innerWidth < 768) {
-                return (
-                    <div className='m-auto'>
-                        <div className='w-50 m-auto mt-5'>
-                            <Header context={props.context} user={props.user} />
-                        </div>
-                        <div className="card-group w-100 m-auto mt-4">
-                            <h1 className='text-center w-100 mx-auto my-5 mt-2 pt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
-                            {
-                                fill_in()
-                            }
-                        </div>
+            return (
+                <div className='row align-items-start background_box'>
+                    <div className='w-50 m-auto col position-fixed mt-5'>
+                        <Sidebar context={props.context} user={props.user} />
                     </div>
-                );
-            }
-            if (props.context.folded === true) {
-                return (
-                    <div className='w-100 m-auto mt-5'>
-                        <Header />
-                        <div className=''>
-                            <div className='position-fixed'>
-                                <Sidebar context={props.context} />
-                            </div>
-                            <div className="card-group w-75 mx-auto mt-5 background_box">
-                                <h1 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h1>
-                                {
-                                    fill_in()
-                                }
-                            </div>
-                        </div>
+                    <div className='col'></div>
+                    <div className="card-group col mx-auto mt-5 right-spacer">
+                        <h2 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
+                        {fill_in()}
                     </div>
-                );
-            } else {
-                return (
-                    <div className='row align-items-start background_box'>
-                        <div className='w-50 m-auto col position-fixed mt-5'>
-                            <Sidebar context={props.context} user={props.user} />
-                        </div>
-                        <div className='col'></div>
-                        <div className="card-group col mx-auto mt-5 right-spacer">
-                            <h2 className='w-100 py-5'>{`Genre: ${newString.charAt(0).toUpperCase() + newString.slice(1)}`}</h2>
-                            {fill_in()}
-                        </div>
-                    </div>
-                );
-            }
+                </div>
+            );
         }
     }
     //

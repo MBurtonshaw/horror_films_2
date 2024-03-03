@@ -49,10 +49,10 @@ export default function Decades(props) {
                 pictures = props.context.actions.removeDuplicates(pictures);
                 setMovies(pictures);
             }
-            //setIsLoading(false);
         } catch (err) {
             setError(err.message);
         }
+        setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setMovies, setIsLoading]);
@@ -108,7 +108,29 @@ export default function Decades(props) {
     ***************************************************************************************/
     let title_filler = window.location.pathname.slice(9, 18);
     if (isLoading === true) {
-        return ('');
+        if (window.innerWidth < 768) {
+            return (
+                <div className='m-auto'>
+                    <div className='w-50 m-auto mt-5'>
+                        <Header />
+                    </div>
+                    <div className='background_box mt-5'>
+                        <h1 className='text-center w-100 mx-auto my-5'>...Loading...</h1>
+                        <div className='box_loader'></div>
+                    </div>
+                </div>
+            );
+        }
+        return (
+            <div className='mt-5'>
+                <Header />
+                <div className='background_box w-75 mx-auto mt-5'>
+                    <h2 className='mt-5'>...Loading...</h2>
+                    <div className='box_loader'>
+                    </div>
+                </div>
+            </div>
+        );
     }
     if (error) {
         //error
@@ -180,4 +202,5 @@ export default function Decades(props) {
             )
         }
     }
+
 }

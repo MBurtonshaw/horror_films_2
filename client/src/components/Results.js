@@ -33,11 +33,11 @@ export default function Results(props) {
                     });
                     setMovies(newArray);
                 }
-                setIsLoading(false);
             }
         } catch (err) {
             setError(err.message);
         }
+        //setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setMovies]);
@@ -80,28 +80,22 @@ export default function Results(props) {
     /***************************************************************************************
         RENDER
     ***************************************************************************************/
-    if (error) {
-        return (
-            <div>
-                <Error message={error} />
-            </div>
-        );
-    }
 
-    if (isLoading === true) {
-        if (window.innerWidth < 768) {
-            return (
-                <div>
-                    <h1>Loading...</h1>
-                </div>
-            );
-        }
+
+    if (isLoading) {
         return (
             <div>
                 <h1>Loading...</h1>
             </div>
         );
     } else {
+        if (error) {
+            return (
+                <div className='m-5 p-5'>
+                    <Error message={error} />
+                </div>
+            );
+        }
         if (movies.length < 1) {
             return (
                 <div>

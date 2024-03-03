@@ -7,7 +7,6 @@ export default function Search(props) {
         STATE AND ASYNC FUNCTIONS
     ************************************************************************************************************************/
     let [error, setError] = useState('');
-    let [isLoading, setIsLoading] = useState(true);
 
     //sorting movies by title
     async function getData() {
@@ -28,7 +27,6 @@ export default function Search(props) {
         } catch (err) {
             setError(err.message);
         }
-        setIsLoading(false);
     }
 
     //function to change url based on search term from state
