@@ -704,6 +704,31 @@
             "memo": "A group of people record their life in an abandoned hotel while converting it into a haunted house attraction.",
             "prime_link": "https://www.amazon.com/gp/video/detail/B07X3NDRZ7/ref=atv_dp_share_cu_r",
             "youtube_link": "https://www.youtube.com/watch?v=SlIbSDNSTao"
+        },
+        {
+            "id": 32,
+            "title": "Child's Play",
+            "url": "childs_play",
+            "year": 1988,
+            "genres": [
+                "Occult",
+                "Campy",
+                "Surreal",
+                "Body",
+                "Slasher"
+            ],
+            "directors": [
+                "Tom Holland"
+            ],
+            "writers": [
+                "Don Mancini", 
+                "John Lafia",
+                "Tom Tolland"
+            ],
+            "photo": "../../photos/titles/childs_play",
+            "memo": "A mother buys her son a doll with ties to a serial killer.",
+            "prime_link": "https://www.amazon.com/gp/video/detail/B000IZ21BS/ref=atv_dp_share_cu_r",
+            "youtube_link": "https://www.youtube.com/watch?v=qHIxyDin-og"
         }
     ],
     "genres": [

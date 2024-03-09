@@ -123,10 +123,18 @@ export default function Decades(props) {
         }
         return (
             <div className='mt-5'>
-                <Header />
-                <div className='background_box w-75 mx-auto mt-5'>
-                    <h2 className='mt-5'>...Loading...</h2>
-                    <div className='box_loader'>
+                <Header context={props.context} user={props.user} />
+                <div className='position-fixed'>
+                    <Sidebar context={props.context} />
+                </div>
+                <div className="card-group w-75 mx-auto mt-5 background_box">
+                    <h1 className='w-100 mt-5'>{newString.charAt(0).toUpperCase() + newString.slice(1)}</h1>
+                    
+                    <div className='mx-auto my-5'>
+         
+                            <div className='round_thumb_loader'></div>
+                            <h5 className='p-3'>...Loading...</h5>
+                       
                     </div>
                 </div>
             </div>

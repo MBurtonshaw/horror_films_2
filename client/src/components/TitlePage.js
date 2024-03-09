@@ -64,19 +64,17 @@ export default function TitlePage(props) {
                     <h1 className='pt-5'>
                         ...Loading...
                     </h1>
-                    <div>
-                        <div className="card-group w-75 mx-auto">
-                            {
-                                films.map((i) => {
-                                    return (
-                                        <div key={i}>
-                                            <div className="card round_thumb_loader m-3">
-                                            </div>
+                    <div className="card-group w-75 mx-auto">
+                        {
+                            films.map((i) => {
+                                return (
+                                    <div key={i}>
+                                        <div className="card round_thumb_loader m-3">
                                         </div>
-                                    );
-                                })
-                            }
-                        </div>
+                                    </div>
+                                );
+                            })
+                        }
                     </div>
                 </div>
             );
