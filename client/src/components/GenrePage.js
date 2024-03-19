@@ -117,8 +117,8 @@ export default function GenrePage(props) {
                                     //function to return contents of the cards and leave the innderWidth conditons below more concise
                                     return (
                                         <div key={i} className='m-auto'>
-                                            <a className='nonchalant' href={`/decades/${genre}`}>
-                                                <img className='round_thumb' src={`../../photos/genres/${genre}_round.jpg`} alt={`a description of ${genre} horror`} />
+                                            <a className='nonchalant' href={`/genres/${genre}`}>
+                                                <img className='round_thumb' src={`../../photos/genres/${genre.toLowerCase()}_round.jpg`} alt={`a description of ${genre} horror`} />
                                                 <div className=''>
                                                     <h5>{genre}</h5>
                                                 </div>
