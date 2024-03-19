@@ -27,7 +27,7 @@ export default function GenrePage(props) {
         } catch (err) {
             setError(err.message);
         }
-        //setIsLoading(false);
+        setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setTypes]);

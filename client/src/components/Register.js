@@ -121,7 +121,7 @@ export default function Register(props) {
                                 <Sidebar context={props.context} />
                             </div>
 
-                            <div className='m-5 p-5 col'>
+                            <div className='m-5 background_box p-5 col'>
                                 <h1>Register</h1>
                                 {
                                     form_filler()

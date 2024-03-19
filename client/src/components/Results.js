@@ -37,7 +37,7 @@ export default function Results(props) {
         } catch (err) {
             setError(err.message);
         }
-        //setIsLoading(false);
+        setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setMovies]);
@@ -64,7 +64,7 @@ export default function Results(props) {
         return (
             movies.map((movie, i) => {
                 return (
-                    <div key={i} className='mx-auto'>
+                    <div key={i} className='mx-auto px-5 py-2'>
                         <a href={`/titles/${movie.url}`}>
                             <div className="card round_thumb">
                                 <img className="card-img-top round_thumb" src={`../../photos/titles/${movie.url}_round.jpg`} alt="Card image cap" />
@@ -120,20 +120,18 @@ export default function Results(props) {
         }
         if (props.context.folded === true) {
             return (
-                <div className='m-auto'>
-                    <div className='w-100 m-auto mt-5'>
-                        <Header />
-                        <div className='position-fixed'>
-                            <Sidebar context={props.context} />
-                        </div>
-                    </div>
-                    <div className="card-group w-75 m-auto mt-4 px-5 background_box">
-                        <h1 className='text-center w-100 m-auto py-5'>{`Results: ${url.toUpperCase()}`}</h1>
-                        {
-                            body_fill()
-                        }
-                    </div>
+                <div className='mt-5'>
+                <Header context={props.context} user={props.user} />
+                <div className='position-fixed'>
+                    <Sidebar context={props.context} />
                 </div>
+                <div className="card-group w-75 mx-auto mt-5 background_box">
+                    <h1 className='w-100 py-5'>{`Results: ${url.toUpperCase()}`}</h1>
+                    {
+                        body_fill()
+                    }
+                </div>
+            </div>
             );
         } else {
             return (

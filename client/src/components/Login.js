@@ -151,7 +151,7 @@ export default function Login(props) {
                         <div className='w-50 m-auto mt-5 col'>
                             <Sidebar context={props.context} />
                         </div>
-                        <div className='col'>
+                        <div className='col background_box m-5'>
                             <div className='m-5 p-5'>
                                 <h1>Login</h1>
                                 {

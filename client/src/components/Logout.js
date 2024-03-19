@@ -32,7 +32,7 @@ export default function Login(props) {
             </div>
         }
         return (
-            <div className='m-5 p-5 col'>
+            <div className='m-5 background_box p-5 col'>
                 <h1>Logout</h1>
                 <form action='/login' method='POST' onSubmit={logoutUser}>
                     <div>

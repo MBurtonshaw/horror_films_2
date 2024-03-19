@@ -40,7 +40,7 @@ export default function List(props) {
                         }
                     );
                 }
-                //setIsLoading(false);
+                setIsLoading(false);
             }
         }
     }
@@ -127,13 +127,7 @@ export default function List(props) {
     ***************************************************************************************/
 
     //checking if there are any cookies present. It not, this is returned
-    if (error) {
-        return (
-            <div className='m-5 p-5'>
-                <Error message={error} />
-            </div>
-        );
-    }
+    
     if (isLoading) {
         return (
             <div>
@@ -141,6 +135,13 @@ export default function List(props) {
             </div>
         );
     } else {
+        if (error) {
+        return (
+            <div className='m-5 p-5'>
+                <Error message={error} />
+            </div>
+        );
+    }
         if (!document.cookie || JSON.parse(Cookies.get('signedIn?')) === '' || JSON.parse(Cookies.get('signedIn?')) === undefined) {
             return (
                 <div>

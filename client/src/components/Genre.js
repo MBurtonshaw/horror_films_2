@@ -36,7 +36,7 @@ export default function Genres(props) {
         } catch (err) {
             setError(err.message);
         }
-        //setIsLoading(false);
+        setIsLoading(false);
     }
 
     useEffect(() => { getData() }, [setGenre]);

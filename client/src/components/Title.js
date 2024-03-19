@@ -45,7 +45,7 @@ export default function Title(props) {
         } catch (err) {
             setError(err.message);
         }
-        //setIsLoading(false);
+        setIsLoading(false);
     }
 
 
